@@ -273,7 +273,7 @@ const YES = [
       "Sales cycle length — does your enablement content shorten time to close"
     ],
     rgaText: "Direct. PMM content touches 30–60% of pipeline at most SaaS companies. A single well-positioned one-pager can improve close rates 5–10%. A strong product launch generates net new ARR. Clear line to revenue without carrying a quota.",
-    whyText: "MSBA is analytical credibility no other PMM has. TikTok, Prescene, and Wedify work are direct proof. Motion Bootcamp is literally PMM training. Uses 16 of your 27 skills.",
+    whyText: "Prescene.ai PMM externship is direct proof. TikTok brand strategy externship built a real brand playbook. Accenture framed a $200M data platform into executive dashboards — that IS positioning work. UT Austin MSBA + Exec PM cert is analyst credibility no other PMM candidate carries. Wedify proposal = unsolicited PMM deliverable before you had the title. Motion Bootcamp is PMM creative training. Uses 16 of your 27 documented CraftSkills.",
     takeIf: "Always apply"
   },
   {
@@ -300,7 +300,7 @@ const YES = [
       "Developer NPS — how developers rate their platform experience"
     ],
     rgaText: "For API-first companies, every developer who adopts the platform is a potential paying customer. DevRel drives developer acquisition at the top of funnel. At usage-based pricing companies, more developers = more API calls = more revenue.",
-    whyText: "YouTube channel proves you can teach on camera. 100+ AI certs show real tool depth. GenAI community at Accenture is literally this job. Newsletter proves written education. Your highest-ceiling role.",
+    whyText: "Your YouTube channel proves you can teach on camera — most DevRels can write, few can film. You are a power user of n8n, Make, Lindy, Claude Code, and Relevance.ai — not just theoretically but in built workflows. 102 certifications across AI, UX, and content shows breadth most engineers don't have. The Accenture GenAI Community role was literally community DevRel. UT Austin MSBA gives you technical credibility no self-taught DevRel can fake. Highest salary ceiling of any role on this list.",
     takeIf: "Always apply"
   },
   {
@@ -327,7 +327,7 @@ const YES = [
       "Creative test win rate — % of A/B tests that beat the control"
     ],
     rgaText: "Direct on paid side. Better creative = lower CAC = same budget acquires more customers. A 20% improvement at a company spending $500k/month on paid = $100k/month in saved spend. Freelance: you bill for strategy as a deliverable.",
-    whyText: "Wedify proposal IS this job in document form. Motion Bootcamp is training for this exact role. VIA #1 Appreciation of Beauty is the creative director instinct.",
+    whyText: "Wedify proposal is a real deliverable — positioning brief, competitor analysis, messaging framework — produced for a client before you had the title. TikTok brand strategy externship produced a brand playbook. VIA Strength #1 is Appreciation of Beauty & Excellence, which is literally the creative director's operating system. Motion Bootcamp trained you for this exact function. Syne/Inter aesthetic choices in this app = the instinct is live.",
     takeIf: "Always apply"
   },
   {
@@ -354,7 +354,7 @@ const YES = [
       "Product adoption metrics (in-house)"
     ],
     rgaText: "Creator path: directly owned. Course sales ($200–2,000/course), sponsorships ($500–5,000/newsletter issue), workshop fees ($500–5,000/session). Early AI educators with 20k+ audiences making $200–500k through multiple streams.",
-    whyText: "Ikigai literally says 'making AI understandable to humans' is what the world needs and what he loves. YouTube, newsletter, and Accenture GenAI community are already this job.",
+    whyText: "Your Ikigai statement (March 2026): 'I learn hard things, make them simple and beautiful, then teach them to people who were where I was 6 months ago.' That IS the AI Educator job description. Ghostwriting email courses for media entrepreneurs = proven audience. Accenture GenAI community = you already ran this at scale. Newsletter growth with 30%+ opt-in rates = distribution you own. The creator path here is uncapped.",
     takeIf: "Always build"
   },
   {
@@ -381,7 +381,7 @@ const YES = [
       "Backlinks earned from other sites"
     ],
     rgaText: "Indirect but real and trackable. A single high-ranking blog post can generate hundreds of inbound leads per month for years. SEO compounds — content published today drives traffic in 2027.",
-    whyText: "HubSpot cert, Surfer SEO cert, PGA writing training, newsletter experience, 30%+ opt-in rates already proven. Entry point if PMM apps are moving slowly.",
+    whyText: "HubSpot cert, Surfer SEO cert, PGA writing system, newsletter already running at 30%+ opt-in rates. Ghostwriting email courses for media entrepreneurs is direct proof of long-form editorial output. Use this as a bridge if PMM applications slow — it's the same storytelling muscle, narrower scope.",
     takeIf: "Apply"
   },
   {
@@ -462,7 +462,7 @@ const YES = [
       "Expansion revenue — new ARR from upselling existing clients"
     ],
     rgaText: "Direct. CS owns renewal and expansion revenue. Keeping a $50k/year customer is worth the same as acquiring a new one — but 5–7x cheaper. NRR above 120% means existing customer base grows without any new sales.",
-    whyText: "Accenture consulting background (client-facing, 2 years). AI automation knowledge (n8n, Make, LangChain) means you can BUILD solutions during calls. Also the fastest path to build the influencing/initiating muscle.",
+    whyText: "2 years at Accenture was client-facing consulting — onboarding clients, building dashboards, translating data into decisions. That IS the CSM motion. Wayfair AI automation externship means you can actually build n8n/Make workflows in the demo call, not just describe them. CliftonStrengths: Learner + Input means you absorb product knowledge fast. This is also the fastest path to build the Influencing muscle (0/5 Clifton Influencing) without the pressure of a quota.",
     takeIf: "Apply"
   },
   {
@@ -487,7 +487,7 @@ const YES = [
       "Documentation freshness — how quickly docs update after a feature ships"
     ],
     rgaText: "Lowest on this list, but real. Good docs accelerate developer adoption. They reduce support costs directly. This is the survival role — take it to get inside a great company, then lateral into PMM or DevRel in 12–18 months.",
-    whyText: "Door-in-foot at a great AI company. Use it as a launchpad. Writing skill is genuinely strong here. Get inside the building.",
+    whyText: "Writing is Tier 1 CraftSkill — proposals, educational content, Wedify brief, Prescene.ai work all prove it. If you land this at Anthropic, OpenAI, or a top-tier AI company, you lateral into DevRel or PMM in 12 months from inside the building. The company matters more than the role here.",
     takeIf: "Inside a great company only"
   },
   {
@@ -513,8 +513,8 @@ const YES = [
       "Client retention — are they renewing month to month",
       "Referral rate — are clients sending you new clients"
     ],
-    rgaText: "YOU ARE THE REVENUE. No employer takes a cut. No 18-month vesting cliff. Wedify is already client #1. Two clients = $3,000–10,000/month. Runs parallel to your job search and feeds directly into Pathway 3.",
-    whyText: "Wedify is direct proof this is already happening. Start now, not after you get hired somewhere else. The fractional path is the fastest way to Pathway 3.",
+    rgaText: "YOU ARE THE REVENUE. No employer takes a cut. No 18-month vesting cliff. Wedify is already client #1 — that proposal happened before you called yourself a strategist. Two clients = $3,000–10,000/month. Runs in parallel to your job search and feeds directly into Odyssey Pathway 3.",
+    whyText: "Wedify is direct proof this is already happening — you wrote that brand strategy proposal without a title or a retainer. You have the Notion consulting skill (documented CraftSkill). You have the AI automation skill (n8n, Make, Lindy, Relevance.ai). You have the framework creation skill (Vetting Scorecard, Weekly OS, role targeting matrix). Start this week. The proposal skill alone is worth $1,500–$3,000/client.",
     takeIf: "Start this week"
   }
 ];
@@ -622,7 +622,7 @@ const NO = [
       "Query performance optimization"
     ],
     rgaText: "Indirect, supporting. BI work informs decisions that affect revenue, but the analyst rarely captures credit. You build the dashboard that shows the CMO conversion rates are down. The CMO makes the decision.",
-    whyText: "You literally did this at Accenture. Power BI dashboards, SQL pipelines, data reporting. You were trained and competent. And you left. Going back to BI is going backwards — in career trajectory AND energy. The most seductive trap because the MSBA makes you hireable for it quickly."
+    whyText: "You built Power BI executive dashboards at Accenture, ran SQL pipelines for a $200M data platform, and did data storytelling for C-suite stakeholders. You were good at it. You left it. That exit was data. Going back to BI is borrowing against future energy to solve a present timeline anxiety. The MSBA will get you interviews — that's exactly the trap. Your CraftSkills map shows Data Analytics in the outer ring, not the center. The center is strategic synthesis. BI work uses the ring, not the center."
   },
   {
     id: "da",
@@ -647,7 +647,7 @@ const NO = [
       "Number of analyses completed"
     ],
     rgaText: "Lowest of any analytical role. You produce analysis. Others make decisions. The revenue link exists but is 2–3 steps removed from your daily work.",
-    whyText: "Same reason as BI — you did the adjacent version at Accenture and left. Pure DA work is narrower. Mostly SQL and Excel. The creative translation skills, storytelling, systems thinking — none of it is used. High hire probability given MSBA. Low life satisfaction in 12 months."
+    whyText: "Same logic as BI — Accenture was the 3-year live test. You ran analyses, built intelligence dashboards for Wayfair, wrote SQL reports. Competent but not energized. Pure Data Analyst work is narrower than what you did at Accenture. Your CraftSkills stack has Data Analytics as a Domain Skill, not a Meta Skill. The Meta Skills are strategic synthesis, framework creation, and clarity translation. DA work uses 2 of your 27 skills. PMM uses 16."
   },
   {
     id: "ae",
@@ -674,7 +674,7 @@ const NO = [
       "Activities per day (calls made, emails sent, demos booked)"
     ],
     rgaText: "The most direct revenue link of any role. AEs own the number. You either hit quota or you don't. Compensation is directly tied to how much revenue you generate — typically 50% base, 50% commission/bonus.",
-    whyText: "Not because sales is beneath you. Because of sequencing. AE work is all Influencing and Executing — your two weakest CliftonStrengths zones (0/5 each). Putting someone into a quota-carrying role before building the muscle is like running a marathon before training for a 5K. Maybe in 3–5 years."
+    whyText: "CliftonStrengths: 0 out of 5 Influencing themes. 0 out of 5 Executing themes. AE work is 80% Influencing (initiating, persuading, activating) and 20% Executing (quota, pipeline management). You're being asked to run on your two weakest engines. Your Ikigai identifies self-promotion as a documented gap — AE is externalized self-promotion under quota pressure. Build the muscle through CSM or fractional first. Revisit in 3–5 years with proof you can close."
   },
   {
     id: "fin",
@@ -1259,16 +1259,536 @@ function TableTab() {
   );
 }
 
+// ─── AI TOOLKIT DATA ──────────────────────────────────────────────────────────
+
+const TOOLKIT = [
+  {
+    cat: "Content & Writing",
+    color: "mint",
+    desc: "Write, structure, and publish content across every format.",
+    relevance: ["AI Content Strategist", "Content Marketing Manager", "Creative Strategist", "Fractional Strategist"],
+    skills: [
+      { name: "prep-the-page",       label: "Prep the Page",           use: "Scaffold any article or post using Nicholas Cole's skeleton method — beats blank page paralysis every time." },
+      { name: "hook-story-offer",    label: "Hook Story Offer",        use: "Apply Russell Brunson's HSO framework to newsletters, emails, social posts, or sales copy." },
+      { name: "avoid-ai-detection",  label: "Avoid AI Detection",      use: "Rewrite AI-generated drafts to sound fully human — critical for any published content." },
+      { name: "content-repurpose",   label: "Content Repurpose",       use: "Turn one source vlog into 7 short-form formats: green screen, lesson carousel, story frames, and more." },
+      { name: "content-ideation",    label: "Content Ideation",        use: "Brainstorm a month of newsletter and LinkedIn post ideas from a topic, mood, or business goal." },
+      { name: "creator-content-analysis", label: "Creator Analysis",  use: "Research any creator's content patterns, recurring themes, and title frameworks — use for competitive intel or inspiration." },
+    ]
+  },
+  {
+    cat: "LinkedIn & Personal Brand",
+    color: "sage",
+    desc: "Build the distribution layer that makes inbound happen.",
+    relevance: ["PMM", "Developer Advocate", "Fractional Strategist", "AI Content Strategist"],
+    skills: [
+      { name: "linkedin-profile-optimizer", label: "LinkedIn Optimizer", use: "Audit and rewrite your entire LinkedIn profile — headline, about, featured, experience — as a client-attracting landing page, not a résumé." },
+      { name: "pga-linkedin-writing-coach:pgali-create-post", label: "LinkedIn Post Creator", use: "Full guided flow: generate hooks → pick one → write the full post with your voice." },
+      { name: "pga-linkedin-writing-coach:pgali-hooks",       label: "LinkedIn Hooks",        use: "Generate 11 LinkedIn hook variations for any topic in seconds." },
+      { name: "pga-linkedin-writing-coach:pgali-write-post",  label: "LinkedIn Write Post",   use: "Generate LinkedIn post ideas and write the best one from a topic or experience." },
+      { name: "pga-linkedin-writing-coach:pgali-remix-voice", label: "Voice Remixer",         use: "Rewrite any text in 5 different voice archetypes — direct, empathetic, authoritative, playful, analytical." },
+      { name: "substack-notes:generate-notes",               label: "Substack Notes",         use: "Run a weekly Substack Notes generation session — builds short-form thought leadership content in bulk." },
+    ]
+  },
+  {
+    cat: "Email & Outreach",
+    color: "amber",
+    desc: "Write emails that get opened, replies that convert, and sequences that sell.",
+    relevance: ["Fractional Strategist", "AI Solutions Consultant", "Growth Marketing Manager", "Content Marketing Manager"],
+    skills: [
+      { name: "email-copy-suite:email",               label: "Email Hub",              use: "Master routing hub — describes what you need and routes to the right email skill automatically." },
+      { name: "email-copy-suite:email-subject-lines", label: "Subject Line Generator", use: "Generate 5–10 high-converting subject lines using 100 frameworks organized by psychological trigger." },
+      { name: "email-copy-suite:email-copy-optimizer",label: "Email Optimizer",        use: "Polish any existing email draft — fixes subject line, intro hook, mobile formatting, CTA, and PS section." },
+      { name: "email-copy-suite:newsletter-welcome",  label: "Newsletter Welcome",     use: "Write a high-converting welcome email using a proven 6-step formula — tested across 50+ newsletters." },
+      { name: "email-copy-suite:pain-pitch-rewriter", label: "Pain-Pitch Rewriter",    use: "Apply Hormozi's 'Pain is the Pitch' framework — rewrites vague copy into emotionally specific, conversion-driving language." },
+      { name: "email-copy-suite:weekly-roundup-email",label: "Weekly Roundup",         use: "Write a curated weekly digest email (link roundup, lesson roundup, tool roundup, or hybrid). 400–600 words." },
+      { name: "email-copy-suite:resource-email-writer",label: "Resource Email",        use: "'I made this for you' announcement email — announces a new free resource, lead magnet, or tool to your list." },
+      { name: "cold-outbound-copy",                   label: "Cold Outbound Copy",     use: "Write cold emails and LinkedIn DMs using Nick Abraham-style outbound psychology — specificity over volume." },
+      { name: "unignorable-email",                    label: "Unignorable Email",      use: "Write specific, generous, honest outreach emails that actually get replies — for networking and warm prospecting." },
+    ]
+  },
+  {
+    cat: "Business & Strategy",
+    color: "slate",
+    desc: "Think in systems, find leverage, build offers that convert.",
+    relevance: ["Creative Strategist", "Fractional Strategist", "PMM", "AI Solutions Consultant"],
+    skills: [
+      { name: "business-audit:business-audit",      label: "Business Audit",        use: "Audit any company for pain points, strategic gaps, and entry points — for consulting, freelance, or employment positioning." },
+      { name: "business-audit:pain-map",            label: "Pain Map",              use: "Quick pain point diagnostic for any company — use before outreach to personalize your angle." },
+      { name: "business-audit:outreach-angle",      label: "Outreach Angle",        use: "Generate a cold outreach message based on diagnosed company pain points." },
+      { name: "hormozi-value-ladder-generator",     label: "Value Ladder",          use: "Generate a complete value ladder using Hormozi's $100M Offers framework — for freelance or product monetization." },
+      { name: "digital-product-strategist",         label: "Digital Product Strategist", use: "6-step workflow to find, validate, and build a profitable digital product idea ($10k+ potential)." },
+      { name: "quiz-funnel-builder",                label: "Quiz Funnel Builder",   use: "Design a complete Daniel Priestley-style scorecard quiz funnel with segmented email sequences and results pages." },
+      { name: "dickie-bush-systems:systems-decomposition",   label: "Systems Decomposition", use: "Break any business goal or repeating task into a structured, step-by-step workflow system." },
+      { name: "dickie-bush-systems:ai-integration-evaluator",label: "AI Integration Evaluator", use: "Find the highest-leverage steps in any workflow where AI should be added — with prompt templates." },
+    ]
+  },
+  {
+    cat: "Newsletter & Creator Systems",
+    color: "lavender",
+    desc: "The systems Dickie Bush and Nicholas Cole use to ship content that compounds.",
+    relevance: ["AI Content Strategist", "Fractional Strategist", "Content Marketing Manager"],
+    skills: [
+      { name: "dickie-bush-systems:business-problem-interviewer", label: "Weekly Debrief Interviewer", use: "Structured interview that extracts your week's work into a 'what happened' list — raw material for content." },
+      { name: "dickie-bush-systems:content-angle-mapper",         label: "Content Angle Mapper",       use: "Maps your weekly work items to specific newsletter and post angles with title variations." },
+      { name: "dickie-bush-systems:pisa-newsletter-builder",      label: "PISA Newsletter Builder",    use: "Expands a content idea into a full newsletter outline using the PISA framework (Problem → Insight → Story → Action)." },
+    ]
+  },
+  {
+    cat: "Brand & Voice",
+    color: "rose",
+    desc: "Build brand systems that make every piece of content feel like you.",
+    relevance: ["Creative Strategist", "PMM", "Fractional Strategist", "AI Content Strategist"],
+    skills: [
+      { name: "brand-voice:brand-voice-enforcement", label: "Brand Voice Enforcement", use: "Apply brand guidelines to any content — emails, posts, proposals, decks — so every piece sounds consistent." },
+      { name: "brand-voice:guideline-generation",    label: "Brand Guideline Generator", use: "Generate brand voice guidelines from documents, transcripts, or discovery reports." },
+      { name: "brand-voice:discover-brand",          label: "Brand Discovery",           use: "Autonomously search connected platforms (Notion, Google Drive, Confluence) to find all brand-related materials." },
+    ]
+  },
+  {
+    cat: "Marketing & Growth",
+    color: "mint",
+    desc: "Plan campaigns, audit SEO, write content, and measure performance.",
+    relevance: ["Growth Marketing Manager", "Content Marketing Manager", "PMM"],
+    skills: [
+      { name: "marketing:campaign-plan",     label: "Campaign Plan",      use: "Generate a full campaign brief — objectives, audience, messaging, channel strategy, content calendar, success metrics." },
+      { name: "marketing:seo-audit",         label: "SEO Audit",          use: "Comprehensive SEO audit — keyword research, on-page analysis, content gaps, technical checks, competitor comparison." },
+      { name: "marketing:email-sequence",    label: "Email Sequence",     use: "Design and draft multi-email sequences with full copy, timing, branching logic, and exit conditions." },
+      { name: "marketing:competitive-brief", label: "Competitive Brief",  use: "Research competitors and generate a positioning comparison with content gaps, opportunities, and threats." },
+      { name: "marketing:content-creation",  label: "Content Creation",   use: "Draft blog posts, social media, email newsletters, landing pages, press releases, and case studies." },
+      { name: "marketing:performance-report",label: "Performance Report", use: "Build a marketing performance report with trend analysis, wins/misses, and prioritized optimization recommendations." },
+    ]
+  },
+  {
+    cat: "Sales & Prospecting",
+    color: "amber",
+    desc: "Find leads, prep for calls, close more deals.",
+    relevance: ["AI Solutions Consultant", "Fractional Strategist"],
+    skills: [
+      { name: "sales:account-research",       label: "Account Research",     use: "Research any company — get actionable sales intel on pain points, tech stack, buying signals, and entry points." },
+      { name: "sales:call-prep",               label: "Call Prep",            use: "Prepare for a sales call with account context, attendee research, and suggested agenda." },
+      { name: "sales:draft-outreach",          label: "Draft Outreach",       use: "Research a prospect then draft personalized outreach — uses web research by default." },
+      { name: "sales:call-summary",            label: "Call Summary",         use: "Process call notes or a transcript — extract action items, draft follow-up email, generate internal summary." },
+      { name: "apollo:enrich-lead",            label: "Enrich Lead (Apollo)", use: "Instant lead enrichment — name, company, LinkedIn URL, or email → full contact card with next actions." },
+      { name: "apollo:prospect",               label: "Prospect (Apollo)",    use: "Full ICP-to-leads pipeline. Describe your ideal customer → ranked table of enriched decision-maker leads." },
+    ]
+  },
+  {
+    cat: "Product & Design",
+    color: "slate",
+    desc: "Write specs, run research, design systems, ship better products.",
+    relevance: ["PMM", "Developer Advocate", "Customer Education Manager", "Product Manager"],
+    skills: [
+      { name: "product-management:write-spec",          label: "Write Spec / PRD",      use: "Turn a vague idea or user request into a structured PRD with goals, non-goals, success metrics, and acceptance criteria." },
+      { name: "product-management:competitive-brief",   label: "Competitive Brief",     use: "Research competitors and generate a positioning and messaging comparison with content gaps." },
+      { name: "product-management:synthesize-research", label: "Synthesize Research",   use: "Turn interview notes, surveys, and feedback into themes, ranked findings, and roadmap recommendations." },
+      { name: "product-management:roadmap-update",      label: "Roadmap Update",        use: "Update, create, or reprioritize your product roadmap — add initiatives, shift priorities, move timelines." },
+      { name: "design:ux-copy",                         label: "UX Copy",               use: "Write or review microcopy, error messages, empty states, and CTAs — the words inside your product." },
+      { name: "design:design-critique",                 label: "Design Critique",       use: "Get structured design feedback on usability, hierarchy, and consistency from any screenshot or Figma link." },
+    ]
+  },
+  {
+    cat: "Documents, Decks & Visuals",
+    color: "sage",
+    desc: "Create polished deliverables fast — the output layer of strategy.",
+    relevance: ["PMM", "Creative Strategist", "Fractional Strategist", "AI Content Strategist"],
+    skills: [
+      { name: "pptx",              label: "PowerPoint",        use: "Create, edit, or extract from .pptx files — pitch decks, client presentations, product launch decks." },
+      { name: "docx",              label: "Word Document",     use: "Create or edit professional Word documents — reports, memos, proposals, strategy docs with full formatting." },
+      { name: "pdf",               label: "PDF Tools",         use: "Create, extract, merge, split, or fill PDF forms." },
+      { name: "xlsx",              label: "Excel / Spreadsheet", use: "Create Excel spreadsheets with formulas, formatting, data analysis, and charts." },
+      { name: "canvas-design",     label: "Canvas Design",     use: "Create visual art, posters, and design assets as .png or .pdf — original visual designs for any context." },
+      { name: "excalidraw-diagram",label: "Excalidraw Diagram",use: "Draw editable diagrams, system maps, flowcharts, and frameworks — the default for any diagram request." },
+      { name: "frontend-design",   label: "Frontend Design",   use: "Build production-grade, visually distinctive frontend interfaces in HTML, React, or JSX." },
+    ]
+  },
+  {
+    cat: "AI & Automation",
+    color: "lavender",
+    desc: "Build systems, agents, and MCPs that do work while you sleep.",
+    relevance: ["AI Solutions Consultant", "Developer Advocate", "AI Content Strategist"],
+    skills: [
+      { name: "mcp-builder",            label: "MCP Builder",         use: "Build high-quality MCP servers that let AI agents interact with external services and APIs." },
+      { name: "schedule",               label: "Task Scheduler",      use: "Create scheduled tasks that run on demand or automatically on an interval." },
+      { name: "skill-creator",          label: "Skill Creator",       use: "Create new Claude skills from scratch, improve existing ones, and run evals to test skill performance." },
+      { name: "create-skill",           label: "Create Skill",        use: "Build and install a Claude skill — SKILL.md with correct frontmatter, directory tree, and install commands." },
+      { name: "web-artifacts-builder",  label: "Web Artifacts",       use: "Build complex, multi-component React apps with state management, routing, and shadcn/ui components." },
+    ]
+  },
+  {
+    cat: "Decision-Making & Coaching",
+    color: "rose",
+    desc: "The meta layer — think clearly, decide fast, avoid self-sabotage.",
+    relevance: ["All roles — use before any major decision"],
+    skills: [
+      { name: "solomon",         label: "Solomon (Future Self Coach)", use: "Talk to your 85-year-old future self about any decision, pattern, or moment of paralysis. Use when stuck, spiraling, or overthinking." },
+      { name: "doc-coauthoring", label: "Doc Co-Authoring",           use: "Guided workflow for co-authoring any strategic document — proposals, specs, decision docs, playbooks." },
+    ]
+  },
+];
+
+// ─── TOOLKIT TAB ──────────────────────────────────────────────────────────────
+
+const TK_COLORS = {
+  mint:     { accent: "var(--mint)",     bg: "var(--mint-bg)",  bd: "var(--mint-bd)" },
+  sage:     { accent: "var(--sage)",     bg: "var(--sage-bg)",  bd: "rgba(58,107,74,0.2)" },
+  amber:    { accent: "var(--amber)",    bg: "var(--amber-bg)", bd: "var(--amber-bd)" },
+  slate:    { accent: "var(--slate)",    bg: "var(--slate-bg)", bd: "rgba(58,94,138,0.2)" },
+  lavender: { accent: "var(--lavender)", bg: "var(--lav-bg)",   bd: "rgba(90,74,138,0.2)" },
+  rose:     { accent: "var(--rose)",     bg: "var(--rose-bg)",  bd: "var(--rose-bd)" },
+};
+
+function ToolkitTab() {
+  const [active, setActive] = useState(null);
+  const [search, setSearch] = useState("");
+  const filtered = search.trim()
+    ? TOOLKIT.map(c => ({ ...c, skills: c.skills.filter(s => s.label.toLowerCase().includes(search.toLowerCase()) || s.use.toLowerCase().includes(search.toLowerCase())) })).filter(c => c.skills.length)
+    : TOOLKIT;
+  const total = TOOLKIT.reduce((acc, c) => acc + c.skills.length, 0);
+
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">006 · AI Toolkit</div>
+        <div className="sec-title">YOUR SKILL STACK</div>
+        <div className="sec-desc">{total} active skills across {TOOLKIT.length} categories. These are the AI tools you already have. Each one maps to a specific output in your Yes-role workflow.</div>
+      </div>
+
+      <div style={{ marginBottom: "22px" }}>
+        <input
+          type="text"
+          placeholder="Search skills..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          style={{
+            width: "100%", maxWidth: "420px",
+            background: "var(--surface)", border: "1px solid var(--border2)",
+            borderRadius: "6px", padding: "9px 14px",
+            fontFamily: "var(--font-mono)", fontSize: "12px",
+            color: "var(--text)", outline: "none",
+            transition: "border-color 0.15s",
+          }}
+        />
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        {filtered.map((cat) => {
+          const c = TK_COLORS[cat.color] || TK_COLORS.mint;
+          const isOpen = active === cat.cat;
+          return (
+            <div key={cat.cat} style={{ background: "var(--surface)", border: `1px solid var(--border)`, borderRadius: "10px", overflow: "hidden" }}>
+              <div
+                onClick={() => setActive(isOpen ? null : cat.cat)}
+                style={{ padding: "16px 20px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px" }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "14px", flex: 1 }}>
+                  <div style={{ width: "3px", height: "36px", background: c.accent, borderRadius: "2px", flexShrink: 0 }} />
+                  <div>
+                    <div style={{ fontFamily: "var(--font-display)", fontSize: "14px", fontWeight: 700, color: "var(--text)", marginBottom: "3px" }}>{cat.cat}</div>
+                    <div style={{ fontSize: "12px", color: "var(--muted)" }}>{cat.desc}</div>
+                  </div>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", background: c.bg, color: c.accent, border: `1px solid ${c.bd}`, borderRadius: "3px", padding: "2px 8px" }}>
+                    {cat.skills.length} skills
+                  </div>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--muted2)" }}>{isOpen ? "▲" : "▼"}</div>
+                </div>
+              </div>
+
+              {isOpen && (
+                <div style={{ borderTop: "1px solid var(--border)", padding: "16px 20px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "4px" }}>
+                    Best for → {cat.relevance.join(" · ")}
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "8px" }}>
+                    {cat.skills.map(s => (
+                      <div key={s.name} style={{ background: "var(--surface2)", border: "1px solid var(--border)", borderRadius: "7px", padding: "12px 14px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "5px" }}>
+                          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: c.accent, flexShrink: 0 }} />
+                          <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, color: "var(--text)" }}>{s.label}</div>
+                        </div>
+                        <div style={{ fontSize: "11px", color: "var(--muted)", lineHeight: "1.55", paddingLeft: "14px" }}>{s.use}</div>
+                        <div style={{ marginTop: "7px", paddingLeft: "14px" }}>
+                          <code style={{ fontFamily: "var(--font-mono)", fontSize: "9px", color: c.accent, background: c.bg, padding: "2px 6px", borderRadius: "3px" }}>
+                            /{s.name}
+                          </code>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="devils" style={{ marginTop: "28px" }}>
+        <div className="devils-title">😈 Devil's Advocate</div>
+        <p>Having {total} skills available means nothing if you use 3. The highest-leverage skills for your situation right now: <strong style={{ color: "var(--text)" }}>linkedin-profile-optimizer</strong> (run it today), <strong style={{ color: "var(--text)" }}>solomon</strong> (before any major decision), <strong style={{ color: "var(--text)" }}>business-audit</strong> (before every outreach), and <strong style={{ color: "var(--text)" }}>cold-outbound-copy</strong> (for every DM you send). Start with those 4. Add others as each Yes-role requires them.</p>
+      </div>
+    </div>
+  );
+}
+
+// ─── PROFILE TAB ──────────────────────────────────────────────────────────────
+
+const PROFILE = {
+  identity: "AI Storyteller / The Translator",
+  ikigai: "I learn hard things, make them simple and beautiful, then teach them to people who were where I was 6 months ago — through video, writing, and systems I build. I get paid to do this for companies as a product marketer, and I do it for myself as a creator.",
+  whisper: "I want to be the person someone watches on YouTube and thinks 'he changed how I see this.' I want to make beautiful things that make people feel something. I want to stop preparing and just go.",
+  why: "Everyone has something important inside them that the world needs to hear — but most people can't get it out because it's too messy, too complex, or too buried. I exist to be the person who pulls it out, gives it shape, and makes it land.",
+  pitches: [
+    { label: "Job Applications", text: "Product professional with ~3 years across data & AI consulting, product strategy, and creative content. My core skill is translating complex things into stories, systems, and content that make people act. Looking for a role where that translation skill is the job — not a side effect." },
+    { label: "Networking", text: "I'm an AI storyteller — I take complex tech and business ideas and turn them into content, systems, and strategies that actually make sense to people. I'm looking for my next role in product marketing or creative strategy at an AI or SaaS company." },
+    { label: "Freelance/Creator", text: "I help startups and founders turn their messy product knowledge into clear content, positioning, and growth systems. Think: the person who makes your complicated thing make sense to the market." },
+  ],
+  strengths: {
+    tier1: [
+      { name: "Translating complexity into clarity", note: "CliftonStrengths: 4/5 Strategic Thinking. What friends literally say: 'I don't know how you think and how you explain it is so different.'" },
+      { name: "Writing", note: "Proposals, educational content, strategy docs, persuasive business communication. The Wedify proposal alone is proof." },
+      { name: "Systems architecture", note: "Notion operating systems, workflows, frameworks, SOPs, production pipelines." },
+      { name: "Framework creation", note: "Vetting Scorecard, Weekly OS, role targeting matrix — I turn learning into reusable tools." },
+      { name: "Deep research & synthesis", note: "I go deep on anything and pull out what matters." },
+      { name: "Curation & taste", note: "VIA Strength #1: Appreciation of Beauty & Excellence — strong aesthetic eye across visual and informational design." },
+    ],
+    tier2: [
+      { name: "Video editing & production", note: "DaVinci Resolve, filming, shooting. Real flow state skill. Public proof still catching up." },
+      { name: "AI tooling & automation", note: "Power user: n8n, Make, Lindy, Claude Code, Relevance.ai." },
+      { name: "Competitive analysis & market research", note: "Accenture consulting + Wedify landscape + Wayfair intelligence dashboards." },
+      { name: "Data analysis & visualization", note: "MSBA + Accenture + Power BI + SQL + Python. Trained. Not passion lane." },
+      { name: "Learning speed", note: "MSBA, PM cert, 8 AI certs, Motion Bootcamp, 100+ courses." },
+      { name: "Connecting dots across domains", note: "CliftonStrengths #1: Connectedness. I see patterns others miss." },
+      { name: "Photography", note: "Strong, trending toward professional." },
+    ],
+    gaps: [
+      { name: "Executing consistently", note: "0 out of 5 Clifton Executing themes. Planning, ideating, strategizing — strong. Shipping — the gap. Fix: weekly deliverable system, not motivation." },
+      { name: "Influencing & networking", note: "0 out of 5 Clifton Influencing themes. Initiating toward people is the weakest muscle. Fix: CSM, fractional work, or deliberate cold outreach practice." },
+      { name: "Self-promotion", note: "Can promote others naturally. Promoting myself feels uncomfortable. Fix: reframe promotion as service — the right people need to find you." },
+    ]
+  },
+  strengths_themes: ["Learner", "Input", "Connectedness", "Futuristic", "Context"],
+  experience: [
+    { company: "Accenture", role: "Data & AI Consultant", note: "Built executive Power BI dashboards for a $200M data platform. Client-facing delivery. GenAI Community Facilitator." },
+    { company: "Avolv", role: "Product Architecture Externship", note: "Product strategy and roadmapping work." },
+    { company: "TikTok", role: "Brand Strategy Externship", note: "Built brand playbook — positioning, messaging, content strategy." },
+    { company: "Wayfair", role: "AI Automation Externship", note: "Built AI-powered automation workflows. Intelligence dashboards. n8n/Make stack." },
+    { company: "Prescene.ai", role: "Product Marketing Externship", note: "PMM work — positioning, go-to-market, customer discovery." },
+    { company: "Entropy Studios", role: "Owner", note: "Ghostwriting educational email courses for media entrepreneurs. Newsletter. Content creation." },
+  ],
+  education: [
+    { school: "University of Texas at Austin", degree: "MS Business Analytics (MSBA)", note: "Data science, machine learning, analytics strategy" },
+    { school: "UT Austin / Exec Program", degree: "Executive Product Management Certificate", note: "Product strategy, roadmapping, user research" },
+    { school: "SAP", degree: "Certified in Business AI + Data Cloud", note: "Enterprise AI application" },
+    { school: "LinkedIn Learning", degree: "102 Certifications", note: "AI, UX, Product, Marketing, Content — full stack" },
+  ],
+  pathways: [
+    { n: "Pathway 1", label: "Corporate Stability + Creative Side", desc: "Traditional role (SAP Consulting, UX, Data) with creative outlets nights/weekends. Safe. Constrained." },
+    { n: "Pathway 2", label: "Hybrid Professional", desc: "Mix of consulting/freelance + personal brand building. Balanced bridge to Pathway 3. Current operating plan." },
+    { n: "Pathway 3 ★", label: "Creator & Digital Business (Aspired)", desc: "Full creator: YouTube, newsletter, digital products, AI consulting, nomadic lifestyle. Max freedom. Max alignment. Needs 12–24 months of bridge work first." },
+  ]
+};
+
+function ProfileTab() {
+  const [section, setSection] = useState("identity");
+  const sections = [
+    ["identity", "Identity"],
+    ["skills", "Skills Map"],
+    ["experience", "Experience"],
+    ["strengths", "CliftonStrengths"],
+    ["pathways", "Odyssey Plans"],
+  ];
+
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">000 · My Profile</div>
+        <div className="sec-title">WHO YOU ARE</div>
+        <div className="sec-desc">Pulled live from Notion (March–April 2026). This is the source data behind every role decision in this system.</div>
+      </div>
+
+      {/* Section Nav */}
+      <div className="filter-row" style={{ marginBottom: "24px" }}>
+        {sections.map(([id, lbl]) => (
+          <button key={id} className={`fbtn ${section === id ? "on" : ""}`} onClick={() => setSection(id)}>{lbl}</button>
+        ))}
+      </div>
+
+      {section === "identity" && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          {/* Identity Box */}
+          <div style={{ background: "var(--mint-bg)", border: "1px solid var(--mint-bd)", borderRadius: "10px", padding: "22px 24px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--mint)", marginBottom: "8px" }}>Core Identity</div>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: "1.8rem", fontWeight: 800, color: "var(--text)", lineHeight: 1.1, marginBottom: "14px" }}>{PROFILE.identity}</div>
+            <div style={{ fontFamily: "var(--font-body)", fontSize: "14px", color: "var(--text2)", lineHeight: 1.7, fontStyle: "italic", borderLeft: "3px solid var(--mint)", paddingLeft: "16px" }}>"{PROFILE.ikigai}"</div>
+          </div>
+
+          {/* WHY */}
+          <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "10px", padding: "18px 22px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--amber)", marginBottom: "8px" }}>Golden Circle WHY (Simon Sinek)</div>
+            <div style={{ fontSize: "14px", color: "var(--text2)", lineHeight: 1.65, fontStyle: "italic" }}>"{PROFILE.why}"</div>
+          </div>
+
+          {/* Whisper Test */}
+          <div style={{ background: "var(--rose-bg)", border: "1px solid var(--rose-bd)", borderRadius: "10px", padding: "18px 22px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--rose)", marginBottom: "8px" }}>2am Whisper Test — Raw Truth</div>
+            <div style={{ fontSize: "13px", color: "var(--text2)", lineHeight: 1.65, fontStyle: "italic" }}>"{PROFILE.whisper}"</div>
+          </div>
+
+          {/* Pitches */}
+          <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "10px", padding: "18px 22px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "14px" }}>How to Talk About Yourself</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {PROFILE.pitches.map((p, i) => (
+                <div key={i} style={{ borderLeft: "3px solid var(--border2)", paddingLeft: "16px" }}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--mint)", marginBottom: "5px" }}>{p.label}</div>
+                  <div style={{ fontSize: "13px", color: "var(--text2)", lineHeight: 1.65 }}>"{p.text}"</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {section === "skills" && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+          <div style={{ background: "var(--mint-bg)", border: "1px solid var(--mint-bd)", borderRadius: "10px", padding: "16px 20px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--mint)", marginBottom: "10px" }}>Meta CraftSkills — Center of the Map (Powers Everything Else)</div>
+            {["Strategic synthesis & sensemaking", "Decision framing & prioritization", "Future-oriented analysis"].map(s => (
+              <div key={s} style={{ fontSize: "13px", color: "var(--text)", padding: "5px 0", borderBottom: "1px solid var(--mint-bd)" }}>• {s}</div>
+            ))}
+          </div>
+          {[
+            { label: "Data, Analytics & AI", color: "slate-bg", accent: "var(--slate)", items: ["Product analytics & metrics design", "Data storytelling & executive insights", "Experimentation & behavioral analysis", "Forecasting & predictive modeling", "AI-enabled product & workflow design", "AI automation & systems thinking (n8n, Make, Lindy, Claude Code, Relevance.ai)"] },
+            { label: "Product, UX & Experience", color: "mint-bg", accent: "var(--mint)", items: ["Product strategy & roadmapping", "Customer discovery", "Competitive analysis", "UX research & experience optimization", "Service & learning experience design"] },
+            { label: "Content Creation & Distribution", color: "amber-bg", accent: "var(--amber)", items: ["Content strategy & consistency systems", "Educational writing & clarity-first explanation", "Narrative framing for complex ideas", "Newsletter, email, long-form writing", "Knowledge → content translation", "Ghostwriting (thought leadership, email courses)"] },
+            { label: "Visual Storytelling", color: "sage-bg", accent: "var(--sage)", items: ["Photography (strong, trending professional)", "Videography & video editing (DaVinci Resolve, Final Cut Pro)"] },
+            { label: "Systems & Tools", color: "lav-bg", accent: "var(--lavender)", items: ["Notion operating system design", "Frameworks, SOPs, production pipelines", "AI workflow automation"] },
+            { label: "Facilitation & Enablement", color: "rose-bg", accent: "var(--rose)", items: ["Cross-functional alignment", "Advisory facilitation (diagnosis → synthesis → recommendation)"] },
+          ].map(cat => (
+            <div key={cat.label} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "10px", padding: "16px 20px" }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: cat.accent, marginBottom: "10px" }}>{cat.label}</div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "6px" }}>
+                {cat.items.map(item => (
+                  <div key={item} style={{ fontSize: "12px", color: "var(--text2)", padding: "5px 8px", background: "var(--surface2)", borderRadius: "5px", borderLeft: `2px solid ${cat.accent}` }}>{item}</div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {section === "experience" && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          {PROFILE.experience.map((e, i) => (
+            <div key={i} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "10px", padding: "18px 22px", display: "flex", gap: "20px", alignItems: "flex-start" }}>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 800, color: "var(--border2)", lineHeight: 1, minWidth: "36px" }}>0{i+1}</div>
+              <div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, color: "var(--text)", marginBottom: "3px" }}>{e.company}</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--mint)", marginBottom: "8px" }}>{e.role}</div>
+                <div style={{ fontSize: "13px", color: "var(--text2)", lineHeight: 1.6 }}>{e.note}</div>
+              </div>
+            </div>
+          ))}
+          <div style={{ marginTop: "8px", display: "flex", flexDirection: "column", gap: "10px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "4px" }}>Education & Credentials</div>
+            {PROFILE.education.map((e, i) => (
+              <div key={i} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", padding: "14px 18px" }}>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, color: "var(--text)", marginBottom: "2px" }}>{e.degree}</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--mint)", marginBottom: "5px" }}>{e.school}</div>
+                <div style={{ fontSize: "12px", color: "var(--muted)" }}>{e.note}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {section === "strengths" && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <div style={{ background: "var(--mint-bg)", border: "1px solid var(--mint-bd)", borderRadius: "10px", padding: "16px 20px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--mint)", marginBottom: "10px" }}>CliftonStrengths Top 5 (All Strategic Thinking Domain)</div>
+            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+              {PROFILE.strengths_themes.map(t => (
+                <div key={t} style={{ background: "var(--mint-bg)", border: "1px solid var(--mint-bd)", borderRadius: "6px", padding: "6px 14px", fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, color: "var(--mint)" }}>{t}</div>
+              ))}
+            </div>
+            <div style={{ marginTop: "10px", fontSize: "12px", color: "var(--muted)" }}>0 out of 5 Executing themes · 0 out of 5 Influencing themes — the known gaps, not weaknesses</div>
+          </div>
+          <div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "10px" }}>Tier 1 — Defining Skills (What Makes You You)</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              {PROFILE.strengths.tier1.map((s, i) => (
+                <div key={i} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", padding: "14px 18px" }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, color: "var(--text)", marginBottom: "4px" }}>{s.name}</div>
+                  <div style={{ fontSize: "12px", color: "var(--muted)", lineHeight: 1.55 }}>{s.note}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "10px" }}>Tier 2 — Solid & Proven</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "8px" }}>
+              {PROFILE.strengths.tier2.map((s, i) => (
+                <div key={i} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", padding: "12px 16px" }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, color: "var(--text)", marginBottom: "3px" }}>{s.name}</div>
+                  <div style={{ fontSize: "11px", color: "var(--muted)", lineHeight: 1.55 }}>{s.note}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ background: "var(--amber-bg)", border: "1px solid var(--amber-bd)", borderRadius: "10px", padding: "16px 20px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--amber)", marginBottom: "10px" }}>Honest Gaps — These Are Not Weaknesses, They Are Training Targets</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              {PROFILE.strengths.gaps.map((g, i) => (
+                <div key={i} style={{ borderLeft: "3px solid var(--amber-bd)", paddingLeft: "14px" }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, color: "var(--text)", marginBottom: "3px" }}>{g.name}</div>
+                  <div style={{ fontSize: "12px", color: "var(--text2)", lineHeight: 1.55 }}>{g.note}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {section === "pathways" && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+          <div className="whisper">
+            <div className="whisper-icon">🧭</div>
+            <div>
+              <div className="whisper-lbl">Odyssey Plans — Stanford Life Design Methodology</div>
+              <div className="whisper-txt">Three 5-year futures. All roads share: freedom, creativity, community, financial independence. The question is sequencing, not destination.</div>
+            </div>
+          </div>
+          {PROFILE.pathways.map((p, i) => (
+            <div key={i} style={{ background: i === 2 ? "var(--mint-bg)" : "var(--surface)", border: `1px solid ${i === 2 ? "var(--mint-bd)" : "var(--border)"}`, borderRadius: "10px", padding: "20px 24px" }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: i === 2 ? "var(--mint)" : "var(--muted)", marginBottom: "6px" }}>{p.n}</div>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "16px", fontWeight: 700, color: "var(--text)", marginBottom: "8px" }}>{p.label}</div>
+              <div style={{ fontSize: "13px", color: "var(--text2)", lineHeight: 1.65 }}>{p.desc}</div>
+            </div>
+          ))}
+          <div className="devils">
+            <div className="devils-title">😈 Devil's Advocate</div>
+            <p>Pathway 3 is the answer you already know. The question is whether you're willing to treat Pathway 2 as a real bridge with a 12-month exit plan, or whether it becomes the permanent lifestyle. Most people who say "I'm building toward Path 3" are actually on Path 1 with better storytelling. The Monday Morning Test in your Ikigai doc is the truth detector: Did you create, apply, learn, and ship? Or did you plan to?</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── APP ──────────────────────────────────────────────────────────────────────
 
 export default function App() {
   const [tab, setTab] = useState("yes");
   const TABS = [
+    { id: "profile", lbl: "My Profile",  cnt: null },
     { id: "yes",     lbl: "Yes Roles",   cnt: 10 },
     { id: "no",      lbl: "Anti-Roles",  cnt: 10 },
     { id: "neutral", lbl: "Conditional", cnt: 6  },
     { id: "vision",  lbl: "2030 Vision", cnt: null },
     { id: "table",   lbl: "Full Map",    cnt: 26 },
+    { id: "toolkit", lbl: "AI Toolkit",  cnt: TOOLKIT.reduce((a, c) => a + c.skills.length, 0) },
   ];
 
   return (
@@ -1277,9 +1797,9 @@ export default function App() {
       <div>
         <header className="header">
           <div>
-            <div className="eyebrow">Sidd Chauhan · Career Intelligence · April 2026</div>
+            <div className="eyebrow">Sidd Chauhan · AI Storyteller / The Translator · April 2026</div>
             <h1 className="h-title">ROLE <em>CLARITY</em> MAP</h1>
-            <div className="h-sub">27 skills · 102 certifications · 3 degrees · 5 work experiences · Ikigai analysis</div>
+            <div className="h-sub">Accenture → TikTok → Wayfair → Prescene.ai · UT Austin MSBA + Exec PM · 102 certs · Ikigai: "I turn hard things into clear things — on camera, on a page, in a system."</div>
           </div>
           <div className="header-stats">
             <div className="stat"><div className="stat-n">10</div><div className="stat-l">Yes Roles</div></div>
@@ -1296,11 +1816,13 @@ export default function App() {
           ))}
         </nav>
         <main className="content">
+          {tab === "profile" && <ProfileTab />}
           {tab === "yes"     && <YesTab />}
           {tab === "no"      && <NoTab />}
           {tab === "neutral" && <NeutralTab />}
           {tab === "vision"  && <VisionTab />}
           {tab === "table"   && <TableTab />}
+          {tab === "toolkit" && <ToolkitTab />}
         </main>
       </div>
     </>
