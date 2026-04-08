@@ -1,16 +1,26 @@
-# React + Vite
+# Career Clarity Map
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Role intelligence system — 26 roles ranked by fit, RGA strength, and market alignment.
 
-Currently, two official plugins are available:
+Built with React + Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Deploy in 3 commands
 
-## React Compiler
+```bash
+# 1. Install Vercel CLI (skip if already installed)
+npm install -g vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 2. Push to GitHub (requires GitHub CLI)
+gh auth login
+gh repo create career-clarity-map --public --source=. --push
 
-## Expanding the ESLint configuration
+# 3. Deploy to Vercel (links to GitHub automatically)
+vercel --prod
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Local dev
+
+```bash
+npm install
+npm run dev
+```
