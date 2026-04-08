@@ -1,0 +1,1308 @@
+import { useState } from "react";
+
+const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');`;
+
+const css = `
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:       #f5f3ef;
+    --surface:  #ffffff;
+    --surface2: #eeebe6;
+    --surface3: #e7e4de;
+    --border:   #dedad3;
+    --border2:  #ccc9c2;
+    --text:     #1c1a17;
+    --text2:    #4a4742;
+    --muted:    #8c897f;
+    --muted2:   #b5b2a8;
+
+    --mint:     #1e7a63;
+    --mint-bg:  rgba(30,122,99,0.07);
+    --mint-bd:  rgba(30,122,99,0.2);
+
+    --rose:     #9a4040;
+    --rose-bg:  rgba(154,64,64,0.07);
+    --rose-bd:  rgba(154,64,64,0.2);
+
+    --amber:    #8a6018;
+    --amber-bg: rgba(138,96,24,0.07);
+    --amber-bd: rgba(138,96,24,0.2);
+
+    --sage:     #3a6b4a;
+    --sage-bg:  rgba(58,107,74,0.07);
+
+    --slate:    #3a5e8a;
+    --slate-bg: rgba(58,94,138,0.07);
+
+    --lavender: #5a4a8a;
+    --lav-bg:   rgba(90,74,138,0.07);
+
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: var(--font-body); }
+
+  /* ── HEADER ─────────────────────────────────────────── */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 26px 40px 20px;
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,243,239,0.97);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+  }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--mint); margin-bottom: 7px;
+  }
+  .h-title {
+    font-family: var(--font-display); font-size: 2.4rem;
+    font-weight: 800; line-height: 1; color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .h-title em { font-style: normal; color: var(--mint); }
+  .h-sub {
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--muted); margin-top: 6px; letter-spacing: 0.04em;
+  }
+  .header-stats { display: flex; gap: 24px; align-items: flex-end; }
+  .stat { text-align: right; }
+  .stat-n { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; line-height: 1; color: var(--mint); }
+  .stat-l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+
+  /* ── NAV ─────────────────────────────────────────────── */
+  .nav {
+    display: flex; border-bottom: 1px solid var(--border);
+    padding: 0 40px; overflow-x: auto; scrollbar-width: none;
+    background: var(--bg);
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; padding: 13px 18px; border: none; background: none;
+    color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent;
+    white-space: nowrap; transition: color 0.15s, border-color 0.15s;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .nav-btn:hover { color: var(--text2); }
+  .nav-btn.active { color: var(--mint); border-bottom-color: var(--mint); }
+  .nav-cnt {
+    background: var(--surface3); border-radius: 10px; padding: 1px 6px;
+    font-size: 9px; color: var(--muted);
+  }
+  .nav-btn.active .nav-cnt { background: var(--mint-bg); color: var(--mint); border: 1px solid var(--mint-bd); }
+
+  /* ── CONTENT ─────────────────────────────────────────── */
+  .content { padding: 36px 40px; max-width: 1400px; }
+
+  .sec-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .sec-title { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; line-height: 1; color: var(--text); letter-spacing: -0.01em; }
+  .sec-desc { font-size: 13px; color: var(--text2); margin-top: 8px; line-height: 1.65; max-width: 620px; }
+  .sec-header { margin-bottom: 28px; }
+
+  /* ── ROLE GRID ───────────────────────────────────────── */
+  .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(390px, 1fr)); gap: 14px; }
+
+  /* ── ROLE CARD ───────────────────────────────────────── */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .card:hover { border-color: var(--border2); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+  .card.open { border-color: var(--border2); }
+
+  .card-hd {
+    padding: 17px 20px 14px; cursor: pointer;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .card-hd:hover { background: rgba(255,255,255,0.015); }
+
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .card-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; flex: 1; }
+
+  .fit-tag {
+    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
+    white-space: nowrap; flex-shrink: 0; border: 1px solid;
+  }
+
+  .card-titles-row {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2px;
+  }
+  .title-chip {
+    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em;
+    padding: 2px 8px; border-radius: 12px; border: 1px solid var(--border2);
+    color: var(--muted); display: flex; align-items: center; gap: 4px;
+  }
+  .title-chip-label { color: var(--muted2); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .card-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .meta-item { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
+  .meta-sal { color: var(--text2); font-size: 11px; font-weight: 500; }
+  .meta-time { color: var(--text2); font-size: 10px; }
+
+  .rga-dots { display: flex; gap: 3px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.on { background: var(--mint); }
+  .dot.off { background: var(--border2); }
+
+  .expand-hint { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); margin-top: 2px; }
+
+  /* ── CARD BODY ───────────────────────────────────────── */
+  .card-body { border-top: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+  .subsec-title { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+  .blist { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .blist li { font-size: 12px; color: var(--text2); line-height: 1.55; padding-left: 14px; position: relative; }
+  .blist li::before { content: '·'; position: absolute; left: 0; color: var(--mint); font-size: 14px; line-height: 1.3; }
+
+  .rga-callout { background: var(--surface2); border-radius: 6px; padding: 12px 14px; border-left: 2px solid var(--mint); }
+  .rga-callout p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  .why-callout { border-radius: 6px; padding: 12px 14px; }
+  .why-callout p { font-size: 12px; line-height: 1.6; }
+  .why-yes { background: var(--mint-bg); border-left: 2px solid var(--mint); }
+  .why-yes p { color: var(--mint); }
+  .why-no { background: var(--rose-bg); border-left: 2px solid var(--rose); }
+  .why-no p { color: var(--rose); }
+  .why-neutral { background: var(--amber-bg); border-left: 2px solid var(--amber); }
+  .why-neutral p { color: var(--amber); }
+
+  .chip { font-family: var(--font-mono); font-size: 10px; color: var(--mint); background: var(--mint-bg); border: 1px solid var(--mint-bd); border-radius: 4px; padding: 4px 10px; display: inline-block; margin-top: 2px; }
+
+  /* ── FULL MAP TABLE ──────────────────────────────────── */
+  .tbl-wrap { overflow-x: auto; }
+  .tbl { width: 100%; border-collapse: collapse; min-width: 780px; }
+  .tbl th { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .tbl td { padding: 11px 14px; border-bottom: 1px solid var(--border); font-size: 12px; vertical-align: middle; }
+  .tbl tr:hover td { background: rgba(255,255,255,0.018); }
+  .tbl-name { font-weight: 500; color: var(--text); }
+  .tbl-cat { font-family: var(--font-mono); font-size: 10px; }
+  .tbl-sal { color: var(--muted); font-family: var(--font-mono); font-size: 10px; }
+  .tbl-take { color: var(--muted); font-size: 11px; }
+  .tbl-rga { font-family: var(--font-mono); font-size: 11px; color: var(--mint); letter-spacing: 0.04em; }
+  .tbl-titles { font-family: var(--font-mono); font-size: 9px; color: var(--muted); line-height: 1.7; }
+
+  /* filter btns */
+  .filter-row { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .fbtn {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--border2);
+    border-radius: 4px; cursor: pointer; transition: all 0.15s;
+    background: transparent; color: var(--muted);
+  }
+  .fbtn.on { background: var(--mint-bg); color: var(--mint); border-color: var(--mint-bd); }
+
+  /* ── 2030 SKILLS ─────────────────────────────────────── */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .col-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+  .sk { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 13px 15px; margin-bottom: 9px; transition: border-color 0.15s; }
+  .sk:hover { border-color: var(--border2); }
+  .sk-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 5px; gap: 10px; }
+  .sk-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .sk-lv { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; }
+  .lv-strong  { background: rgba(58,107,74,0.1);   color: var(--sage); }
+  .lv-build   { background: rgba(30,122,99,0.08);  color: var(--mint); }
+  .lv-proven  { background: rgba(58,94,138,0.1);   color: var(--slate); }
+  .lv-natural { background: rgba(90,74,138,0.09);  color: var(--lavender); }
+  .lv-early   { background: rgba(138,96,24,0.09);  color: var(--amber); }
+  .lv-weak    { background: rgba(154,64,64,0.09);  color: var(--rose); }
+  .lv-course  { background: rgba(138,96,24,0.09);  color: var(--amber); }
+  .sk-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+  .future-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 10px; margin-top: 14px; }
+  .future-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 13px 15px; }
+  .exists-tag { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; display: inline-block; margin-bottom: 6px; }
+  .ex-now      { background: rgba(58,107,74,0.1);   color: var(--sage); }
+  .ex-emerging { background: rgba(30,122,99,0.08);  color: var(--mint); }
+  .ex-future   { background: rgba(90,74,138,0.09);  color: var(--lavender); }
+  .future-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .future-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+  /* ── DEVILS BOX ──────────────────────────────────────── */
+  .devils {
+    background: var(--rose-bg); border: 1px solid var(--rose-bd);
+    border-radius: 8px; padding: 16px 18px; margin-top: 24px;
+  }
+  .devils-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); margin-bottom: 8px; }
+  .devils p { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+  /* ── WHISPER BAR ─────────────────────────────────────── */
+  .whisper { background: var(--mint-bg); border: 1px solid var(--mint-bd); border-radius: 8px; padding: 13px 18px; margin-bottom: 26px; display: flex; align-items: flex-start; gap: 12px; }
+  .whisper-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .whisper-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); margin-bottom: 3px; }
+  .whisper-txt { font-size: 13px; color: var(--text2); font-style: italic; }
+
+  @media (max-width: 780px) {
+    .header { padding: 18px 20px; flex-direction: column; align-items: flex-start; }
+    .h-title { font-size: 1.8rem; }
+    .nav { padding: 0 20px; }
+    .content { padding: 22px 18px; }
+    .role-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+`;
+
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+const YES = [
+  {
+    id: "pmm",
+    title: "Product Marketing Manager",
+    earlyTitle: "Product Marketing Associate · Marketing Programs Coordinator",
+    midTitle: "PMM · Senior Product Marketing Manager",
+    fit: "BEST FIT", fc: "mint", rga: 4,
+    salary: "$70–130k", timeline: "30–60 days",
+    daily: [
+      "Write positioning and messaging docs — who the product is for, why it matters, how it differs",
+      "Build sales enablement: battle cards, one-pagers, objection handling guides, pitch decks",
+      "Coordinate product launches across product, sales, design, and support",
+      "Run 4–6 customer interviews per month, synthesize into insight docs",
+      "Manage competitive intel — track what competitors say and do",
+      "Brief sales team on new features before they reach customers",
+      "Write website copy, case studies, and email campaign copy alongside demand gen"
+    ],
+    metrics: [
+      "Win rate — % of deals closed after PMM-created sales materials were used",
+      "Pipeline influence — $ value of deals where PMM content was a touchpoint",
+      "Feature adoption rate — % of users activating new features after launch",
+      "Launch performance — signups, trials, ARR in first 30/60/90 days",
+      "Sales cycle length — does your enablement content shorten time to close"
+    ],
+    rgaText: "Direct. PMM content touches 30–60% of pipeline at most SaaS companies. A single well-positioned one-pager can improve close rates 5–10%. A strong product launch generates net new ARR. Clear line to revenue without carrying a quota.",
+    whyText: "MSBA is analytical credibility no other PMM has. TikTok, Prescene, and Wedify work are direct proof. Motion Bootcamp is literally PMM training. Uses 16 of your 27 skills.",
+    takeIf: "Always apply"
+  },
+  {
+    id: "devrel",
+    title: "Developer Advocate",
+    earlyTitle: "Developer Relations Associate · Technical Community Manager",
+    midTitle: "Developer Advocate · Senior Developer Advocate",
+    fit: "BEST FIT", fc: "mint", rga: 4,
+    salary: "$90–140k", timeline: "30–90 days",
+    daily: [
+      "Create tutorials, demo videos, and code samples showing how to use APIs or products",
+      "Write educational blog posts and technical guides",
+      "Speak at conferences, run webinars, host workshops",
+      "Manage developer community (Discord, Slack, forums)",
+      "Gather developer feedback and bring it to product team",
+      "Build onboarding resources so developers get value in under 30 minutes",
+      "Test beta features and give structured feedback before release"
+    ],
+    metrics: [
+      "Developer community growth — active members per month",
+      "API adoption rate — developers making first API call after your content",
+      "Content reach — views, watch time, unique visitors",
+      "Support ticket deflection — % of questions answered by your docs",
+      "Developer NPS — how developers rate their platform experience"
+    ],
+    rgaText: "For API-first companies, every developer who adopts the platform is a potential paying customer. DevRel drives developer acquisition at the top of funnel. At usage-based pricing companies, more developers = more API calls = more revenue.",
+    whyText: "YouTube channel proves you can teach on camera. 100+ AI certs show real tool depth. GenAI community at Accenture is literally this job. Newsletter proves written education. Your highest-ceiling role.",
+    takeIf: "Always apply"
+  },
+  {
+    id: "cstrat",
+    title: "Creative Strategist",
+    earlyTitle: "Creative Strategy Associate · Brand Strategist",
+    midTitle: "Creative Strategist · Senior Creative Strategist",
+    fit: "BEST FIT", fc: "mint", rga: 4,
+    salary: "$65–90k / $75–150/hr freelance", timeline: "60–90 days",
+    daily: [
+      "Write creative briefs — tells designers, copywriters, and video teams exactly what to make and why",
+      "Develop brand voice guidelines — tone, language, style, what to say and never say",
+      "Build content strategy — channels, formats, cadence, audience targeting",
+      "Analyze creative performance — which ads and campaigns drove conversions and why",
+      "Run A/B tests on headlines, visuals, CTAs, landing pages",
+      "Present strategy and findings to leadership or clients",
+      "Develop campaign concepts from insight to execution brief"
+    ],
+    metrics: [
+      "Campaign conversion rates — % who see creative and take action",
+      "CAC — does your creative lower customer acquisition cost",
+      "CPM/CPC on paid campaigns — efficiency of creative spend",
+      "Brand engagement rate — likes, comments, shares, saves",
+      "Creative test win rate — % of A/B tests that beat the control"
+    ],
+    rgaText: "Direct on paid side. Better creative = lower CAC = same budget acquires more customers. A 20% improvement at a company spending $500k/month on paid = $100k/month in saved spend. Freelance: you bill for strategy as a deliverable.",
+    whyText: "Wedify proposal IS this job in document form. Motion Bootcamp is training for this exact role. VIA #1 Appreciation of Beauty is the creative director instinct.",
+    takeIf: "Always apply"
+  },
+  {
+    id: "aicontent",
+    title: "AI Content Strategist / AI Educator",
+    earlyTitle: "AI Content Writer · Content Creator (AI) · AI Education Specialist",
+    midTitle: "AI Content Strategist · Head of AI Education",
+    fit: "BEST FIT", fc: "mint", rga: 5,
+    salary: "$60–85k in-house / Unlimited creator", timeline: "30–60 days",
+    daily: [
+      "Write and record content explaining AI tools and workflows for non-technical audiences",
+      "Test new AI tools and translate findings into practical guides",
+      "Build email courses, mini-courses, and reference guides on AI topics",
+      "Create explainer videos on how AI products work",
+      "Stay current on AI news and synthesize what it means for regular users",
+      "Run workshops for teams or companies on AI adoption",
+      "Build curriculum for AI literacy programs"
+    ],
+    metrics: [
+      "Audience growth — email subscribers, YouTube, LinkedIn followers",
+      "Content engagement — open rates, click rates, watch time, completion rates",
+      "Workshop attendance and satisfaction scores",
+      "Revenue from courses, sponsorships, workshops (creator path)",
+      "Product adoption metrics (in-house)"
+    ],
+    rgaText: "Creator path: directly owned. Course sales ($200–2,000/course), sponsorships ($500–5,000/newsletter issue), workshop fees ($500–5,000/session). Early AI educators with 20k+ audiences making $200–500k through multiple streams.",
+    whyText: "Ikigai literally says 'making AI understandable to humans' is what the world needs and what he loves. YouTube, newsletter, and Accenture GenAI community are already this job.",
+    takeIf: "Always build"
+  },
+  {
+    id: "contentmgr",
+    title: "Content Marketing Manager",
+    earlyTitle: "Content Marketing Coordinator · SEO Content Specialist · Content Writer",
+    midTitle: "Content Marketing Manager · Senior Content Strategist",
+    fit: "STRONG FIT", fc: "sage", rga: 3,
+    salary: "$60–85k", timeline: "30–60 days",
+    daily: [
+      "Own the editorial calendar — plan what gets published, when, on which channel",
+      "Write and edit long-form content (blog posts, guides, case studies, whitepapers)",
+      "Do keyword research and manage SEO strategy",
+      "Write and send the weekly/monthly email newsletter",
+      "Brief and manage freelance writers",
+      "Track content performance in analytics",
+      "Coordinate with demand gen on campaign content"
+    ],
+    metrics: [
+      "Organic traffic — monthly visitors from search",
+      "Keyword rankings — are target keywords moving up in Google",
+      "Email list growth and engagement (open rate 25%+, CTR 3%+)",
+      "Content-attributed pipeline — deals influenced by a blog post or guide",
+      "Backlinks earned from other sites"
+    ],
+    rgaText: "Indirect but real and trackable. A single high-ranking blog post can generate hundreds of inbound leads per month for years. SEO compounds — content published today drives traffic in 2027.",
+    whyText: "HubSpot cert, Surfer SEO cert, PGA writing training, newsletter experience, 30%+ opt-in rates already proven. Entry point if PMM apps are moving slowly.",
+    takeIf: "Apply"
+  },
+  {
+    id: "prodedu",
+    title: "Customer Education Manager",
+    earlyTitle: "Customer Education Specialist · Technical Trainer · Learning Specialist",
+    midTitle: "Customer Education Manager · Product Education Lead",
+    fit: "GOOD FIT", fc: "sage", rga: 3,
+    salary: "$65–90k", timeline: "30–60 days",
+    daily: [
+      "Build product onboarding flows — guided experience new users get in their first 7 days",
+      "Create tutorial videos and help center articles",
+      "Design in-app tooltips, walkthroughs, and empty state messaging",
+      "Run user research on where people get confused or drop off",
+      "Build certification programs for power users",
+      "Collaborate with support to identify high-volume questions",
+      "Measure feature adoption and optimize educational content to improve it"
+    ],
+    metrics: [
+      "Time-to-first-value — how quickly new users complete first meaningful action",
+      "Activation rate — % of new signups who reach the 'aha moment'",
+      "Help center deflection rate — % who find answers without opening a support ticket",
+      "Feature adoption rate after educational content",
+      "Onboarding NPS"
+    ],
+    rgaText: "Retention. Every 1% improvement in monthly retention compounds. At 1,000 customers × $100/month, reducing churn from 5% to 4% saves $12,000 ARR/month. Better onboarding is the #1 driver of early retention. This role owns that.",
+    whyText: "Teaching instinct is real. Ali Abdaal's entire brand is this job applied to content. ENFP + Enneagram 4 loves helping people get better at things.",
+    takeIf: "Apply"
+  },
+  {
+    id: "growth",
+    title: "Growth Marketing Manager",
+    earlyTitle: "Growth Marketing Analyst · Demand Gen Coordinator · Marketing Operations Specialist",
+    midTitle: "Growth Marketing Manager · Senior Growth Marketer",
+    fit: "STRONG FIT", fc: "sage", rga: 5,
+    salary: "$75–110k + bonus", timeline: "60–90 days",
+    daily: [
+      "Design and run experiments — build hypothesis, set up test, analyze results, document learnings",
+      "Manage performance marketing budgets across paid channels (Google, Meta, LinkedIn)",
+      "Optimize conversion funnels — landing pages, trial sign-up flows, activation emails",
+      "Pull cohort and funnel data from analytics tools (Mixpanel, Amplitude, GA)",
+      "Run lifecycle email campaigns (trial → paid conversion sequences)",
+      "Work with product team on virality and referral mechanics",
+      "Report on experiment results and revenue impact weekly"
+    ],
+    metrics: [
+      "CAC — total cost to acquire one paying customer",
+      "LTV:CAC ratio — is each customer worth 3x+ what it cost to acquire them",
+      "Activation rate — % of signups who complete key onboarding actions",
+      "Trial-to-paid conversion rate",
+      "Experiment velocity — tests running per month"
+    ],
+    rgaText: "Highest revenue link of any marketing role. 'Improved trial-to-paid conversion by 8%' has a calculable ARR impact. 'Reduced CAC by $40' on 500 new customers/month = $240k/year in saved acquisition spend.",
+    whyText: "MSBA (data analysis) + creative skills (copy, content) is the rare combo Growth Marketing requires. Most growth marketers are either data-strong or creative-strong. You're both.",
+    takeIf: "Apply"
+  },
+  {
+    id: "csm",
+    title: "AI Customer Success Manager",
+    earlyTitle: "Customer Success Associate · Implementation Specialist · Onboarding Specialist",
+    midTitle: "Customer Success Manager · Technical Customer Success Manager",
+    fit: "STRONG FIT", fc: "sage", rga: 4,
+    salary: "$70–100k + $10–20k variable", timeline: "60–120 days",
+    daily: [
+      "Onboarding calls with new clients — understand workflows, identify automation opportunities",
+      "Build custom AI demos and proof-of-concepts using company tools",
+      "Train client teams on how to use AI products effectively",
+      "Review client usage data and proactively flag drop-off or underuse",
+      "Handle escalations — complex use cases needing custom solutions",
+      "Quarterly business reviews — show clients ROI of using the product",
+      "Relay client feedback to product team"
+    ],
+    metrics: [
+      "NRR (Net Revenue Retention) — accounts renewing AND growing above 100%",
+      "Customer health score — usage, NPS, support tickets, engagement",
+      "Time-to-value — how quickly new clients get first win with product",
+      "Churn rate — % of accounts lost",
+      "Expansion revenue — new ARR from upselling existing clients"
+    ],
+    rgaText: "Direct. CS owns renewal and expansion revenue. Keeping a $50k/year customer is worth the same as acquiring a new one — but 5–7x cheaper. NRR above 120% means existing customer base grows without any new sales.",
+    whyText: "Accenture consulting background (client-facing, 2 years). AI automation knowledge (n8n, Make, LangChain) means you can BUILD solutions during calls. Also the fastest path to build the influencing/initiating muscle.",
+    takeIf: "Apply"
+  },
+  {
+    id: "techwriter",
+    title: "Technical Writer",
+    earlyTitle: "Documentation Specialist · Junior Technical Writer · API Documentation Writer",
+    midTitle: "Technical Writer · Senior Technical Writer · Documentation Engineer",
+    fit: "DOOR OPENER", fc: "amber", rga: 2,
+    salary: "$65–85k", timeline: "30–60 days (easiest entry)",
+    daily: [
+      "Write and maintain API documentation — every endpoint, parameter, example",
+      "Create developer quickstart guides — zero to working demo in 15 minutes",
+      "Write release notes and changelogs for every product update",
+      "Work with engineers to understand new features before they ship",
+      "Test the product yourself to write accurate and honest docs",
+      "Maintain the help center and knowledge base"
+    ],
+    metrics: [
+      "Documentation coverage — % of features with complete, accurate docs",
+      "Docs search success rate — % of searches that end without a support ticket",
+      "Support ticket deflection rate",
+      "Documentation freshness — how quickly docs update after a feature ships"
+    ],
+    rgaText: "Lowest on this list, but real. Good docs accelerate developer adoption. They reduce support costs directly. This is the survival role — take it to get inside a great company, then lateral into PMM or DevRel in 12–18 months.",
+    whyText: "Door-in-foot at a great AI company. Use it as a launchpad. Writing skill is genuinely strong here. Get inside the building.",
+    takeIf: "Inside a great company only"
+  },
+  {
+    id: "fractional",
+    title: "Fractional Creative Strategist",
+    earlyTitle: "Freelance Content Strategist · Brand Consultant",
+    midTitle: "Fractional CMO · Fractional Creative Director · Brand Strategy Consultant",
+    fit: "START NOW", fc: "mint", rga: 5,
+    salary: "$50–150/hr or $1,500–5,000/mo retainer", timeline: "This week",
+    daily: [
+      "Discovery calls with clients — understand positioning, audience, competitors",
+      "Write brand voice and messaging guidelines",
+      "Build content strategy documents and editorial systems",
+      "Review and give feedback on content output",
+      "Create content calendars, brief templates, and workflows",
+      "Present strategy recommendations",
+      "Build GTM narratives for launches"
+    ],
+    metrics: [
+      "MRR (Monthly Recurring Revenue from retainers)",
+      "Number of active clients (target: 2–4)",
+      "Effective hourly rate (target: $100+/hr)",
+      "Client retention — are they renewing month to month",
+      "Referral rate — are clients sending you new clients"
+    ],
+    rgaText: "YOU ARE THE REVENUE. No employer takes a cut. No 18-month vesting cliff. Wedify is already client #1. Two clients = $3,000–10,000/month. Runs parallel to your job search and feeds directly into Pathway 3.",
+    whyText: "Wedify is direct proof this is already happening. Start now, not after you get hired somewhere else. The fractional path is the fastest way to Pathway 3.",
+    takeIf: "Start this week"
+  }
+];
+
+const NO = [
+  {
+    id: "ds",
+    title: "Data Scientist",
+    earlyTitle: "Data Science Associate · Junior Data Scientist",
+    midTitle: "Data Scientist · Senior Data Scientist",
+    fit: "HARD NO", fc: "rose", rga: 2,
+    salary: "$100–140k entry", retrain: "18–24 months to be competitive",
+    daily: [
+      "Build and train ML models (classification, regression, clustering, forecasting)",
+      "Clean and wrangle messy datasets — often 60–70% of the job",
+      "Write Python or R code for statistical analysis and model development",
+      "Run experiments and A/B tests at the statistical inference layer",
+      "Present model performance to stakeholders (accuracy, precision, recall, F1)",
+      "Maintain and monitor models in production",
+      "Read research papers and implement academic techniques"
+    ],
+    metrics: [
+      "Model accuracy, precision, recall, F1 score, AUC-ROC",
+      "Business impact of deployed models (revenue lift, cost reduction)",
+      "Model drift — how fast the model degrades in production",
+      "Experiment velocity — statistically valid tests per quarter",
+      "Code quality and reproducibility"
+    ],
+    rgaText: "High potential, slow to realize. A well-deployed model can generate millions in value. But the link is indirect — 6–18 months from model build to measurable impact. You rarely see the revenue. You see the accuracy score. Someone else sees the money.",
+    whyText: "Your own Notion: 'trained and competent, not my passion lane.' Day-to-day is mostly coding and statistical work — 6 hours cleaning data before writing a single word. Enneagram 4 needs creative expression. Voluntary learning goes to content and AI tools, not Kaggle and research papers. Behavior doesn't lie."
+  },
+  {
+    id: "mle",
+    title: "Machine Learning Engineer",
+    earlyTitle: "Junior ML Engineer · ML Platform Engineer (entry)",
+    midTitle: "Machine Learning Engineer · Senior ML Engineer",
+    fit: "HARD NO", fc: "rose", rga: 3,
+    salary: "$120–160k", retrain: "24+ months",
+    daily: [
+      "Write production-grade Python code to train, evaluate, and deploy ML models",
+      "Build data pipelines at scale (Spark, Airflow, Kafka)",
+      "Containerize models with Docker and deploy on Kubernetes",
+      "Monitor model performance in production and handle drift",
+      "Write unit tests and integration tests for ML code",
+      "Optimize model inference speed and cost",
+      "Work with ML researchers to productionize experimental models"
+    ],
+    metrics: [
+      "Model latency (milliseconds per inference)",
+      "Model throughput (predictions per second)",
+      "System uptime and reliability",
+      "CI/CD pipeline velocity",
+      "Compute cost optimization"
+    ],
+    rgaText: "Indirect but high-leverage. MLE work powers the product. Without the MLE, the product doesn't work. But MLE doesn't touch customers and doesn't measure revenue personally.",
+    whyText: "Requires CS fundamentals at engineering depth — algorithms, data structures, system design, production-grade coding. Your Python is analytical-level (scripts, notebooks). MLE requires software engineering discipline — testing, CI/CD, containerization. 2+ years retraining to be competitive. Zero creative expression."
+  },
+  {
+    id: "aiswe",
+    title: "AI Software Engineer",
+    earlyTitle: "Junior AI Engineer · Software Engineer I (AI/ML)",
+    midTitle: "AI Engineer · Senior AI Engineer · Applied AI Engineer",
+    fit: "HARD NO", fc: "rose", rga: 4,
+    salary: "$120–160k", retrain: "18–24 months",
+    daily: [
+      "Build full-stack applications that integrate LLMs and AI APIs",
+      "Write backend APIs in Python, Node, or Go",
+      "Design system architecture for AI-native applications",
+      "Implement RAG pipelines, vector databases, embedding models",
+      "Write and review production code daily (6–8 hours of coding)",
+      "Debug production incidents under pressure",
+      "Build and maintain CI/CD pipelines"
+    ],
+    metrics: [
+      "System uptime and reliability (99.9% availability)",
+      "Code quality (PR review pass rate, bug escape rate)",
+      "Feature delivery velocity",
+      "API performance (latency, error rate, throughput)",
+      "Code coverage percentage"
+    ],
+    rgaText: "Core to the product — no engineers, no product, no revenue. But individual engineers don't own revenue metrics. The link is real but completely invisible to the individual engineer.",
+    whyText: "Your dad's pick from the outside. From the inside: 6–8 hours writing code daily. The Accenture interview page showed you straining to map experience to K8s, IaC, SDK abstraction layers. Those aren't gaps you patch with prep — they're the entire job. You have tools-level AI, not engineering-level."
+  },
+  {
+    id: "bi",
+    title: "BI Analyst / BI Developer",
+    earlyTitle: "Business Intelligence Analyst · Data Analyst · Reporting Analyst",
+    midTitle: "Senior BI Analyst · BI Developer · Analytics Engineer",
+    fit: "HARD NO", fc: "rose", rga: 1,
+    salary: "$65–95k", retrain: "0 months — hireable already, that's the problem",
+    daily: [
+      "Build and maintain dashboards in Power BI, Tableau, or Looker",
+      "Write complex SQL queries to pull data from warehouses",
+      "Create automated reports for leadership teams",
+      "Work with stakeholders to understand what data they need",
+      "Clean and transform data (dbt, SQL, Python)",
+      "Document data definitions and data dictionaries",
+      "Troubleshoot broken reports and data pipeline failures"
+    ],
+    metrics: [
+      "Dashboard adoption rate",
+      "Data accuracy (zero tolerance for wrong numbers)",
+      "Report delivery speed",
+      "Data pipeline uptime",
+      "Query performance optimization"
+    ],
+    rgaText: "Indirect, supporting. BI work informs decisions that affect revenue, but the analyst rarely captures credit. You build the dashboard that shows the CMO conversion rates are down. The CMO makes the decision.",
+    whyText: "You literally did this at Accenture. Power BI dashboards, SQL pipelines, data reporting. You were trained and competent. And you left. Going back to BI is going backwards — in career trajectory AND energy. The most seductive trap because the MSBA makes you hireable for it quickly."
+  },
+  {
+    id: "da",
+    title: "Data Analyst",
+    earlyTitle: "Junior Data Analyst · Analytics Coordinator · Business Analyst (entry)",
+    midTitle: "Data Analyst · Senior Data Analyst · Analytics Manager",
+    fit: "HARD NO", fc: "rose", rga: 1,
+    salary: "$55–80k", retrain: "0 months — hireable immediately",
+    daily: [
+      "Pull data from databases using SQL to answer business questions",
+      "Build Excel models and pivot tables",
+      "Create visualizations in Tableau, Power BI, or Excel",
+      "Write reports summarizing what the data shows",
+      "Run ad-hoc analyses for business stakeholders",
+      "Track KPIs and flag anomalies",
+      "Support decision-making with quantitative evidence"
+    ],
+    metrics: [
+      "Accuracy of analysis (zero tolerance for errors)",
+      "Turnaround time on ad-hoc requests",
+      "Stakeholder satisfaction",
+      "Number of analyses completed"
+    ],
+    rgaText: "Lowest of any analytical role. You produce analysis. Others make decisions. The revenue link exists but is 2–3 steps removed from your daily work.",
+    whyText: "Same reason as BI — you did the adjacent version at Accenture and left. Pure DA work is narrower. Mostly SQL and Excel. The creative translation skills, storytelling, systems thinking — none of it is used. High hire probability given MSBA. Low life satisfaction in 12 months."
+  },
+  {
+    id: "ae",
+    title: "Account Executive",
+    earlyTitle: "Sales Development Representative (SDR) · Business Development Rep (BDR)",
+    midTitle: "Account Executive · Mid-Market AE · Enterprise AE",
+    fit: "WRONG TIMING", fc: "amber", rga: 5,
+    salary: "$60–80k base + $60–80k OTE. Top performers: $200k+", retrain: "Build influencing muscle first",
+    daily: [
+      "Make cold calls and send cold emails to prospects (20–50 per day)",
+      "Run discovery calls to understand prospect pain points",
+      "Deliver product demos",
+      "Write proposals and manage contract negotiations",
+      "Follow up relentlessly (7–12 touchpoints per prospect)",
+      "Update CRM (Salesforce) with every interaction",
+      "Hit weekly, monthly, and quarterly quotas",
+      "Handle rejection — most prospects say no"
+    ],
+    metrics: [
+      "Quota attainment — % of revenue target hit ($500k–$1.5M ARR typical)",
+      "Pipeline coverage — 3–4x quota in active pipeline at all times",
+      "Win rate — % of opportunities closed",
+      "Average deal size",
+      "Activities per day (calls made, emails sent, demos booked)"
+    ],
+    rgaText: "The most direct revenue link of any role. AEs own the number. You either hit quota or you don't. Compensation is directly tied to how much revenue you generate — typically 50% base, 50% commission/bonus.",
+    whyText: "Not because sales is beneath you. Because of sequencing. AE work is all Influencing and Executing — your two weakest CliftonStrengths zones (0/5 each). Putting someone into a quota-carrying role before building the muscle is like running a marathon before training for a 5K. Maybe in 3–5 years."
+  },
+  {
+    id: "fin",
+    title: "Financial Analyst",
+    earlyTitle: "Financial Analyst I · FP&A Analyst · Finance Associate",
+    midTitle: "Senior Financial Analyst · FP&A Manager",
+    fit: "HARD NO", fc: "rose", rga: 1,
+    salary: "$60–85k", retrain: "12+ months to be competitive",
+    daily: [
+      "Build financial models (DCF, LBO, three-statement models) in Excel",
+      "Prepare budget reports and variance analysis",
+      "Create presentations for finance leadership and board meetings",
+      "Track actuals vs. budget and explain variances",
+      "Process invoices and support month-end close",
+      "Build forecasting models"
+    ],
+    metrics: [
+      "Forecast accuracy (within X% of actuals)",
+      "Report delivery timeliness",
+      "Model accuracy",
+      "Budget variance explanation quality",
+      "Audit compliance"
+    ],
+    rgaText: "Supporting. Finance informs business decisions but doesn't generate revenue directly. FP&A helps allocate resources efficiently — but the analyst doesn't own the revenue number.",
+    whyText: "Zero overlap with any of your 27 skills, personality, interests, or Ikigai. The work is Excel modeling and variance reports. No storytelling, no content, no AI, no creativity. Starting from scratch in a field with no interest in it."
+  },
+  {
+    id: "consult",
+    title: "Management Consultant",
+    earlyTitle: "Business Analyst (Consulting) · Associate Consultant",
+    midTitle: "Consultant · Senior Consultant · Engagement Manager",
+    fit: "HARD NO", fc: "rose", rga: 3,
+    salary: "$90–110k base (60–80hr weeks)", retrain: "N/A — you already did this",
+    daily: [
+      "Build PowerPoint decks (4–6 hours per day of slide building)",
+      "Conduct stakeholder interviews at client sites",
+      "Analyze data and synthesize findings into recommendations",
+      "Travel Monday–Thursday every week to client locations",
+      "Prepare for and run client workshops",
+      "Write detailed reports and strategy documents",
+      "Work 60–80 hours per week during intense project phases"
+    ],
+    metrics: [
+      "Client satisfaction scores",
+      "Utilization rate (% of time billed to clients)",
+      "Project delivery quality",
+      "Promotion velocity (up-or-out culture)",
+      "Revenue contribution at senior levels"
+    ],
+    rgaText: "High at senior levels — partners own multi-million dollar client relationships. Junior level: you're a billable resource at $200–400/hr to clients, but your personal comp is $90–110k. The firm captures most of the value you create.",
+    whyText: "You did Accenture. You know this world. The travel, the slide decks, the billable hours model. The creator path requires building an audience, shipping content consistently, showing up publicly. 60–80 hour consulting weeks destroy all of that."
+  },
+  {
+    id: "ops",
+    title: "Operations Manager",
+    earlyTitle: "Operations Coordinator · Business Operations Associate",
+    midTitle: "Operations Manager · Sr. Operations Manager",
+    fit: "HARD NO", fc: "rose", rga: 1,
+    salary: "$65–90k", retrain: "N/A",
+    daily: [
+      "Manage daily business operations — logistics, vendor relationships, process documentation",
+      "Build and maintain SOPs (Standard Operating Procedures)",
+      "Track operational KPIs and flag inefficiencies",
+      "Hire and manage operations staff",
+      "Coordinate between departments on process issues",
+      "Handle vendor contracts and negotiations"
+    ],
+    metrics: [
+      "Operational efficiency (cost per unit, throughput time)",
+      "Error rate and defect rate in processes",
+      "Team productivity metrics",
+      "Budget adherence",
+      "Process improvement outcomes"
+    ],
+    rgaText: "Indirect — operations reduces costs and improves efficiency, which protects margin. Not a revenue-generating function directly.",
+    whyText: "You build Notion systems because they enable creative work — not because you love operations. 0/5 Executing themes means structure without creative output drains you fast."
+  },
+  {
+    id: "it",
+    title: "IT Systems Administrator",
+    earlyTitle: "IT Support Specialist · Help Desk Technician · Systems Administrator I",
+    midTitle: "IT Systems Administrator · Senior Sysadmin · IT Manager",
+    fit: "HARD NO", fc: "rose", rga: 1,
+    salary: "$55–80k", retrain: "N/A",
+    daily: [
+      "Maintain servers, networks, and cloud infrastructure",
+      "Troubleshoot hardware and software issues for employees",
+      "Manage user accounts, permissions, and security",
+      "Install and configure software across the organization",
+      "Monitor system uptime and performance",
+      "Handle security patches and updates"
+    ],
+    metrics: [
+      "System uptime (99.9%+ target)",
+      "Ticket resolution time",
+      "Security incident rate",
+      "User satisfaction with IT support"
+    ],
+    rgaText: "Cost center, not revenue generator. IT keeps the lights on. Essential, but no direct link to revenue creation.",
+    whyText: "Zero alignment. No storytelling, no creativity, no content, no human impact at scale. The furthest possible role from your Ikigai and Pathway 3."
+  }
+];
+
+const NEUTRAL = [
+  {
+    id: "pm",
+    title: "Product Manager",
+    earlyTitle: "Associate Product Manager (APM) · Product Analyst",
+    midTitle: "Product Manager · Senior Product Manager",
+    fit: "CONDITIONAL", fc: "amber", rga: 4,
+    salary: "$90–130k", condition: "After 2–3 years as PMM",
+    daily: [
+      "Write PRDs defining what gets built and why",
+      "Run sprint planning and backlog grooming with engineering teams",
+      "Conduct user research and synthesize into feature priorities",
+      "Define success metrics for every feature before it ships",
+      "Review designs and provide product feedback",
+      "Manage roadmap and communicate priorities to stakeholders",
+      "Analyze usage data to inform next bets"
+    ],
+    metrics: [
+      "Feature adoption rate",
+      "Time-to-market",
+      "NPS and CSAT",
+      "Revenue impact of shipped features",
+      "Roadmap delivery accuracy"
+    ],
+    rgaText: "High — PM is the closest non-engineering role to product revenue. Features you prioritize become revenue. Good PMs have compounding impact on ARR.",
+    whyText: "PM is intellectually aligned — systems thinking, user empathy, research synthesis. But pure PM work removes creative expression. Most PM roles require 2–3 years of PM experience. PMM is more accessible NOW. PM is a potential lateral move 2–3 years into a PMM career."
+  },
+  {
+    id: "uxr",
+    title: "UX Researcher",
+    earlyTitle: "User Research Associate · UX Research Coordinator · Research Ops Specialist",
+    midTitle: "UX Researcher · Senior UX Researcher · User Insights Lead",
+    fit: "CONDITIONAL", fc: "amber", rga: 2,
+    salary: "$75–105k", condition: "Only at a company you love",
+    daily: [
+      "Plan and run user research studies (interviews, usability tests, surveys)",
+      "Recruit research participants and manage research panels",
+      "Synthesize qualitative and quantitative data into insights",
+      "Write research reports and present findings to product and design teams",
+      "Maintain a research repository",
+      "Run competitive UX analysis"
+    ],
+    metrics: [
+      "Research utilization rate (how many studies actually inform decisions)",
+      "Participant satisfaction",
+      "Time-to-insight",
+      "Research coverage (% of product decisions backed by research)"
+    ],
+    rgaText: "Indirect — research informs decisions that affect product direction and user satisfaction. Better UX reduces churn. The revenue link is real but 3–4 steps removed.",
+    whyText: "Your empathy, interviewing instinct, and synthesis skills are genuinely strong here. But it's narrow — mostly interviews and reports. Content creation, storytelling, and visual skills go unused. Take this only at a company you love if nothing else opens."
+  },
+  {
+    id: "brand",
+    title: "Brand Manager",
+    earlyTitle: "Brand Coordinator · Brand Specialist · Marketing Coordinator",
+    midTitle: "Brand Manager · Senior Brand Manager · Brand Strategist",
+    fit: "CONDITIONAL", fc: "amber", rga: 2,
+    salary: "$65–90k", condition: "Only if PMM isn't available",
+    daily: [
+      "Own brand guidelines and enforce consistency across all channels",
+      "Manage brand campaigns from brief to launch",
+      "Work with agencies on brand creative",
+      "Track brand health metrics (awareness, sentiment, recall)",
+      "Manage brand partnerships and sponsorships",
+      "Review all external content for brand compliance"
+    ],
+    metrics: [
+      "Brand awareness (% of target market who recognizes the brand)",
+      "Brand sentiment (positive/negative/neutral)",
+      "Share of voice vs. competitors",
+      "Brand consistency score across channels"
+    ],
+    rgaText: "Long cycle, hard to attribute. Brand investment takes 12–24 months to show up in revenue metrics. Brand managers often struggle to prove direct revenue impact, which makes the role vulnerable during budget cuts.",
+    whyText: "Strong creative and aesthetic alignment (VIA #1, visual storytelling skills). But Brand Manager at large companies is slow, bureaucratic, and agency-management heavy. At a startup it blurs into PMM anyway. Pursue PMM instead."
+  },
+  {
+    id: "social",
+    title: "Social Media Manager",
+    earlyTitle: "Social Media Coordinator · Community Manager · Social Media Specialist",
+    midTitle: "Social Media Manager · Senior Social Media Manager",
+    fit: "LOW FIT", fc: "rose", rga: 2,
+    salary: "$45–65k", condition: "Only with strategy scope negotiated",
+    daily: [
+      "Create and schedule content across LinkedIn, Instagram, TikTok, X",
+      "Engage with comments and community in real-time",
+      "Monitor brand mentions and respond",
+      "Report on follower growth, reach, and engagement weekly",
+      "Run social media ad campaigns",
+      "Stay current on platform algorithm changes"
+    ],
+    metrics: [
+      "Follower growth rate",
+      "Engagement rate (likes/comments/shares per post)",
+      "Reach and impressions",
+      "Click-through rate to website"
+    ],
+    rgaText: "Low-to-medium. Social can drive brand awareness and inbound leads but it's rarely measured as a direct revenue driver at most companies.",
+    whyText: "You have the skills. You don't have the interest in doing this for someone else's brand at this salary. Social Media Manager is the execution layer of content — create, schedule, respond, repeat. No strategy ownership. It's PMM's output without PMM's input."
+  },
+  {
+    id: "ba",
+    title: "Business Analyst",
+    earlyTitle: "Business Analyst I · Junior Business Analyst · Systems Analyst (entry)",
+    midTitle: "Business Analyst · Senior Business Analyst · Business Systems Analyst",
+    fit: "DOOR OPENER", fc: "amber", rga: 2,
+    salary: "$65–85k", condition: "Door-opener only, not a destination",
+    daily: [
+      "Gather requirements from business stakeholders",
+      "Document current-state processes and identify gaps",
+      "Write functional specifications for technology projects",
+      "Facilitate workshops to align stakeholders",
+      "Create process flow diagrams and use case documentation",
+      "Bridge business teams and technical teams"
+    ],
+    metrics: [
+      "Requirements accuracy",
+      "Stakeholder satisfaction",
+      "Project delivery timeline adherence",
+      "Documentation completeness"
+    ],
+    rgaText: "Indirect — BA work enables projects that drive revenue. Supporting role in the value chain.",
+    whyText: "Your systems thinking, synthesis skills, and workshop facilitation from Accenture are applicable. But BA work is process documentation and requirements gathering — functional but not energizing. Take only inside a company you love as a door-opener."
+  },
+  {
+    id: "id",
+    title: "Instructional Designer",
+    earlyTitle: "Learning & Development Specialist · eLearning Developer · Training Coordinator",
+    midTitle: "Instructional Designer · Senior Instructional Designer · L&D Manager",
+    fit: "INCOME BRIDGE", fc: "amber", rga: 2,
+    salary: "$55–75k", condition: "Only if PMM/DevRel stalls past 6 months",
+    daily: [
+      "Design e-learning courses using tools like Articulate 360",
+      "Write learning objectives and assessment questions",
+      "Create storyboards for video-based learning",
+      "Collaborate with subject matter experts to extract knowledge",
+      "Build SCORM-compliant modules for LMS platforms",
+      "Measure learning outcomes and course effectiveness"
+    ],
+    metrics: [
+      "Course completion rates",
+      "Assessment pass rates",
+      "Learner satisfaction scores",
+      "Knowledge retention metrics"
+    ],
+    rgaText: "Indirect — training improves employee performance which improves business outcomes. In customer-facing training, better educated customers reduce churn and increase product adoption.",
+    whyText: "Teaching instinct is real. But Instructional Designer is a specific, narrow execution of that instinct — you'd be building SCORM modules, not reaching thousands. Take only if PMM/DevRel/Creative Strategist stalls past 6 months. Use it to fund the creator track."
+  }
+];
+
+const ALL_TABLE = [
+  { t: "PMM at AI/SaaS Company",       early: "Product Marketing Associate",           cat: "✅ YES",    rga: "●●●●○", sal: "$70–130k",   take: "Always apply" },
+  { t: "Developer Advocate",            early: "Developer Relations Associate",         cat: "✅ YES",    rga: "●●●●○", sal: "$90–140k",   take: "Always apply" },
+  { t: "Creative Strategist",           early: "Creative Strategy Associate",           cat: "✅ YES",    rga: "●●●●○", sal: "$65–90k",    take: "Always apply" },
+  { t: "AI Content Strategist",         early: "AI Content Writer · AI Edu Specialist", cat: "✅ YES",    rga: "●●●●●", sal: "Unlimited",  take: "Always build" },
+  { t: "Fractional Creative Strategist",early: "Freelance Brand Consultant",            cat: "✅ YES",    rga: "●●●●●", sal: "$50–150/hr", take: "Start this week" },
+  { t: "Growth Marketing Manager",      early: "Growth Marketing Analyst",             cat: "✅ YES",    rga: "●●●●●", sal: "$75–110k",   take: "Apply" },
+  { t: "AI Customer Success Manager",   early: "Customer Success Associate",           cat: "✅ YES",    rga: "●●●●○", sal: "$70–100k",   take: "Apply" },
+  { t: "Content Marketing Manager",     early: "Content Marketing Coordinator",        cat: "✅ YES",    rga: "●●●○○", sal: "$60–85k",    take: "Apply" },
+  { t: "Customer Education Manager",    early: "Customer Education Specialist",        cat: "✅ YES",    rga: "●●●○○", sal: "$65–90k",    take: "Apply" },
+  { t: "Technical Writer (AI Co.)",     early: "Documentation Specialist",             cat: "✅ YES",    rga: "●●○○○", sal: "$65–85k",    take: "Great company only" },
+  { t: "Product Manager",               early: "Associate Product Manager (APM)",      cat: "⚠️ COND",  rga: "●●●●○", sal: "$90–130k",   take: "After PMM experience" },
+  { t: "Brand Manager",                 early: "Brand Coordinator",                    cat: "⚠️ COND",  rga: "●●○○○", sal: "$65–90k",    take: "If PMM unavailable" },
+  { t: "UX Researcher",                 early: "User Research Associate",              cat: "⚠️ COND",  rga: "●●○○○", sal: "$75–105k",   take: "Love the company" },
+  { t: "Business Analyst",              early: "Business Analyst I",                   cat: "⚠️ COND",  rga: "●●○○○", sal: "$65–85k",    take: "Door-opener only" },
+  { t: "Instructional Designer",        early: "L&D Specialist",                       cat: "⚠️ COND",  rga: "●●○○○", sal: "$55–75k",    take: "Income bridge only" },
+  { t: "Social Media Manager",          early: "Social Media Coordinator",             cat: "⚠️ LOW",   rga: "●●○○○", sal: "$45–65k",    take: "Only with strategy scope" },
+  { t: "Data Analyst",                  early: "Junior Data Analyst",                  cat: "❌ NO",     rga: "●○○○○", sal: "$55–80k",    take: "Never" },
+  { t: "BI Analyst / BI Developer",     early: "Business Intelligence Analyst",        cat: "❌ NO",     rga: "●○○○○", sal: "$65–95k",    take: "Never" },
+  { t: "Data Scientist",                early: "Data Science Associate",               cat: "❌ NO",     rga: "●●○○○", sal: "$100–140k",  take: "Never" },
+  { t: "Machine Learning Engineer",     early: "Junior ML Engineer",                   cat: "❌ NO",     rga: "●●●○○", sal: "$120–160k",  take: "Never" },
+  { t: "AI Software Engineer",          early: "Software Engineer I (AI/ML)",          cat: "❌ NO",     rga: "●●●●○", sal: "$120–160k",  take: "Never" },
+  { t: "Account Executive",             early: "SDR · BDR",                            cat: "❌ TIMING", rga: "●●●●●", sal: "$60–80k+OTE",take: "Maybe in 3–5 years" },
+  { t: "Financial Analyst",             early: "Financial Analyst I",                  cat: "❌ NO",     rga: "●○○○○", sal: "$60–85k",    take: "Never" },
+  { t: "Management Consultant",         early: "Business Analyst (Consulting)",        cat: "❌ NO",     rga: "●●●○○", sal: "$90–110k",   take: "Already did it" },
+  { t: "Operations Manager",            early: "Operations Coordinator",               cat: "❌ NO",     rga: "●○○○○", sal: "$65–90k",    take: "Never" },
+  { t: "IT Systems Administrator",      early: "IT Support Specialist",                cat: "❌ NO",     rga: "●○○○○", sal: "$55–80k",    take: "Never" },
+];
+
+const SKILLS_2030 = {
+  obvious: [
+    { n: "AI Prompt Engineering & Orchestration", d: "Directing AI systems to produce useful output — not tool-using, system-directing.", lv: "Building", lk: "build" },
+    { n: "Data Literacy",            d: "Reading dashboards, interpreting metrics, asking the right questions of data.", lv: "Strong", lk: "strong" },
+    { n: "Cybersecurity Fundamentals", d: "Every company needs this. Most employees don't have it. Will become baseline requirement.", lv: "Weak", lk: "weak" },
+    { n: "Video Creation",           d: "Short-form content is now a professional skill, not just a hobby skill.", lv: "Strong", lk: "strong" },
+    { n: "Personal Brand Building",  d: "LinkedIn/YouTube/Substack IS your resume by 2028.", lv: "Building", lk: "build" },
+  ],
+  nonObvious: [
+    { n: "AI Taste",                    d: "Knowing when AI output is wrong, mediocre, or off-brand — and fixing it with judgment, not re-prompting. The quality gate for every AI-assisted workflow.", lv: "Building", lk: "build" },
+    { n: "Human-AI Workflow Design",    d: "Knowing where to put a human in a loop and where to remove them. You already did this at Wayfair with n8n — 40% time savings.", lv: "Proven", lk: "proven" },
+    { n: "Synthetic Media Literacy",    d: "Detecting and verifying what is real vs. AI-generated. Legal, journalism, PR all need this. By 2027 it's a hiring requirement for anyone touching public-facing content.", lv: "Early", lk: "early" },
+    { n: "Audience Architecture",       d: "Strategically building a specific audience that compounds over time. Worth more than most mid-size company marketing budgets.", lv: "Course-complete (PTYA)", lk: "course" },
+    { n: "Emotional Precision",         d: "Writing or speaking so a specific person feels specifically understood. Not warm. Precise. More valuable as AI handles generic communication.", lv: "Natural Strength", lk: "natural" },
+    { n: "Multi-Modal Storytelling",    d: "Fluency across text, video, audio, and interactive formats — knowing which story requires which medium. Rare now. Superpower by 2027.", lv: "Active (Bino + video + writing)", lk: "proven" },
+    { n: "Trust Brokering",             d: "Being the person whose recommendation actually converts because your judgment has a proven track record. Built over years, not a course.", lv: "Early Building", lk: "early" },
+  ],
+  future: [
+    { e: "NOW", ek: "now", n: "Developer Advocate / AI Evangelist", d: "Explaining AI products to technical and non-technical audiences. Companies hiring faster than supply exists." },
+    { e: "NOW", ek: "now", n: "Prompt Architect", d: "Designing reusable prompt systems and AI workflows at enterprise scale. Not a ChatGPT user. A systems designer." },
+    { e: "NOW", ek: "now", n: "AI Ethics & Trust Officer", d: "Regulatory pressure is forcing this role into every company over $100M revenue. Combines legal, comms, and AI fluency." },
+    { e: "EMERGING", ek: "emerging", n: "AI Translator", d: "Sits between engineering teams building AI and business stakeholders using it. Speaks both languages fluently. By 2027: $150k+ floor." },
+    { e: "EMERGING", ek: "emerging", n: "Synthetic Media Auditor", d: "Verifies AI-generated content for legal, compliance, journalism, and brand contexts. No degree path exists yet. First movers own the space." },
+    { e: "EMERGING", ek: "emerging", n: "Human Performance Designer", d: "Uses AI tools to design better workflows, decision systems, and learning paths for teams. Combines instructional design, AI ops, and behavioral science." },
+    { e: "2027+", ek: "future", n: "Personal AI Manager", d: "Manages another person's AI stack the way a chief of staff manages their calendar. High-net-worth individuals will pay $80–150k/yr." },
+    { e: "2027+", ek: "future", n: "Audience Architect", d: "Hired specifically to build a company's owned audience (newsletter, YouTube, community) as a standalone revenue-generating asset." },
+    { e: "2028+", ek: "future", n: "AI Brand Strategist", d: "As every company deploys AI-generated content at scale, brand differentiation collapses. This person protects the soul of the brand against AI homogenization." },
+    { e: "2028+", ek: "future", n: "Reality Calibration Specialist", d: "Works inside media, legal, and education to certify what is real. Part forensics, part communication, part policy." },
+  ]
+};
+
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
+
+const FC_STYLES = {
+  mint:   { bg: "rgba(30,122,99,0.08)",   border: "rgba(30,122,99,0.25)",   color: "#1e7a63" },
+  sage:   { bg: "rgba(58,107,74,0.08)",   border: "rgba(58,107,74,0.25)",   color: "#3a6b4a" },
+  amber:  { bg: "rgba(138,96,24,0.08)",   border: "rgba(138,96,24,0.25)",   color: "#8a6018" },
+  rose:   { bg: "rgba(154,64,64,0.08)",   border: "rgba(154,64,64,0.25)",   color: "#9a4040" },
+};
+
+function Dots({ n, max = 5 }) {
+  return (
+    <div className="rga-dots">
+      {Array.from({ length: max }).map((_, i) => (
+        <div key={i} className={`dot ${i < n ? "on" : "off"}`} />
+      ))}
+    </div>
+  );
+}
+
+function FitTag({ fit, fc }) {
+  const s = FC_STYLES[fc] || FC_STYLES.amber;
+  return (
+    <span className="fit-tag" style={{ background: s.bg, borderColor: s.border, color: s.color }}>
+      {fit}
+    </span>
+  );
+}
+
+function RoleCard({ role, type }) {
+  const [open, setOpen] = useState(false);
+  const wc = type === "yes" ? "why-yes" : type === "no" ? "why-no" : "why-neutral";
+  return (
+    <div className={`card ${open ? "open" : ""}`}>
+      <div className="card-hd" onClick={() => setOpen(o => !o)}>
+        <div className="card-top">
+          <div className="card-name">{role.title}</div>
+          <FitTag fit={role.fit} fc={role.fc} />
+        </div>
+        <div className="card-titles-row">
+          <span className="title-chip">
+            <span className="title-chip-label">Entry</span>
+            {role.earlyTitle}
+          </span>
+          <span className="title-chip">
+            <span className="title-chip-label">Mid</span>
+            {role.midTitle}
+          </span>
+        </div>
+        <div className="card-meta">
+          <div className="meta-item">
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--muted)" }}>RGA</span>
+            <Dots n={role.rga} />
+          </div>
+          <div className="meta-item">
+            <span className="meta-sal">{role.salary}</span>
+          </div>
+          {(role.timeline || role.retrain || role.condition) && (
+            <div className="meta-item">
+              <span className="meta-time">{role.timeline || role.retrain || role.condition}</span>
+            </div>
+          )}
+        </div>
+        <div className="expand-hint">{open ? "▲ collapse" : "▼ full breakdown"}</div>
+      </div>
+
+      {open && (
+        <div className="card-body">
+          <div>
+            <div className="subsec-title">What you actually do daily</div>
+            <ul className="blist">{role.daily.map((d, i) => <li key={i}>{d}</li>)}</ul>
+          </div>
+          <div>
+            <div className="subsec-title">Metrics you're measured on</div>
+            <ul className="blist">{role.metrics.map((m, i) => <li key={i}>{m}</li>)}</ul>
+          </div>
+          <div>
+            <div className="subsec-title">Revenue link (RGA)</div>
+            <div className="rga-callout"><p>{role.rgaText}</p></div>
+          </div>
+          <div>
+            <div className="subsec-title">
+              {type === "yes" ? "Why this fits Sidd" : type === "no" ? "Why this is wrong for Sidd" : "The condition"}
+            </div>
+            <div className={`why-callout ${wc}`}><p>{role.whyText || role.condition}</p></div>
+          </div>
+          {(role.takeIf || role.retrain) && (
+            <div>
+              <div className="subsec-title">{role.takeIf ? "Take if" : "Retrain cost"}</div>
+              <span className="chip">{role.takeIf || role.retrain}</span>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── TABS ─────────────────────────────────────────────────────────────────────
+
+function YesTab() {
+  return (
+    <div>
+      <div className="whisper">
+        <div className="whisper-icon">💬</div>
+        <div>
+          <div className="whisper-lbl">Whisper Test — from your Notion</div>
+          <div className="whisper-txt">"I want to stop preparing and just go."</div>
+        </div>
+      </div>
+      <div className="sec-header">
+        <div className="sec-label">001 · Say Yes</div>
+        <div className="sec-title">10 YES ROLES</div>
+        <div className="sec-desc">Every role uses 12–16 of your 27 skills. The top 4 are best fit. The Fractional role starts this week — Wedify is already client #1.</div>
+      </div>
+      <div className="role-grid">
+        {YES.map(r => <RoleCard key={r.id} role={r} type="yes" />)}
+      </div>
+      <div className="devils">
+        <div className="devils-title">😈 Devil's Advocate</div>
+        <p>Every role on this list is a job that someone else controls. They can fire you, change the scope, or get acquired. The only roles where you own the asset are Fractional Creative Strategist and AI Content Strategist (creator path). The smart play: one job from the list for income and stability, while building the freelance/creator work on the side. That's your Two-Track System from the Ikigai doc. Both tracks have different RGA timelines and different ownership structures. Run them simultaneously.</p>
+      </div>
+    </div>
+  );
+}
+
+function NoTab() {
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">002 · Say No</div>
+        <div className="sec-title">10 ANTI-ROLES</div>
+        <div className="sec-desc">High demand does not equal right fit. These roles attract the most competition. You'd need 18–24 months to be competitive in most of them. You can get a Yes-role in 60 days.</div>
+      </div>
+      <div className="role-grid">
+        {NO.map(r => <RoleCard key={r.id} role={r} type="no" />)}
+      </div>
+      <div className="devils">
+        <div className="devils-title">😈 Devil's Advocate</div>
+        <p>The anti-role path isn't completely wrong. If you spent 18 months going deep on AI Engineering — specifically LLM fine-tuning — and paired it with your existing content and communication skills, you could become a rare hybrid that makes $250k+. BUT: that only works if you commit 100% for 18 months straight, stop creative projects, stop content, stop photography. You won't. That's not an insult — it's data from your own history. The hybrid path requires mono-focus you haven't demonstrated yet. Know yourself first.</p>
+      </div>
+    </div>
+  );
+}
+
+function NeutralTab() {
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">003 · Conditional</div>
+        <div className="sec-title">6 NEUTRAL ROLES</div>
+        <div className="sec-desc">Not hard nos. Conditional — worth doing in specific circumstances only. Read the condition on each one carefully before applying.</div>
+      </div>
+      <div className="role-grid">
+        {NEUTRAL.map(r => <RoleCard key={r.id} role={r} type="neutral" />)}
+      </div>
+      <div className="devils">
+        <div className="devils-title">😈 Devil's Advocate</div>
+        <p>Product Manager is the most underrated YES role on this list — it's marked Conditional because the path there requires going through PMM first. In 3 years, if you become a strong PMM at an AI company, the lateral to PM is natural, the salary jumps $30–40k, and you gain direct power over what gets built. This is Pathway 3 in corporate form. Don't ignore it entirely — just don't pursue it prematurely.</p>
+      </div>
+    </div>
+  );
+}
+
+function VisionTab() {
+  const lkMap = { strong: "lv-strong", build: "lv-build", proven: "lv-proven", natural: "lv-natural", early: "lv-early", weak: "lv-weak", course: "lv-course" };
+  const ekMap = { now: "ex-now", emerging: "ex-emerging", future: "ex-future" };
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">004 · 2030 Vision</div>
+        <div className="sec-title">SKILLS THAT MATTER</div>
+        <div className="sec-desc">AI is eating the bottom of the technical skill stack. The moat is growing for people who can direct AI, contextualize its output, communicate what it built, and convince humans to trust it. That's you.</div>
+      </div>
+      <div className="skills-grid">
+        <div>
+          <div className="col-title">The Obvious 5</div>
+          {SKILLS_2030.obvious.map((s, i) => (
+            <div key={i} className="sk">
+              <div className="sk-top">
+                <div className="sk-name">{s.n}</div>
+                <span className={`sk-lv ${lkMap[s.lk]}`}>{s.lv}</span>
+              </div>
+              <div className="sk-desc">{s.d}</div>
+            </div>
+          ))}
+        </div>
+        <div>
+          <div className="col-title">The Non-Obvious 7</div>
+          {SKILLS_2030.nonObvious.map((s, i) => (
+            <div key={i} className="sk">
+              <div className="sk-top">
+                <div className="sk-name">{s.n}</div>
+                <span className={`sk-lv ${lkMap[s.lk]}`}>{s.lv}</span>
+              </div>
+              <div className="sk-desc">{s.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ marginTop: "36px" }}>
+        <div className="sec-label" style={{ marginBottom: "8px" }}>Roles that will stand out by 2030</div>
+        <div className="future-grid">
+          {SKILLS_2030.future.map((r, i) => (
+            <div key={i} className="future-card">
+              <div className={`exists-tag ${ekMap[r.ek]}`}>{r.e}</div>
+              <div className="future-name">{r.n}</div>
+              <div className="future-desc">{r.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="devils" style={{ marginTop: "30px" }}>
+        <div className="devils-title">😈 Devil's Advocate</div>
+        <p>"Soft skills" is a bad frame. It implies secondary. The better frame is JUDGMENT SKILLS — the ability to make good decisions with incomplete information in front of other humans. Those are going up in value, not down. AI has no skin in the game. You do. That asymmetry is durable. You were accidentally building the right skills for the AI era while everyone else was trying to learn Python.</p>
+      </div>
+    </div>
+  );
+}
+
+function TableTab() {
+  const [f, setF] = useState("all");
+  const rows = f === "all" ? ALL_TABLE
+    : f === "yes"     ? ALL_TABLE.filter(r => r.cat.startsWith("✅"))
+    : f === "no"      ? ALL_TABLE.filter(r => r.cat.startsWith("❌"))
+    : ALL_TABLE.filter(r => r.cat.startsWith("⚠️"));
+
+  const catColor = c => c.startsWith("✅") ? "var(--mint)" : c.startsWith("❌") ? "var(--rose)" : "var(--amber)";
+
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">005 · Full Map</div>
+        <div className="sec-title">ALL 26 ROLES</div>
+        <div className="sec-desc">Every role ranked. No ambiguity. Print this, show your dad the table, and stop entertaining the anti-roles.</div>
+      </div>
+      <div className="filter-row">
+        {[["all","All 26"],["yes","Yes (10)"],["neutral","Neutral (6)"],["no","No (10)"]].map(([id, lbl]) => (
+          <button key={id} className={`fbtn ${f === id ? "on" : ""}`} onClick={() => setF(id)}>{lbl}</button>
+        ))}
+      </div>
+      <div className="tbl-wrap">
+        <table className="tbl">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Entry Title (Market)</th>
+              <th>Category</th>
+              <th>RGA</th>
+              <th>Salary</th>
+              <th>Take if</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => (
+              <tr key={i}>
+                <td className="tbl-name">{r.t}</td>
+                <td className="tbl-titles">{r.early}</td>
+                <td className="tbl-cat" style={{ color: catColor(r.cat) }}>{r.cat}</td>
+                <td className="tbl-rga">{r.rga}</td>
+                <td className="tbl-sal">{r.sal}</td>
+                <td className="tbl-take">{r.take}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ─── APP ──────────────────────────────────────────────────────────────────────
+
+export default function App() {
+  const [tab, setTab] = useState("yes");
+  const TABS = [
+    { id: "yes",     lbl: "Yes Roles",   cnt: 10 },
+    { id: "no",      lbl: "Anti-Roles",  cnt: 10 },
+    { id: "neutral", lbl: "Conditional", cnt: 6  },
+    { id: "vision",  lbl: "2030 Vision", cnt: null },
+    { id: "table",   lbl: "Full Map",    cnt: 26 },
+  ];
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: FONT_IMPORT + css }} />
+      <div>
+        <header className="header">
+          <div>
+            <div className="eyebrow">Sidd Chauhan · Career Intelligence · April 2026</div>
+            <h1 className="h-title">ROLE <em>CLARITY</em> MAP</h1>
+            <div className="h-sub">27 skills · 102 certifications · 3 degrees · 5 work experiences · Ikigai analysis</div>
+          </div>
+          <div className="header-stats">
+            <div className="stat"><div className="stat-n">10</div><div className="stat-l">Yes Roles</div></div>
+            <div className="stat"><div className="stat-n">10</div><div className="stat-l">Hard Nos</div></div>
+            <div className="stat"><div className="stat-n">6</div><div className="stat-l">Conditionals</div></div>
+          </div>
+        </header>
+        <nav className="nav">
+          {TABS.map(t => (
+            <button key={t.id} className={`nav-btn ${tab === t.id ? "active" : ""}`} onClick={() => setTab(t.id)}>
+              {t.lbl}
+              {t.cnt && <span className="nav-cnt">{t.cnt}</span>}
+            </button>
+          ))}
+        </nav>
+        <main className="content">
+          {tab === "yes"     && <YesTab />}
+          {tab === "no"      && <NoTab />}
+          {tab === "neutral" && <NeutralTab />}
+          {tab === "vision"  && <VisionTab />}
+          {tab === "table"   && <TableTab />}
+        </main>
+      </div>
+    </>
+  );
+}
