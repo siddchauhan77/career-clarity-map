@@ -1316,6 +1316,207 @@ const CRAFT_SKILLS = [
   },
 ];
 
+// ─── DREAM 100 TAB ────────────────────────────────────────────────────────────
+
+const D100_STEPS = [
+  {
+    n: "01", label: "Build the List",
+    color: "mint",
+    what: "25 target companies × 4 contacts each = 100 people. At each company: 1 hiring manager, 2 team members (future peers), 1 connector (senior adjacent). Skip recruiters — that's what everyone else does.",
+    action: "Open your Yes Roles tab. Pick your top 10 companies. Find 4 people at each using LinkedIn. Log them.",
+    time: "2–3 hrs once",
+  },
+  {
+    n: "02", label: "Warm Up (No Ask Yet)",
+    color: "sage",
+    what: "2–3 weeks of genuine engagement before any cold message. Follow on LinkedIn. Like and comment on their posts with real insight — not 'Great post!' Become a familiar name before you're a stranger asking for something.",
+    action: "For each contact: follow → engage with 3–5 posts over 2 weeks → note what they care about. This is research, not performance.",
+    time: "15–20 min/day for 2–3 weeks",
+  },
+  {
+    n: "03", label: "Value-First Opening",
+    color: "amber",
+    what: "First message asks for nothing. Reference something specific — a post, a project, a quote from their interview. Give before you take. The bar is low because everyone else leads with 'Can you refer me?'",
+    action: "Write one message per contact. Cite something specific. End with an open question about their work, not a job ask.",
+    time: "15 min per message",
+  },
+  {
+    n: "04", label: "Proof of Work Drop",
+    color: "slate",
+    what: "This is Belcak's real differentiator. Create something for the company — a content gap audit, competitor teardown, positioning analysis, product critique. Send it as a gift. It proves your skills AND gives them value. Nobody else does this.",
+    action: "Use your Tier 1 skill (Translating complexity → clarity) to build one Proof of Work per target company. A 1-pager. A loom video. A framework doc. Doesn't need to be long — needs to be specific and sharp.",
+    time: "2–3 hrs per Proof of Work",
+  },
+  {
+    n: "05", label: "The Referral Ask",
+    color: "lavender",
+    what: "Only after 2–3 real exchanges. Ask to learn about their experience on the team — not for a referral directly. If the conversation is warm, the referral offer will come naturally. Team referrals turn you from an application into a pre-vetted candidate.",
+    action: "'I'm actively exploring roles at [Company] and our conversations have made me more excited about the team. Would you be open to a 20-min chat about what it's like there?' Send this only once the relationship is real.",
+    time: "Send when warm",
+  },
+  {
+    n: "06", label: "Track & Follow Up",
+    color: "rose",
+    what: "70% will ghost. That's the process, not a failure. Track every contact: Cold → Warming → Replied → In Convo → Referred → Applied. Follow up once after no response (7 days). Then move on and use your buffer contacts.",
+    action: "Build a simple tracker: Company / Contact / Title / Status / Last Touch / Next Step. Update it weekly. The system beats motivation every time.",
+    time: "30 min/week to maintain",
+  },
+];
+
+const D100_POW = [
+  {
+    role: "PMM / Content Marketing Manager",
+    idea: "Content Gap Audit",
+    what: "Pull their last 20 blog posts. Identify 5 topics competitors cover that they don't. Show the traffic opportunity for each. Deliver as a 1-page doc with a clear header: 'Content Gaps I Found at [Company].' Takes 2 hours. Nobody does this.",
+    skill: "Deep research + Translating complexity → clarity",
+    format: "1-page PDF or Notion doc",
+  },
+  {
+    role: "AI Content Strategist",
+    idea: "AI Content Workflow Teardown",
+    what: "Map their current public content cadence. Identify where AI could cut production time (repurposing, research, first drafts). Deliver a 5-step workflow showing exactly how. Your n8n and Make experience makes this credible, not theoretical.",
+    skill: "Systems architecture + AI automation",
+    format: "Visual workflow + short write-up",
+  },
+  {
+    role: "Creative Strategist / Brand",
+    idea: "Positioning + Messaging Critique",
+    what: "Audit their homepage, About page, and 3 recent LinkedIn posts. Identify 3 places where the message is unclear or inconsistent. Rewrite each one. Show before/after. This is the single highest-value deliverable for any marketing role.",
+    skill: "Writing + Translating complexity → clarity + Curation & taste",
+    format: "Side-by-side doc, 1–2 pages",
+  },
+  {
+    role: "Developer Advocate / Customer Education",
+    idea: "Competitor Docs Comparison",
+    what: "Pick their 2 main competitors. Compare their developer docs or knowledge base against the company's. Where is the competitor clearer? Where is there a feature explanation gap? Deliver as a table with specific improvement suggestions.",
+    skill: "Deep research + Framework creation",
+    format: "Comparison table + written summary",
+  },
+  {
+    role: "Fractional Strategist / AI Solutions Consultant",
+    idea: "The Quick Win Audit",
+    what: "Research their tech stack (job postings, LinkedIn, G2 reviews). Identify one process that's almost certainly manual that AI automation could fix. Write a 1-page brief: 'Here's a problem I spotted, here's the solution, here's what it would take.' Shows you think like a consultant from day one.",
+    skill: "AI automation + Competitive analysis + Systems architecture",
+    format: "1-page brief / Notion page",
+  },
+];
+
+const D100_MATH = [
+  { label: "Contacts Targeted", n: "100", sub: "25 companies × 4 people" },
+  { label: "Expected Replies", n: "~30", sub: "70% ghost rate is normal" },
+  { label: "Real Conversations", n: "~15", sub: "half of replies go somewhere" },
+  { label: "Referrals Generated", n: "5–8", sub: "from warm conversations" },
+  { label: "First-Round Interviews", n: "2–3", sub: "referrals bypass the ATS" },
+  { label: "Target: One Offer", n: "1", sub: "that's all you need" },
+];
+
+function Dream100Tab() {
+  const [step, setStep] = useState(null);
+  const [pow, setPow] = useState(null);
+  const C = TK_COLORS;
+
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">007 · Dream 100 · Austin Belcak Method</div>
+        <div className="sec-title">NETWORK INTO THE <em style={{ fontStyle: "normal", color: "var(--mint)" }}>JOB</em></div>
+        <div className="sec-desc">40–80% of roles are filled through referrals, never posted publicly. The Dream 100 forces you to build real relationships at 25 target companies before a role opens. Six steps. One system. Built specifically around your Tier 1 skills as the Proof of Work.</div>
+      </div>
+
+      {/* Math Strip */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "10px", marginBottom: "32px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "10px", padding: "18px 20px" }}>
+        {D100_MATH.map((m, i) => (
+          <div key={m.label} style={{ textAlign: "center", borderRight: i < 5 ? "1px solid var(--border)" : "none", paddingRight: i < 5 ? "10px" : 0 }}>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: "1.8rem", fontWeight: 800, color: "var(--mint)", lineHeight: 1 }}>{m.n}</div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "8px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)", marginTop: "4px" }}>{m.label}</div>
+            <div style={{ fontSize: "10px", color: "var(--muted2)", marginTop: "2px" }}>{m.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* 6-Step System */}
+      <div style={{ marginBottom: "8px" }}>
+        <div className="sec-label" style={{ marginBottom: "14px" }}>The 6-Step System</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          {D100_STEPS.map((s) => {
+            const c = C[s.color] || C.mint;
+            const isOpen = step === s.n;
+            return (
+              <div key={s.n} style={{ background: "var(--surface)", border: `1px solid var(--border)`, borderRadius: "10px", overflow: "hidden" }}>
+                <div onClick={() => setStep(isOpen ? null : s.n)} style={{ padding: "15px 20px", cursor: "pointer", display: "flex", alignItems: "center", gap: "16px" }}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", fontWeight: 700, color: c.accent, background: c.bg, border: `1px solid ${c.bd}`, borderRadius: "4px", padding: "3px 9px", flexShrink: 0 }}>{s.n}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontFamily: "var(--font-display)", fontSize: "14px", fontWeight: 700, color: "var(--text)" }}>{s.label}</div>
+                  </div>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", color: "var(--muted2)", background: "var(--surface2)", padding: "2px 7px", borderRadius: "3px", flexShrink: 0 }}>{s.time}</div>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--muted2)" }}>{isOpen ? "▲" : "▼"}</div>
+                </div>
+                {isOpen && (
+                  <div style={{ borderTop: "1px solid var(--border)", padding: "16px 20px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div>
+                      <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "6px" }}>What & Why</div>
+                      <div style={{ fontSize: "12.5px", color: "var(--text2)", lineHeight: "1.65" }}>{s.what}</div>
+                    </div>
+                    <div style={{ background: c.bg, border: `1px solid ${c.bd}`, borderRadius: "7px", padding: "14px" }}>
+                      <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: c.accent, marginBottom: "6px" }}>Your Action</div>
+                      <div style={{ fontSize: "12.5px", color: "var(--text)", lineHeight: "1.65" }}>{s.action}</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Proof of Work ideas */}
+      <div style={{ marginTop: "32px" }}>
+        <div className="sec-label" style={{ marginBottom: "6px" }}>Proof of Work — By Your Yes Roles</div>
+        <div style={{ fontSize: "12.5px", color: "var(--text2)", lineHeight: "1.6", marginBottom: "16px", maxWidth: "640px" }}>These are the deliverables to build for Step 4. Each one is designed around your Tier 1 skills — you already have the ability, you just need to aim it at a specific company.</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))", gap: "12px" }}>
+          {D100_POW.map((p) => (
+            <div key={p.role} onClick={() => setPow(pow === p.role ? null : p.role)} style={{ background: "var(--surface)", border: `1px solid ${pow === p.role ? "var(--mint-bd)" : "var(--border)"}`, borderRadius: "10px", padding: "16px 18px", cursor: "pointer", transition: "border-color 0.15s" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--mint)" }}>{p.role}</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", color: "var(--muted2)", background: "var(--surface2)", padding: "2px 6px", borderRadius: "3px" }}>{p.format}</div>
+              </div>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, color: "var(--text)", marginBottom: "6px" }}>{p.idea}</div>
+              <div style={{ fontSize: "11px", color: "var(--muted)", fontFamily: "var(--font-mono)" }}>Skill: {p.skill}</div>
+              {pow === p.role && (
+                <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid var(--border)", fontSize: "12.5px", color: "var(--text2)", lineHeight: "1.65" }}>{p.what}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Tracker template */}
+      <div style={{ marginTop: "32px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "10px", padding: "20px 24px" }}>
+        <div className="sec-label" style={{ marginBottom: "10px" }}>Tracker — Copy This Into Notion</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "1px", background: "var(--border)", borderRadius: "6px", overflow: "hidden", fontSize: "10px", fontFamily: "var(--font-mono)" }}>
+          {["Company", "Contact", "Title", "Status", "Last Touch", "Next Step", "Proof of Work"].map(h => (
+            <div key={h} style={{ background: "var(--surface2)", padding: "8px 10px", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "9px" }}>{h}</div>
+          ))}
+          {["Acme AI", "Jane Lee", "Sr. PMM", "Warming", "Apr 7", "Comment on post", "Content Gap Audit"].map((v, i) => (
+            <div key={i} style={{ background: "var(--surface)", padding: "8px 10px", color: "var(--text2)" }}>{v}</div>
+          ))}
+          {["...", "...", "...", "Cold", "—", "Build list", "—"].map((v, i) => (
+            <div key={i} style={{ background: "var(--surface)", padding: "8px 10px", color: "var(--muted2)" }}>{v}</div>
+          ))}
+        </div>
+        <div style={{ marginTop: "10px", fontSize: "11px", color: "var(--muted)", fontFamily: "var(--font-mono)" }}>
+          Status stages: Cold → Warming → Replied → In Convo → Referred → Applied → Offer
+        </div>
+      </div>
+
+      <div className="devils" style={{ marginTop: "28px" }}>
+        <div className="devils-title">😈 Devil's Advocate</div>
+        <p>The Dream 100 fails for one reason: people do Steps 1–3 and skip Step 4. They warm up contacts, send a polite message, then ask for a referral too early — and wonder why it doesn't work. <strong style={{ color: "var(--text)" }}>The Proof of Work is non-negotiable.</strong> It's the only step nobody else does. Your Tier 1 skill is Translating Complexity into Clarity — that IS the Proof of Work. A positioning teardown, a content audit, a competitive brief. You already have the skill. The only question is whether you'll spend 3 hours building the artifact before you ask for anything.</p>
+      </div>
+    </div>
+  );
+}
+
 // ─── CRAFT SKILLS TAB ─────────────────────────────────────────────────────────
 
 const TK_COLORS = {
@@ -1683,6 +1884,7 @@ export default function App() {
     { id: "vision",  lbl: "2030 Vision", cnt: null },
     { id: "table",   lbl: "Full Map",    cnt: 26 },
     { id: "toolkit", lbl: "Craft Skills", cnt: CRAFT_SKILLS.reduce((a, c) => a + c.skills.length, 0) },
+    { id: "d100",    lbl: "Dream 100",   cnt: 6 },
   ];
 
   return (
@@ -1717,6 +1919,7 @@ export default function App() {
           {tab === "vision"  && <VisionTab />}
           {tab === "table"   && <TableTab />}
           {tab === "toolkit" && <ToolkitTab />}
+          {tab === "d100"    && <Dream100Tab />}
         </main>
       </div>
     </>
