@@ -519,6 +519,122 @@ const YES = [
   }
 ];
 
+// ─── DAY IN THE LIFE SCENARIOS ────────────────────────────────────────────────
+// Real company, real Tuesday. Concrete so you can feel the role, not just label it.
+
+const SCENARIOS = {
+  pmm: {
+    company: "Notion",
+    context: "You're PMM for Notion's AI features team. Q2 launch is 6 weeks out. The product team shipped two new AI features. Nobody outside engineering understands what they do yet. That's your job.",
+    rows: [
+      { do: "Interview 5 customers about how they use Notion AI today", create: "3-page customer insight doc — themes, verbatim quotes, what's confusing", track: "Feature adoption rate (% of users activating AI features)", skill: "Deep research & synthesis" },
+      { do: "Write the positioning and messaging doc for the Q2 AI launch", create: "Messaging framework: who it's for, what it does, why it matters, what it's not", track: "Launch signups + trial-to-paid conversion in first 30 days", skill: "Translating complexity → clarity + Writing" },
+      { do: "Build a competitive battlecard comparing Notion AI vs. Coda and Confluence", create: "1-page battlecard used by 40 salespeople in every competitive deal", track: "Win rate on competitive deals (target: up 5–10%)", skill: "Competitive analysis + Framework creation" },
+      { do: "Write the feature announcement email to 5M users", create: "Feature email (400 words) — subject line, hook, benefit, CTA", track: "Email open rate, click rate, AI feature activation rate in 7 days", skill: "Writing + Curation & taste" },
+      { do: "Brief the sales team on the new features before they ship", create: "Sales enablement one-pager: what changed, what to say, top 3 objections + answers", track: "Sales team confidence score (survey), deal cycle length", skill: "Translating complexity → clarity" },
+    ]
+  },
+  devrel: {
+    company: "Vercel",
+    context: "You're Developer Advocate at Vercel. Your job is to make developers successful with AI-powered deployment. 500k developers on the platform. You own the top of the funnel through content, demos, and community.",
+    rows: [
+      { do: "Record a 12-min YouTube tutorial on deploying a Next.js AI app on Vercel", create: "YouTube tutorial video + companion blog post with code snippets", track: "Video views, developer signups attributed to the video (UTM tracked)", skill: "Video editing + Translating complexity → clarity" },
+      { do: "Build a demo app: Vercel + Claude API integration with streaming responses", create: "Public GitHub repo with README + 3-min Loom walkthrough", track: "GitHub stars, clone count, API key signups from demo landing page", skill: "AI tooling + Systems architecture" },
+      { do: "Run the weekly Discord AMA with 20k developers (60 min, live Q&A)", create: "Community thread log + FAQ doc updated with top 10 new questions", track: "Community health score, support ticket deflection rate (fewer help desk tickets)", skill: "Translating complexity → clarity + Deep research" },
+      { do: "Write a technical blog post: 'AI-powered CI/CD — what changes with LLMs in your pipeline'", create: "1,800-word blog post, SEO-optimized, with 3 code examples", track: "Organic traffic, time on page, developer API trial starts from that post", skill: "Writing + Deep research & synthesis" },
+      { do: "Present at the SF AI Developer Meetup (80 engineers, 25 min talk + demo)", create: "Conference slide deck + live code demo + GitHub link shared with audience", track: "Developer NPS from talk, new Discord members from event", skill: "Translating complexity → clarity + Framework creation" },
+    ]
+  },
+  cstrat: {
+    company: "Figma",
+    context: "You're Creative Strategist at Figma. Your job is to make complex design concepts feel obvious to non-designers — and to turn Figma's product truth into campaigns that actually land. Config 2026 is coming up.",
+    rows: [
+      { do: "Write the creative brief for the Config 2026 conference campaign", create: "3-page creative brief: insight, strategy, message, tone, what success looks like", track: "Creative brief approval rate (round 1 vs. round 2 approvals)", skill: "Framework creation + Writing" },
+      { do: "Audit Figma's messaging vs. Adobe XD and Framer (quarterly competitive review)", create: "Competitive messaging teardown: what each brand claims, where Figma is unclear or weak", track: "Brand differentiation score (tracked via brand tracker survey quarterly)", skill: "Competitive analysis + Curation & taste" },
+      { do: "Build the brand voice guide for Figma's AI features (new tone needed)", create: "Brand voice doc: tone principles, word choices, 20 before/after examples, what NOT to say", track: "Brand consistency score across web copy, ads, and social (content audit monthly)", skill: "Writing + Translating complexity → clarity" },
+      { do: "Write 3 landing page headline variations for FigJam AI launch + A/B test plan", create: "3 headline options with rationale + A/B test setup in Optimizely", track: "Landing page CVR (visit → free trial start), CTR on each headline variant", skill: "Writing + Curation & taste" },
+      { do: "Present the Q2 brand campaign concept to the CMO and Head of Design", create: "10-slide campaign concept deck: insight, idea, executions, metrics, budget ask", track: "Executive approval and budget greenlit — 1 revision vs. 3", skill: "Translating complexity → clarity + Framework creation" },
+    ]
+  },
+  aicontent: {
+    company: "Jasper",
+    context: "You're AI Content Strategist at Jasper. Your job: turn AI capability into content that non-technical marketers actually understand and use. You own the newsletter, YouTube, and the 'learn AI' content pillar.",
+    rows: [
+      { do: "Write and send the Tuesday newsletter to 80k subscribers on AI marketing trends", create: "Newsletter issue (750 words): 1 insight, 1 tool, 1 workflow, 1 prompt to steal", track: "Open rate (target 40%+), click rate (target 5%+), list growth week-over-week", skill: "Writing + Curation & taste + Deep research" },
+      { do: "Record Episode 4 of the 'AI Workflow Series' — how to build a content repurposing system", create: "15-min YouTube video + script + short-form clip for LinkedIn and TikTok", track: "Video watch time (%), subscriber growth, click-through to Jasper signup", skill: "Video editing + AI tooling + Translating complexity → clarity" },
+      { do: "Build an internal n8n workflow that turns one long-form blog post into 8 distribution formats", create: "Live n8n automation + SOP doc so the content team can run it themselves", track: "Content output velocity (posts per week before vs. after automation)", skill: "Systems architecture + AI tooling" },
+      { do: "Write the SEO guide: 'Jasper vs. Claude vs. ChatGPT for marketing teams'", create: "2,500-word comparison guide, optimized for 'AI writing tools for marketing' keywords", track: "Organic traffic to the page (monthly), newsletter signups attributed to that guide", skill: "Deep research + Competitive analysis + Writing" },
+      { do: "Run a 90-min 'AI for Marketers' workshop for a client's 25-person team", create: "Workshop slide deck + Notion resource pack + post-workshop follow-up email", track: "Workshop NPS, tool adoption 30 days post-workshop (% of attendees using Jasper)", skill: "Translating complexity → clarity + Systems architecture + Teaching" },
+    ]
+  },
+  contentmgr: {
+    company: "Superhuman",
+    context: "You're Content Marketing Manager at Superhuman. 150k newsletter subscribers. The blog drives 30% of new signups. Your job: make email the most interesting category on the internet.",
+    rows: [
+      { do: "Write and send the Tuesday 'Productivity Research' newsletter to 150k subscribers", create: "Newsletter issue (700 words): research insight + practical takeaway + one unconventional tip", track: "Open rate (target 48%+), CTR, unsubscribe rate (flag anything above 0.3%)", skill: "Writing + Deep research & synthesis + Curation & taste" },
+      { do: "Brief 3 freelance writers on Q2 customer case studies (Vercel, Linear, Figma use cases)", create: "3 content briefs: context, interview questions, structure, angle, word count, deadline", track: "Case study completion on time, case study attributed pipeline (tracked in HubSpot)", skill: "Framework creation + Writing" },
+      { do: "Do keyword research for 'email productivity' topic cluster (targeting 3 new pages)", create: "Keyword opportunity spreadsheet: 15 terms, search volume, difficulty, content type needed", track: "Target keyword rankings 90 days post-publish (Google SERP position 1–10)", skill: "Deep research + Systems architecture" },
+      { do: "Write the long-form guide: 'The Science of Inbox Zero' (flagship SEO piece)", create: "2,800-word guide with 3 original frameworks, 7 expert citations, 4 CTAs to Superhuman trial", track: "Organic traffic (monthly), backlinks earned, trial starts from guide", skill: "Writing + Deep research + Framework creation" },
+      { do: "Review and edit all content before it publishes (5 pieces in queue this week)", create: "Annotated edits with written rationale — not just fixes, but the 'why' for each change", track: "Post-publish engagement rates vs. team average, revision round count (target: 1 round)", skill: "Curation & taste + Writing" },
+    ]
+  },
+  prodedu: {
+    company: "Intercom",
+    context: "You're Customer Education Manager at Intercom. Fin AI just launched — 2,000 new customers in 30 days. Most of them don't understand what Fin can do. Your job: turn confusion into activation.",
+    rows: [
+      { do: "Record the 'Getting Started with Fin AI' video tutorial series (5 videos, 5–8 min each)", create: "5 tutorial videos in the help center + transcripts + chapter markers", track: "Support ticket deflection rate: % of customers who watch video instead of opening ticket", skill: "Video editing + Translating complexity → clarity" },
+      { do: "Write the 7-email onboarding sequence (first 14 days after signup)", create: "7-email drip sequence in Intercom: one per 2 days, each teaching one Fin behavior", track: "Activation rate (% reaching 'first successful resolution' within 14 days)", skill: "Writing + Framework creation + Systems architecture" },
+      { do: "Build the 'Fin AI Certification' course (4 modules, 45 min total)", create: "4-module course with video lessons, knowledge checks, and final assessment in Intercom Academy", track: "Course completion rate (target 60%+), feature adoption among certified users vs. non-certified", skill: "Translating complexity → clarity + Framework creation + Video editing" },
+      { do: "Run user research: 5 interviews with customers who churned in month 1", create: "Research synthesis doc: 3 friction patterns, top quotes, 5 product recommendations", track: "Activation rate improvement QoQ — does removing friction move the number", skill: "Deep research & synthesis" },
+      { do: "Write 15 help center articles for Q3 Fin AI features launch (1 week before ship)", create: "15 help articles: what it does, how to set it up, troubleshooting, FAQs", track: "Search success rate in help center (% who find answer without opening ticket)", skill: "Writing + Translating complexity → clarity" },
+    ]
+  },
+  growth: {
+    company: "Linear",
+    context: "You're Growth Marketing Manager at Linear. The product is beloved by engineers. The problem: most engineering teams don't know it exists. Your job: fix that with experiments, not feelings.",
+    rows: [
+      { do: "Design and run an A/B test on the free trial signup flow (3 headline variations)", create: "A/B test setup in Optimizely + results report with statistical significance and recommendation", track: "Trial signup conversion rate (visit → trial start), statistical significance threshold (95%)", skill: "Deep research + Framework creation" },
+      { do: "Write and launch a 5-email trial-to-paid conversion sequence in HubSpot", create: "5-email nurture sequence: onboarding tip → use case → social proof → urgency → offer", track: "Trial-to-paid conversion rate per email variant, email-attributed ARR", skill: "Writing + Systems architecture" },
+      { do: "Pull the activation funnel with SQL — where do trial users drop off?", create: "Funnel analysis doc: step-by-step drop-off rates + 3 highest-leverage improvement bets", track: "Activation rate by step (target: move the lowest-converting step up 5%+)", skill: "SQL + Deep research & synthesis" },
+      { do: "Design the referral program mechanics and write the invite copy", create: "Referral program brief (mechanics, incentive structure, landing page) + all copy written", track: "Referral rate (% of active users who invite someone), CAC from referral vs. paid channel", skill: "Framework creation + Writing" },
+      { do: "Present weekly experiment results to growth team (Mon standup, 20 min)", create: "1-page experiment report: hypothesis → test → result → learning → next bet", track: "Experiment velocity (tests per month), % of tests with statistically significant results", skill: "Translating complexity → clarity + Deep research & synthesis" },
+    ]
+  },
+  csm: {
+    company: "Make.com",
+    context: "You're AI Customer Success Manager at Make.com (automation platform). Your book is 20 mid-market accounts, $1.2M ARR. Your job: make sure every client builds something real in month 1 and renews.",
+    rows: [
+      { do: "Run a 60-min discovery onboarding call with a new enterprise client (Acme Corp, $60k ARR)", create: "Onboarding plan doc: their top 3 processes, automation use case map, 30-day success milestones", track: "Time-to-first-workflow (target: client runs first live automation within 14 days)", skill: "Translating complexity → clarity + Deep research" },
+      { do: "Build a live n8n demo showing Acme Corp's manual lead enrichment process automated", create: "Live n8n workflow + 3-min Loom walkthrough showing exactly what it does", track: "Demo-to-activation rate (did they replicate it within 7 days?)", skill: "AI tooling + Systems architecture" },
+      { do: "Review 5 clients' usage dashboards — flag anyone under 40% feature utilization", create: "Proactive health email per at-risk client: 'Here's what you're not using + here's why it matters'", track: "Feature adoption rate per account, expansion revenue from upsell", skill: "Deep research & synthesis + Translating complexity → clarity" },
+      { do: "Train a 10-person marketing team at a client on Make's AI automation stack", create: "45-min live training + Notion SOP doc with screenshots + post-training Q&A recording", track: "Team activation rate: % of trainees with active workflows within 30 days", skill: "Translating complexity → clarity + Systems architecture" },
+      { do: "Run the Q2 Quarterly Business Review for a $50k ARR client (renewal coming up)", create: "QBR deck (10 slides): workflows built, hours saved, ROI calculated, next 6 months plan", track: "NRR (did they renew + expand?), renewal lead time (how many days before expiry)", skill: "Data visualization + Translating complexity → clarity + Framework creation" },
+    ]
+  },
+  techwriter: {
+    company: "Anthropic",
+    context: "You're Technical Writer at Anthropic. You own the Claude API docs. Every developer using Claude starts here. If your docs are bad, they give up. If they're good, they build something real.",
+    rows: [
+      { do: "Write the Claude API quickstart guide (target: zero to first API call in under 15 minutes)", create: "Quickstart guide: setup, first call, first real use case — with code in Python, Node, curl", track: "Time-to-first-API-call (median minutes for new developers), completion rate of quickstart", skill: "Writing + Translating complexity → clarity" },
+      { do: "Document the new tool use feature with engineers before it ships publicly", create: "Tool use reference doc: what it is, how it works, every parameter, 5 worked examples", track: "Documentation coverage score (% of features with complete docs before launch)", skill: "Deep research & synthesis + Writing" },
+      { do: "Test the API yourself to find gaps — run every code example in the docs", create: "Annotated testing log: what broke, what was confusing, 12 corrections needed", track: "Documentation accuracy rate (% of code examples that run on first try)", skill: "Deep research + Systems architecture" },
+      { do: "Build the 'Common Use Cases' library — 12 patterns developers actually want to build", create: "12 use case guides: summarization, classification, RAG, tool use, vision, agents, etc.", track: "Developer activation rate (% completing first meaningful Claude integration)", skill: "Framework creation + Translating complexity → clarity" },
+      { do: "Write the release notes for the latest Claude model update", create: "Release notes (400–600 words): what changed, what's new, what developers need to update", track: "Developer community reaction (Discord + Twitter), support volume change post-release", skill: "Writing + Curation & taste" },
+    ]
+  },
+  fractional: {
+    company: "Your own client (Series A SaaS startup)",
+    context: "You're Fractional Creative Strategist. Your client is a Series A B2B AI startup with $4M raised, 12 employees, and a messaging problem — nobody understands what they do. 3-month retainer, $3,500/mo.",
+    rows: [
+      { do: "Run a 90-min discovery session with the founder to understand the product, audience, and positioning hypothesis", create: "Discovery notes + ICP definition draft + 5 positioning hypotheses to test", track: "Client brief approved in round 1 (signal you understood the problem correctly)", skill: "Deep research & synthesis + Translating complexity → clarity" },
+      { do: "Write the brand voice and messaging guide for their AI product", create: "Brand voice doc: tone principles, 3 voice attributes, 20 before/after copy examples, words to avoid", track: "Client adoption rate of voice doc — is it actually used in website copy and sales decks?", skill: "Writing + Framework creation + Curation & taste" },
+      { do: "Audit their current website, LinkedIn, and pitch deck for positioning gaps", create: "Content audit: 3 main gaps identified, competitive positioning comparison, recommended priority order", track: "Conversion rate on updated homepage messaging vs. previous (A/B test if possible)", skill: "Competitive analysis + Deep research" },
+      { do: "Build the 90-day content calendar with 3 pillar topics and brief templates", create: "Content calendar (Notion) + 3 editorial brief templates + content workflow SOP", track: "Content consistency: posts per week, % that match brand voice, engagement rate", skill: "Systems architecture + Framework creation" },
+      { do: "Present the full strategy to the founding team (founder + CTO + Head of Sales)", create: "15-slide strategy deck: positioning, ICP, messaging, content plan, 90-day roadmap, success metrics", track: "Retainer renewal (did they sign month 2?) — that's the only metric that matters", skill: "Translating complexity → clarity + Writing + Framework creation" },
+    ]
+  },
+};
+
 const NO = [
   {
     id: "ds",
@@ -1017,7 +1133,11 @@ function FitTag({ fit, fc }) {
 
 function RoleCard({ role, type }) {
   const [open, setOpen] = useState(false);
+  const [showDayInLife, setShowDayInLife] = useState(false);
   const wc = type === "yes" ? "why-yes" : type === "no" ? "why-no" : "why-neutral";
+  const scenario = SCENARIOS[role.id];
+  const COL_HEADS = ["What you're doing", "What you create", "What you track", "Your skill link"];
+
   return (
     <div className={`card ${open ? "open" : ""}`}>
       <div className="card-hd" onClick={() => setOpen(o => !o)}>
@@ -1054,6 +1174,54 @@ function RoleCard({ role, type }) {
 
       {open && (
         <div className="card-body">
+          {/* Day in the Life — YES roles only */}
+          {scenario && (
+            <div style={{ marginBottom: "4px" }}>
+              <div
+                onClick={e => { e.stopPropagation(); setShowDayInLife(v => !v); }}
+                style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer", background: "var(--mint-bg)", border: "1px solid var(--mint-bd)", borderRadius: "7px", padding: "10px 14px", marginBottom: showDayInLife ? "12px" : "0" }}
+              >
+                <div>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--mint)", marginRight: "8px" }}>Day in the Life</span>
+                  <span style={{ fontSize: "12px", color: "var(--text2)" }}>If you worked at {scenario.company} as {role.title}</span>
+                </div>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--mint)" }}>{showDayInLife ? "▲" : "▼"}</span>
+              </div>
+
+              {showDayInLife && (
+                <div>
+                  <div style={{ fontSize: "12px", color: "var(--text2)", lineHeight: "1.6", padding: "10px 14px", background: "var(--surface2)", borderRadius: "6px", marginBottom: "12px", borderLeft: "3px solid var(--mint)" }}>
+                    {scenario.context}
+                  </div>
+                  {/* Table */}
+                  <div style={{ overflowX: "auto", borderRadius: "7px", border: "1px solid var(--border)" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px" }}>
+                      <thead>
+                        <tr style={{ background: "var(--surface2)" }}>
+                          {COL_HEADS.map(h => (
+                            <th key={h} style={{ padding: "9px 12px", textAlign: "left", fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)", borderBottom: "1px solid var(--border)", whiteSpace: "nowrap" }}>{h}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {scenario.rows.map((row, i) => (
+                          <tr key={i} style={{ background: i % 2 === 0 ? "var(--surface)" : "var(--surface2)", borderBottom: i < scenario.rows.length - 1 ? "1px solid var(--border)" : "none" }}>
+                            <td style={{ padding: "10px 12px", color: "var(--text)", lineHeight: "1.5", verticalAlign: "top", maxWidth: "220px" }}>{row.do}</td>
+                            <td style={{ padding: "10px 12px", color: "var(--text2)", lineHeight: "1.5", verticalAlign: "top", maxWidth: "220px" }}>{row.create}</td>
+                            <td style={{ padding: "10px 12px", color: "var(--text2)", lineHeight: "1.5", verticalAlign: "top", maxWidth: "200px", fontFamily: "var(--font-mono)", fontSize: "11px" }}>{row.track}</td>
+                            <td style={{ padding: "10px 12px", verticalAlign: "top", maxWidth: "160px" }}>
+                              <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--mint)", background: "var(--mint-bg)", border: "1px solid var(--mint-bd)", padding: "2px 7px", borderRadius: "3px", lineHeight: 1.6, display: "inline-block" }}>{row.skill}</span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           <div>
             <div className="subsec-title">What you actually do daily</div>
             <ul className="blist">{role.daily.map((d, i) => <li key={i}>{d}</li>)}</ul>
