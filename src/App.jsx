@@ -635,6 +635,108 @@ const SCENARIOS = {
   },
 };
 
+// type: "deep" = focused output | "meet" = call/sync | "review" = editing/reviewing | "admin" = Slack/planning
+const SCHED_COLORS = {
+  deep:   { bg: "var(--mint-bg)",   bd: "var(--mint-bd)",   label: "Deep Work",  dot: "var(--mint)" },
+  meet:   { bg: "var(--amber-bg)",  bd: "var(--amber-bd)",  label: "Meeting",    dot: "var(--amber)" },
+  review: { bg: "var(--slate-bg)",  bd: "rgba(58,94,138,0.2)", label: "Review",  dot: "var(--slate)" },
+  admin:  { bg: "var(--surface2)",  bd: "var(--border)",    label: "Admin",      dot: "var(--muted)" },
+};
+
+const SCHED = {
+  pmm: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Slack sweep + overnight product updates + check launch metrics dashboard" },
+    { time: "9:30–11:00",  type: "meet",   activity: "Customer interview × 1 (video call, 45 min) + 15 min synthesis notes while it's fresh" },
+    { time: "11:00–12:30", type: "deep",   activity: "Write / advance the positioning doc or messaging framework — biggest creative block, morning brain" },
+    { time: "12:30–1:30",  type: "admin",  activity: "Lunch. Actually step away." },
+    { time: "1:30–2:30",   type: "meet",   activity: "Cross-functional sync — product, design, PMM weekly alignment (what shipped, what's blocked, what's next)" },
+    { time: "2:30–4:00",   type: "deep",   activity: "Competitive battlecard update or sales enablement one-pager — output that ships to sales this week" },
+    { time: "4:00–4:30",   type: "review", activity: "Review content from copywriter or designer working on launch materials — give structured feedback" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update project tracker, prep tomorrow's customer interview questions, clear Slack" },
+  ],
+  devrel: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Community check — Discord overnight threads, GitHub issues, Twitter mentions, open support tickets" },
+    { time: "9:30–11:30",  type: "deep",   activity: "Tutorial recording session OR long-form blog post draft — uninterrupted, camera/mic on, do not disturb" },
+    { time: "11:30–12:00", type: "meet",   activity: "Respond to 10 priority Discord questions — public, so answers serve 1,000 developers who have the same question" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:00",   type: "meet",   activity: "Weekly DevRel sync — what's shipping in 2 weeks, content calendar review, demo planning for upcoming conference" },
+    { time: "2:00–4:30",   type: "deep",   activity: "Build demo app or write technical guide — this is the deliverable that drives developer signups" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Community metrics review, update content calendar, reply to DMs from developers building with the API" },
+  ],
+  cstrat: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Check campaign performance data + overnight A/B test results + Slack" },
+    { time: "9:30–11:00",  type: "deep",   activity: "Write creative brief or brand voice doc — needs strategic clarity before any designer touches it" },
+    { time: "11:00–12:00", type: "meet",   activity: "Campaign review with design team — does the work match the brief? Give specific direction, not vague feedback" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:30",   type: "deep",   activity: "Competitive messaging audit — pull latest from 3 competitors, update positioning map" },
+    { time: "2:30–3:30",   type: "meet",   activity: "Strategy presentation to CMO or client — present, take notes, capture decisions" },
+    { time: "3:30–5:00",   type: "deep",   activity: "Write copy variations for landing page or ad creative — 3 angles minimum, brief rationale on each" },
+  ],
+  aicontent: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Check yesterday's newsletter metrics — open rate, CTR, replies. Flag what worked and why." },
+    { time: "9:30–11:30",  type: "deep",   activity: "Write this week's newsletter issue OR film/edit a video — single output, deep focus" },
+    { time: "11:30–12:00", type: "admin",  activity: "Curate: scan AI news, find the 3 best things worth sharing this week, save with context notes" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:00",   type: "meet",   activity: "Content strategy review with the team — editorial calendar, upcoming campaigns, what needs changing" },
+    { time: "2:00–4:00",   type: "deep",   activity: "Build the n8n automation workflow OR write the SEO comparison guide — one major deliverable per afternoon" },
+    { time: "4:00–5:00",   type: "meet",   activity: "Workshop prep for next client session, or live audience Q&A on LinkedIn/Substack Notes" },
+  ],
+  contentmgr: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Email metrics + SEO rank tracker + keyword position changes since Monday" },
+    { time: "9:30–11:30",  type: "deep",   activity: "Write the newsletter issue or advance the flagship SEO guide — 2 hours uninterrupted" },
+    { time: "11:30–12:00", type: "review", activity: "Async brief check-in with 2 freelancers — review outlines, leave comments, unblock them" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:00",   type: "deep",   activity: "Keyword research session for next pillar or analytics deep-dive: which pieces are driving pipeline" },
+    { time: "2:00–4:00",   type: "deep",   activity: "Edit freelancer submissions OR write secondary content (social, email campaign) for the week" },
+    { time: "4:00–5:00",   type: "review", activity: "Final review pass before anything publishes — every piece needs one last read before going live" },
+  ],
+  prodedu: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Help center analytics — top 10 failed searches, support ticket themes from yesterday, activation rate delta" },
+    { time: "9:30–11:30",  type: "deep",   activity: "Record tutorial video OR write onboarding email sequence — whichever unblocks the most users" },
+    { time: "11:30–12:00", type: "meet",   activity: "Weekly sync with support team — what questions keep coming in? These become next week's help articles." },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:00",   type: "meet",   activity: "User research interview (60 min) — churned customer, or power user for certification course design" },
+    { time: "2:00–4:00",   type: "deep",   activity: "Build course module OR write the batch of help articles queued for next feature launch" },
+    { time: "4:00–5:00",   type: "admin",  activity: "Review activation metrics — which cohort's onboarding broke down this week? Flag to product." },
+  ],
+  growth: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Review A/B test dashboard — any tests hit significance overnight? Pull Mixpanel activation funnel." },
+    { time: "9:30–10:00",  type: "meet",   activity: "Weekly growth standup — present last week's test results, state this week's active experiments" },
+    { time: "10:00–12:00", type: "deep",   activity: "SQL funnel analysis OR design the next experiment — hypothesis, test setup, success criteria" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:30",   type: "deep",   activity: "Write trial-to-paid email sequence OR landing page copy variants — the test needs copy before it can run" },
+    { time: "2:30–3:30",   type: "meet",   activity: "QA test implementation with engineering — make sure the variant is set up exactly as designed" },
+    { time: "3:30–5:00",   type: "deep",   activity: "Experiment design doc for next sprint OR performance report (weekly numbers, insight, next bet)" },
+  ],
+  csm: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Client health dashboard — flag any account below 40% feature usage or with open support tickets" },
+    { time: "9:30–11:00",  type: "meet",   activity: "Client onboarding call (60 min) — discovery, automation use case mapping, set 30-day success milestones" },
+    { time: "11:00–12:00", type: "deep",   activity: "Build the n8n demo for Acme Corp — live workflow showing exactly what automation solves for their team" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:00",   type: "meet",   activity: "Training session — live workshop with client's 10-person marketing team on Make's AI stack" },
+    { time: "2:00–3:30",   type: "deep",   activity: "QBR deck prep for renewal client OR proactive health emails to 3 at-risk accounts" },
+    { time: "3:30–5:00",   type: "meet",   activity: "Internal sync with product team — relay 5 client feature requests, flag 2 critical gaps affecting renewals" },
+  ],
+  techwriter: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Developer Discord + GitHub issues — what doc questions came in overnight? Add to the fix queue." },
+    { time: "9:30–11:30",  type: "deep",   activity: "Write documentation — quickstart guide, API reference, or use case library. First draft, don't edit yet." },
+    { time: "11:30–12:00", type: "meet",   activity: "Sync with engineering on new feature shipping in 2 weeks — get the spec, ask the dumb questions now so developers don't have to" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–3:00",   type: "deep",   activity: "Test every code example in the docs against the live API — if it doesn't run, it doesn't ship" },
+    { time: "3:00–4:00",   type: "review", activity: "Review and edit colleague's draft documentation — clarity pass, accuracy check, example verification" },
+    { time: "4:00–5:00",   type: "admin",  activity: "Update changelog, fix doc tickets from the queue, update content calendar for next sprint" },
+  ],
+  fractional: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Review async feedback from 2 clients — Slack messages, Notion comments, email. Triage by urgency." },
+    { time: "9:30–11:00",  type: "deep",   activity: "Write the brand voice doc or positioning framework for Client A — deep work, no calls during this block" },
+    { time: "11:00–12:00", type: "meet",   activity: "Client B strategy call (60 min) — discovery or strategy presentation, depends on project phase" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch + walk. You're self-employed — protect this." },
+    { time: "1:00–3:00",   type: "deep",   activity: "Content audit, competitive research, or deck building for Client A — the deliverable due this week" },
+    { time: "3:00–4:00",   type: "meet",   activity: "Dream 100 networking: 2 warm-up comments on LinkedIn, 1 value-first outreach message to a new prospect" },
+    { time: "4:00–5:00",   type: "admin",  activity: "Prep next client deliverable, update Notion project tracker, send weekly progress update to both clients" },
+  ],
+};
+
 const NO = [
   {
     id: "ds",
@@ -1193,6 +1295,32 @@ function RoleCard({ role, type }) {
                   <div style={{ fontSize: "12px", color: "var(--text2)", lineHeight: "1.6", padding: "10px 14px", background: "var(--surface2)", borderRadius: "6px", marginBottom: "12px", borderLeft: "3px solid var(--mint)" }}>
                     {scenario.context}
                   </div>
+                  {/* Schedule */}
+                  {SCHED[role.id] && (
+                    <div style={{ marginBottom: "16px" }}>
+                      <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--muted)", marginBottom: "8px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" }}>
+                        <span>Typical Tuesday — Hour by Hour</span>
+                        <span style={{ display: "flex", gap: "10px" }}>
+                          {Object.entries(SCHED_COLORS).map(([key, sc]) => (
+                            <span key={key} style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: sc.dot, flexShrink: 0, display: "inline-block" }} />
+                              <span style={{ color: "var(--muted2)", letterSpacing: "0.1em" }}>{sc.label}</span>
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                      {SCHED[role.id].map((block, i) => {
+                        const sc = SCHED_COLORS[block.type];
+                        return (
+                          <div key={i} style={{ display: "flex", gap: "12px", padding: "7px 10px", background: sc.bg, border: `1px solid ${sc.bd}`, borderRadius: "5px", marginBottom: "4px", alignItems: "flex-start" }}>
+                            <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: sc.dot, minWidth: "90px", flexShrink: 0, paddingTop: "2px" }}>{block.time}</span>
+                            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: sc.dot, flexShrink: 0, marginTop: "5px" }} />
+                            <span style={{ fontSize: "12px", color: "var(--text2)", lineHeight: "1.5" }}>{block.activity}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                   {/* Table */}
                   <div style={{ overflowX: "auto", borderRadius: "7px", border: "1px solid var(--border)" }}>
                     <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px" }}>
