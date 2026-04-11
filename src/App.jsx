@@ -2164,6 +2164,136 @@ function ProfileTab() {
   );
 }
 
+// ─── PROJECTS TAB ─────────────────────────────────────────────────────────────
+
+const PROJECTS = [
+  {
+    cat: "PMM / Content Strategy — Proof",
+    color: "var(--mint)",
+    colorBg: "var(--mint-bg)",
+    colorBd: "var(--mint-bd)",
+    items: [
+      {
+        name: "Uncle Sam",
+        desc: "Scrollytelling web experience built on Sam Parr's business wisdom. Interactive content strategy — frameworks, quotes, and playbooks brought to life in-browser.",
+        tags: ["TypeScript", "Scrollytelling", "Content Design"],
+        url: "https://github.com/siddchauhan77/uncle-sam",
+      },
+      {
+        name: "Uncle Shaan",
+        desc: "Companion experience built on Shaan Puri's essays and newsletters. Same scrollytelling architecture — different voice, different content model.",
+        tags: ["TypeScript", "Scrollytelling", "Brand Voice"],
+        url: "https://github.com/siddchauhan77/uncle-shaan",
+      },
+      {
+        name: "Hook Generator",
+        desc: "AI-powered hook writing tool. Generates scroll-stopping openers for LinkedIn, Twitter, and newsletters using proven copywriting frameworks.",
+        tags: ["TypeScript", "AI", "Copywriting"],
+        url: "https://github.com/siddchauhan77/hook-generator",
+      },
+    ],
+  },
+  {
+    cat: "AI Products — Proof",
+    color: "var(--amber)",
+    colorBg: "var(--amber-bg)",
+    colorBd: "var(--amber-bd)",
+    items: [
+      {
+        name: "Funnel Teardown",
+        desc: "AI-powered funnel analysis CLI. Maps the stranger→advocate journey for any brand — competitor research, messaging gaps, CRO recommendations — from a URL.",
+        tags: ["Python", "CLI", "AI Strategy"],
+        url: "https://github.com/siddchauhan77/funnel-teardown",
+      },
+      {
+        name: "AI Safety Exodus Tracker",
+        desc: "Primary-source, verified record of AI safety researchers departing frontier labs. Research journalism meets data infrastructure.",
+        tags: ["TypeScript", "Research", "AI Policy"],
+        url: "https://github.com/siddchauhan77/ai-safety-exodus-tracker",
+      },
+      {
+        name: "UnLockMe",
+        desc: "Converts a resume PDF into an interactive story preview. Proof of concept: resumes as narrative experiences, not document walls.",
+        tags: ["TypeScript", "Product", "AI"],
+        url: "https://github.com/siddchauhan77/UnLockMe",
+      },
+    ],
+  },
+  {
+    cat: "Data & Analytics — MSBA Proof",
+    color: "var(--slate)",
+    colorBg: "var(--slate-bg)",
+    colorBd: "rgba(58,94,138,0.2)",
+    items: [
+      {
+        name: "MSBA — UT Austin Projects",
+        desc: "ML models, analytics pipelines, and data science projects from the UT Austin Master of Science in Business Analytics program. Python, Jupyter, SQL.",
+        tags: ["Jupyter", "Python", "ML / Analytics"],
+        url: "https://github.com/siddchauhan77/MSBA-UT-Austin",
+      },
+      {
+        name: "SAP Analytics Cloud — Sustainability Dashboard",
+        desc: "Enterprise-grade SAP SAC sustainability & energy analytics dashboard. SD/Energy codes, CSRD compliance, Scope 1/2/3 tracking. Fiori design language.",
+        tags: ["TypeScript", "SAP", "Enterprise"],
+        url: "https://github.com/siddchauhan77/sap-sac-sustainability-dashboard",
+      },
+      {
+        name: "VitalVault",
+        desc: "Private health dashboard with family sharing — built with Express, React, and Tailwind. Full-stack product from scratch.",
+        tags: ["TypeScript", "Full-Stack", "Product"],
+        url: "https://github.com/siddchauhan77/vitalvault",
+      },
+    ],
+  },
+];
+
+function ProjectsTab() {
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">GitHub · siddchauhan77</div>
+        <div className="sec-title">BUILT WORK</div>
+        <div className="sec-desc">103 public repos. These are the ones that show range — PMM thinking, AI product building, and data fluency in one person. Click any card to open on GitHub.</div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
+        {PROJECTS.map(cat => (
+          <div key={cat.cat}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.18em", textTransform: "uppercase", color: cat.color, marginBottom: "12px", borderLeft: `3px solid ${cat.color}`, paddingLeft: "10px" }}>{cat.cat}</div>
+            <div className="role-grid">
+              {cat.items.map(p => (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none", display: "block", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "10px", padding: "18px 20px", transition: "border-color 0.15s, box-shadow 0.15s", cursor: "pointer" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = cat.color; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.boxShadow = "none"; }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px", gap: "12px" }}>
+                    <div style={{ fontFamily: "var(--font-display)", fontSize: "14px", fontWeight: 700, color: "var(--text)", lineHeight: 1.2 }}>{p.name}</div>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.1em", color: cat.color, textTransform: "uppercase", whiteSpace: "nowrap", flexShrink: 0 }}>GitHub ↗</span>
+                  </div>
+                  <div style={{ fontSize: "12px", color: "var(--text2)", lineHeight: 1.65, marginBottom: "12px" }}>{p.desc}</div>
+                  <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                    {p.tags.map(tag => (
+                      <span key={tag} style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.08em", padding: "2px 8px", borderRadius: "12px", background: cat.colorBg, border: `1px solid ${cat.colorBd}`, color: cat.color }}>{tag}</span>
+                    ))}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="devils" style={{ marginTop: "28px" }}>
+        <div className="devils-title">💡 How to use this</div>
+        <p>Each project above is real, shipped, and publicly visible. When a hiring manager or recruiter asks "can I see your work?" — this is the answer. The PMM section shows strategy as artifacts. The AI section shows product thinking in code. The data section shows the MSBA isn't just a credential. Send the GitHub link. Let it speak.</p>
+      </div>
+    </div>
+  );
+}
+
 // ─── APP ──────────────────────────────────────────────────────────────────────
 
 export default function App() {
@@ -2177,6 +2307,7 @@ export default function App() {
     { id: "table",   lbl: "Full Map",    cnt: 26 },
     { id: "toolkit", lbl: "Craft Skills", cnt: CRAFT_SKILLS.reduce((a, c) => a + c.skills.length, 0) },
     { id: "d100",    lbl: "Dream 100",   cnt: 6 },
+    { id: "projects", lbl: "Built Work", cnt: PROJECTS.reduce((a, c) => a + c.items.length, 0) },
   ];
 
   return (
@@ -2211,8 +2342,9 @@ export default function App() {
           {tab === "neutral" && <NeutralTab />}
           {tab === "vision"  && <VisionTab />}
           {tab === "table"   && <TableTab />}
-          {tab === "toolkit" && <ToolkitTab />}
-          {tab === "d100"    && <Dream100Tab />}
+          {tab === "toolkit"  && <ToolkitTab />}
+          {tab === "d100"     && <Dream100Tab />}
+          {tab === "projects" && <ProjectsTab />}
         </main>
       </div>
     </>
