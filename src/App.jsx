@@ -1606,8 +1606,8 @@ const CRAFT_SKILLS = [
     icon: "△",
     desc: "0 out of 5 CliftonStrengths in Executing. 0 out of 5 in Influencing. Real constraints, not excuses.",
     skills: [
-      { name: "execution",   label: "Consistent Execution & Shipping",     proof: "0/5 Clifton Executing themes. Planning, ideating, synthesizing — strong. Sustained shipping without external structure — the real gap. Fix: weekly deliverable system + accountability structures, not motivation.", tools: [] },
-      { name: "influence",   label: "Initiating Toward People",            proof: "0/5 Clifton Influencing themes. Initiating toward people is the weakest muscle — not introversion, just low instinct. Fix: deliberate cold outreach practice, fractional client work reps.", tools: [] },
+      { name: "execution",   label: "Consistent Execution & Shipping",     proof: "CliftonStrengths says 0/5 Executing — behavioral evidence says ~6/10. 78-day daily reel streak. 4 externships fully delivered. Newsletter streak. Wedify client work. Pattern: 'ramp-up executor with rising floor.' External accountability + community + real stakes = sustained output. The gap is cold-starting without structure, not inability to execute.", tools: [] },
+      { name: "influence",   label: "Initiating Toward People",            proof: "0/5 Clifton Influencing — lowest natural instinct. But: loves challenges, peer groups, and community (see 78-day streak). Thrives when there's a cohort or shared context. Fix: build around accountability structures, not willpower. Cold outreach as a reps game, not a personality shift.", tools: [] },
       { name: "self-promo",  label: "Self-Promotion & Visibility",          proof: "Can promote others naturally. Promoting myself feels performative. Fix: reframe promotion as service — the right people need to find you or they go without. Writing in public is the lever.", tools: [] },
     ]
   },
@@ -1931,6 +1931,17 @@ const PROFILE = {
   ikigai: "I learn hard things, make them simple and beautiful, then teach them to people who were where I was 6 months ago — through video, writing, and systems I build. I get paid to do this for companies as a product marketer, and I do it for myself as a creator.",
   whisper: "I want to be the person someone watches on YouTube and thinks 'he changed how I see this.' I want to make beautiful things that make people feel something. I want to stop preparing and just go.",
   why: "Everyone has something important inside them that the world needs to hear — but most people can't get it out because it's too messy, too complex, or too buried. I exist to be the person who pulls it out, gives it shape, and makes it land.",
+  whyStatement: "To break down overwhelming complexity SO THAT others can take confident action.",
+  lifeRazor: "I create systems that give people more freedom.",
+  usp: "I understand the psychology, can build the data pipeline, can write the narrative, can produce the asset, and can measure whether it worked — all in one person.",
+  umbrellaTitle: "AI Storyteller",
+  dreamRole: "AI Creative Director / Head of Storytelling",
+  recurringThemes: [
+    { theme: "Human Behavior", desc: "Why people act, decide, and move — the psychology layer under every product and message" },
+    { theme: "Translation", desc: "Complex → clear. The WHY. Present in every job, every project, every externship" },
+    { theme: "Distribution", desc: "Getting it in front of people. Not just creating — making it land" },
+  ],
+  originStory: "Pre-med → Public Health (Texas A&M, 2016–2020) → was heading to a Finance Masters → pivoted to MS Business Analytics (UT Austin) → Accenture consulting → layoff → rebuilding as AI storyteller. Every pivot moved closer to the same thing: making complex systems understandable and actionable.",
   pitches: [
     { label: "Job Applications", text: "Product professional with ~3 years across data & AI consulting, product strategy, and creative content. My core skill is translating complex things into stories, systems, and content that make people act. Looking for a role where that translation skill is the job — not a side effect." },
     { label: "Networking", text: "I'm an AI storyteller — I take complex tech and business ideas and turn them into content, systems, and strategies that actually make sense to people. I'm looking for my next role in product marketing or creative strategy at an AI or SaaS company." },
@@ -1955,9 +1966,9 @@ const PROFILE = {
       { name: "Photography", note: "Strong, trending toward professional." },
     ],
     gaps: [
-      { name: "Executing consistently", note: "0 out of 5 Clifton Executing themes. Planning, ideating, strategizing — strong. Shipping — the gap. Fix: weekly deliverable system, not motivation." },
-      { name: "Influencing & networking", note: "0 out of 5 Clifton Influencing themes. Initiating toward people is the weakest muscle. Fix: CSM, fractional work, or deliberate cold outreach practice." },
-      { name: "Self-promotion", note: "Can promote others naturally. Promoting myself feels uncomfortable. Fix: reframe promotion as service — the right people need to find you." },
+      { name: "Executing consistently", note: "CliftonStrengths says 0/5 Executing — but behavioral evidence says ~6/10. 78-day daily reel streak. 4 externships delivered. Newsletter streak. Wedify client work. Pattern: 'ramp-up executor with rising floor' — external accountability + peer groups + real stakes = sustained output. The gap is cold-start without structure, not inability to execute once in motion." },
+      { name: "Initiating toward people", note: "0/5 Clifton Influencing themes — lowest instinct. But loves challenges, community, and peer groups. Thrives in accountability structures (78-day streak proves this). Fix: deliberate cold outreach reps, fractional work that creates accountability, peer cohorts." },
+      { name: "Self-promotion", note: "Can promote others naturally and enthusiastically. Promoting myself feels performative. Fix: reframe promotion as service — the right people need to find you or they go without." },
     ]
   },
   strengths_themes: ["Learner", "Input", "Connectedness", "Futuristic", "Context"],
@@ -1974,7 +1985,7 @@ const PROFILE = {
   education: [
     { school: "University of Texas at Austin — McCombs", degree: "MS Business Analytics (MSBA)", note: "Data science, machine learning, analytics strategy" },
     { school: "UT Austin / McCombs Exec Program", degree: "Executive Product Management Certificate", note: "Product strategy, roadmapping, user research" },
-    { school: "Texas A&M University", degree: "BS Public Health", note: "2016–2020 · Analytical foundation, research methods, population systems" },
+    { school: "Texas A&M University", degree: "BS Public Health", note: "2016–2020 · Started pre-med, switched to Public Health. Analytical foundation, research methods, population systems. Was heading to Finance Masters — pivoted to MSBA instead." },
     { school: "SAP", degree: "Certified in Business AI + Data Cloud", note: "Enterprise AI application — opens doors at SAP, Accenture, Deloitte" },
     { school: "102 Professional Certifications", degree: "AI, UX, Product, Marketing, Content", note: "Across 8 categories: AI & Automation (11), UX/UI Design (24), Marketing & Growth (10), Product Management (9), Content & Design (6), SAP Enterprise (2), and more" },
   ],
@@ -2199,6 +2210,12 @@ const PROJECTS = [
         tags: ["TypeScript", "AI", "Copywriting"],
         url: "https://github.com/siddchauhan77/hook-generator",
       },
+      {
+        name: "Motion Creative Bootcamp Skills",
+        desc: "Claude Code plugin built during Will Sartorious's Motion Creative Strategy Bootcamp. Three AI skills: brand-research, ad-brief (7 scoring agents), and ad-swipe (competitor reverse-engineering). Outputs fal.ai image generation prompts.",
+        tags: ["Claude Code", "AI Agents", "Creative Strategy"],
+        url: "https://github.com/siddchauhan77/motion-creative-bootcamp-skills",
+      },
     ],
   },
   {
@@ -2225,6 +2242,24 @@ const PROJECTS = [
         tags: ["TypeScript", "Product", "AI"],
         url: "https://github.com/siddchauhan77/UnLockMe",
       },
+      {
+        name: "YouTube → Whiteboard",
+        desc: "Takes any YouTube video and turns it into an infographic in whiteboard or notebook style. Content-to-visual pipeline — shows AI product thinking + education tooling.",
+        tags: ["TypeScript", "AI", "Education"],
+        url: "https://github.com/siddchauhan77/Youtube_to_whiteboard",
+      },
+      {
+        name: "ChatGPT Wrapped",
+        desc: "Spotify Wrapped-style flow app built for ChatGPT and other LLMs. Visualizes your AI conversation patterns — consumer product instinct meets data storytelling.",
+        tags: ["TypeScript", "AI", "Consumer Product"],
+        url: "https://github.com/siddchauhan77/ChatGPT",
+      },
+      {
+        name: "SurgiMator",
+        desc: "App that turns surgical procedures into visual storyboard scenes. Niche AI visualization — storytelling applied to medical education and patient communication.",
+        tags: ["TypeScript", "AI", "Visual Storytelling"],
+        url: "https://github.com/siddchauhan77/SurgiMator",
+      },
     ],
   },
   {
@@ -2250,6 +2285,38 @@ const PROJECTS = [
         desc: "Private health dashboard with family sharing — built with Express, React, and Tailwind. Full-stack product from scratch.",
         tags: ["TypeScript", "Full-Stack", "Product"],
         url: "https://github.com/siddchauhan77/vitalvault",
+      },
+      {
+        name: "Data Science Projects Lab",
+        desc: "Collection of ML, NLP, and analytics projects spanning clustering, classification, behavioral analysis, and predictive modeling. UT Austin MSBA work and independent experiments.",
+        tags: ["Jupyter", "Python", "ML"],
+        url: "https://github.com/siddchauhan77/Datascience-Projects-Lab",
+      },
+    ],
+  },
+  {
+    cat: "Systems & Tools — Built During Job Search",
+    color: "var(--lavender)",
+    colorBg: "rgba(139,92,246,0.06)",
+    colorBd: "rgba(139,92,246,0.2)",
+    items: [
+      {
+        name: "Career Intelligence OS",
+        desc: "This site's companion — a 5-tab React app scoring 26 roles across 6 dimensions, with full role briefs, market intel, business impact analysis, and an Ikigai map. Built as a personal decision engine for this job search.",
+        tags: ["React", "Vite", "Product Thinking"],
+        url: "https://career-intelligence-os.vercel.app",
+      },
+      {
+        name: "Outreach Kanban",
+        desc: "Job search outreach tracker with Kanban-style workflow. Built to manage the Dream 100 system — Cold → Warming → In Convo → Referred.",
+        tags: ["JavaScript", "Product", "Job Search"],
+        url: "https://github.com/siddchauhan77/outreach-kanban",
+      },
+      {
+        name: "Technical Interview Q&A Bank",
+        desc: "Self-built question bank of sample interview questions across technical and behavioral domains. Prep infrastructure turned into a shareable resource.",
+        tags: ["HTML", "Reference", "Learning"],
+        url: "https://github.com/siddchauhan77/Technical_interview_qs",
       },
     ],
   },
