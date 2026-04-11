@@ -1385,13 +1385,6 @@ function RoleCard({ role, type }) {
 function YesTab() {
   return (
     <div>
-      <div className="whisper">
-        <div className="whisper-icon">💬</div>
-        <div>
-          <div className="whisper-lbl">Whisper Test — from your Notion</div>
-          <div className="whisper-txt">"I want to stop preparing and just go."</div>
-        </div>
-      </div>
       <div className="sec-header">
         <div className="sec-label">001 · Say Yes</div>
         <div className="sec-title">10 YES ROLES</div>
@@ -1961,18 +1954,21 @@ const PROFILE = {
   },
   strengths_themes: ["Learner", "Input", "Connectedness", "Futuristic", "Context"],
   experience: [
-    { company: "Accenture", role: "Data & AI Consultant", note: "Built executive Power BI dashboards for a $200M data platform. Client-facing delivery. GenAI Community Facilitator." },
-    { company: "Avolv", role: "Product Architecture Externship", note: "Product strategy and roadmapping work." },
-    { company: "TikTok", role: "Brand Strategy Externship", note: "Built brand playbook — positioning, messaging, content strategy." },
-    { company: "Wayfair", role: "AI Automation Externship", note: "Built AI-powered automation workflows. Intelligence dashboards. n8n/Make stack." },
-    { company: "Prescene.ai", role: "Product Marketing Externship", note: "PMM work — positioning, go-to-market, customer discovery." },
-    { company: "Entropy Studios", role: "Owner", note: "Ghostwriting educational email courses for media entrepreneurs. Newsletter. Content creation." },
+    { company: "Accenture LLP", role: "Product Analyst — Data & AI", note: "Enabled $200M+ project performance oversight via Power BI. Reduced infrastructure costs 25% and improved data accessibility 20%. Centralized AWS cloud platform integrating 10+ datasets across 10+ cross-functional teams." },
+    { company: "News Corp / NY Post App", role: "AI Product Manager (Extern)", note: "Competitive analysis across 7 platforms and 15+ engagement features. Delivered 10+ page PRD with 8 user stories and acceptance criteria. Prioritized 12 features using impact-vs-effort with 6 defined success metrics." },
+    { company: "TikTok", role: "Brand Strategy & Content Creator (Extern)", note: "Analyzed 50K+ TikTok data points using TikTok Creative Center and AI tools. Reduced content production time 40% with 15+ reusable templates. Delivered Brand Playbook + 30-day roadmap + 3 campaign-ready TikTok assets." },
+    { company: "Wayfair", role: "AI Automation Consultant (Extern)", note: "Built 5-6 automated data pipelines scraping Amazon, Wayfair, blogs, and social. Near-real-time market intelligence dashboards tracking 10+ indicators. n8n/Make automation stack." },
+    { company: "Prescene.ai", role: "Product Marketing Consultant", note: "Analyzed user-journey and funnel data across 4 lifecycle stages. Built analytics workflows (Carrd, Notion, ConvertKit) tracking 5 SaaS KPIs. Designed 6-8 email educational onboarding sequence in ConvertKit." },
+    { company: "Favor Inc.", role: "Data Scientist", note: "CNN models on 1M+ receipt images — 92% prediction accuracy, 70% ROI in 4 months. OCR pipeline via pytesseract + Databricks — 35% faster processing, 40% accuracy improvement. A/B testing and behavioral analysis on UX changes." },
+    { company: "Wedify (Bino Creative Studio)", role: "Fractional Creative Strategist", note: "Brand positioning brief, competitive analysis, and content strategy for live client. First active retainer — current engagement." },
+    { company: "Entropy Studios", role: "Owner", note: "Ghostwriting educational email courses for media entrepreneurs. Newsletter and content creation." },
   ],
   education: [
-    { school: "University of Texas at Austin", degree: "MS Business Analytics (MSBA)", note: "Data science, machine learning, analytics strategy" },
-    { school: "UT Austin / Exec Program", degree: "Executive Product Management Certificate", note: "Product strategy, roadmapping, user research" },
-    { school: "SAP", degree: "Certified in Business AI + Data Cloud", note: "Enterprise AI application" },
-    { school: "LinkedIn Learning", degree: "102 Certifications", note: "AI, UX, Product, Marketing, Content — full stack" },
+    { school: "University of Texas at Austin — McCombs", degree: "MS Business Analytics (MSBA)", note: "Data science, machine learning, analytics strategy" },
+    { school: "UT Austin / McCombs Exec Program", degree: "Executive Product Management Certificate", note: "Product strategy, roadmapping, user research" },
+    { school: "Texas A&M University", degree: "BS Public Health", note: "2016–2020 · Analytical foundation, research methods, population systems" },
+    { school: "SAP", degree: "Certified in Business AI + Data Cloud", note: "Enterprise AI application — opens doors at SAP, Accenture, Deloitte" },
+    { school: "102 Professional Certifications", degree: "AI, UX, Product, Marketing, Content", note: "Across 8 categories: AI & Automation (11), UX/UI Design (24), Marketing & Growth (10), Product Management (9), Content & Design (6), SAP Enterprise (2), and more" },
   ],
   pathways: [
     { n: "Pathway 1", label: "Corporate Stability + Creative Side", desc: "Traditional role (SAP Consulting, UX, Data) with creative outlets nights/weekends. Safe. Constrained." },
@@ -2191,12 +2187,13 @@ export default function App() {
           <div>
             <div className="eyebrow">Sidd Chauhan · AI Storyteller / The Translator · April 2026</div>
             <h1 className="h-title">ROLE <em>CLARITY</em> MAP</h1>
-            <div className="h-sub">Accenture → TikTok → Wayfair → Prescene.ai · UT Austin MSBA + Exec PM · 102 certs · Ikigai: "I turn hard things into clear things — on camera, on a page, in a system."</div>
+            <div className="h-sub">Accenture → News Corp → TikTok → Wayfair → Prescene.ai · UT Austin MSBA + Exec PM · 102 certs · Ikigai: "I turn hard things into clear things — on camera, on a page, in a system."</div>
           </div>
           <div className="header-stats">
             <div className="stat"><div className="stat-n">10</div><div className="stat-l">Yes Roles</div></div>
             <div className="stat"><div className="stat-n">10</div><div className="stat-l">Hard Nos</div></div>
             <div className="stat"><div className="stat-n">6</div><div className="stat-l">Conditionals</div></div>
+            <a href="https://career-intelligence-os.vercel.app" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--mint)", textDecoration: "none", border: "1px solid var(--mint-bd)", borderRadius: "6px", padding: "6px 12px", whiteSpace: "nowrap", alignSelf: "flex-end" }}>→ Full Scoring Dashboard</a>
           </div>
         </header>
         <nav className="nav">
