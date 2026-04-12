@@ -236,13 +236,59 @@ const css = `
   .whisper-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); margin-bottom: 3px; }
   .whisper-txt { font-size: 13px; color: var(--text2); font-style: italic; }
 
+  /* ── Tablet (≤780px) ── */
   @media (max-width: 780px) {
-    .header { padding: 18px 20px; flex-direction: column; align-items: flex-start; }
+    .header { padding: 18px 20px 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .header-stats { align-items: flex-start; gap: 16px; }
     .h-title { font-size: 1.8rem; }
     .nav { padding: 0 20px; }
-    .content { padding: 22px 18px; }
+    .content { padding: 22px 18px; max-width: 100%; }
     .role-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
+    .sec-title { font-size: 2rem; }
+    .filter-row { gap: 6px; }
+    .future-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Large phone (≤600px) ── */
+  @media (max-width: 600px) {
+    .header { padding: 14px 16px 12px; }
+    .h-title { font-size: 1.5rem; }
+    .h-sub { display: none; }
+    .header-stats { gap: 12px; }
+    .stat-n { font-size: 1.4rem; }
+    .nav { padding: 0 16px; }
+    .nav-btn { padding: 10px 12px; font-size: 9px; }
+    .content { padding: 18px 14px; }
+    .sec-title { font-size: 1.6rem; }
+    .sec-desc { font-size: 12px; }
+    .tbl-wrap { -webkit-overflow-scrolling: touch; }
+    .filter-row { flex-wrap: wrap; }
+    .fbtn { font-size: 9px; padding: 5px 10px; }
+  }
+
+  /* ── Small phone (≤480px) ── */
+  @media (max-width: 480px) {
+    .header { padding: 12px 14px 10px; }
+    .h-title { font-size: 1.3rem; }
+    .eyebrow { font-size: 9px; }
+    .header-stats { display: none; }
+    .nav { padding: 0 14px; }
+    .nav-btn { padding: 9px 10px; font-size: 9px; letter-spacing: 0.08em; }
+    .content { padding: 16px 12px; }
+    .sec-title { font-size: 1.4rem; }
+    .card-hd { padding: 14px 14px 12px; }
+    .card-body { padding: 14px; }
+    .card-name { font-size: 13px; }
+    .sk { padding: 11px 12px; }
+    .sk-name { font-size: 12px; }
+    .col-title { font-size: 1.1rem; }
+    .future-card { padding: 11px 12px; }
+    .future-name { font-size: 12px; }
+    .whisper { padding: 11px 14px; gap: 10px; }
+    .whisper-txt { font-size: 12px; }
+    .filter-row { gap: 5px; }
+    .fbtn { font-size: 8px; padding: 5px 9px; letter-spacing: 0.08em; }
   }
 `;
 
