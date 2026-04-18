@@ -622,6 +622,28 @@ const SCENARIOS = {
       { do: "Write the release notes for the latest Claude model update", create: "Release notes (400–600 words): what changed, what's new, what developers need to update", track: "Developer community reaction (Discord + Twitter), support volume change post-release", skill: "Writing + Curation & taste" },
     ]
   },
+  aiengineer: {
+    company: "Intercom",
+    context: "You're an AI Engineer on the Fin AI product team at Intercom — the team that built their AI support agent handling millions of conversations. Your job is building prompts, evaluation systems, and AI feature integrations, not backend infrastructure.",
+    rows: [
+      { do: "Redesign the system prompt for Fin's escalation decision — when does the agent hand off to human support?", create: "New escalation prompt (versioned), evaluation rubric with 20 test cases, before/after comparison doc", track: "Escalation accuracy rate — % of handoffs that were actually needed vs. false triggers", skill: "Translating complexity → clarity + Framework creation" },
+      { do: "Build an eval suite that tests Fin's tone against Intercom's brand voice across 50 conversation scenarios", create: "Eval dataset (50 prompts + expected outputs), Python eval script, scorecard for brand alignment", track: "Brand consistency score across conversation types (tone, language, accuracy)", skill: "Deep research & synthesis + Systems architecture" },
+      { do: "Design the RAG retrieval strategy for the help center — how does Fin know which docs to pull?", create: "RAG architecture doc, retrieval tuning experiments, chunking strategy recommendation", track: "Retrieval precision: % of answers citing the correct help article", skill: "Systems architecture + Deep research" },
+      { do: "Write the AI feature brief for 'Proactive Conversations' — AI messages users before they have a problem", create: "Feature brief: trigger logic, prompt design, fallback rules, success metrics, guardrails", track: "Proactive message open rate + CSAT for proactively-helped users vs. control", skill: "Framework creation + Translating complexity → clarity" },
+      { do: "Run a prompt optimization sprint — A/B test 3 tone variants on Fin's opening message across 10,000 conversations", create: "Experiment design doc, 3 prompt variants, results analysis with statistical significance test", track: "CSAT improvement + resolution rate on variant vs. control", skill: "Deep research + Writing" },
+    ]
+  },
+  agenticai: {
+    company: "Zapier",
+    context: "You're an Agentic AI Engineer at Zapier, working on their AI-native automation platform. You design and build multi-step AI agents that automate complex business workflows for 2M+ users — not the Zaps, the agents that orchestrate them.",
+    rows: [
+      { do: "Design the agent architecture for a 'Meeting Follow-Up Agent' — reads calendar, pulls notes, drafts follow-up emails", create: "Agent spec: trigger conditions, tool list (Calendar API, Docs, Gmail), decision logic, failure modes, evaluation criteria", track: "Task completion rate + user edits per output (lower = better)", skill: "Systems architecture + Framework creation" },
+      { do: "Build and test the tool integration layer — the agent needs to call 6 external APIs reliably", create: "Tool definition schema for each API, error handling logic, retry strategy, integration tests", track: "Tool call success rate, error rate per integration, mean time to recover on failure", skill: "Systems architecture + Deep research" },
+      { do: "Write the evaluation framework for agent reliability — how do you know the agent is doing the right thing?", create: "Eval rubric: correctness, completeness, format compliance, safety. 40 test cases with expected outputs.", track: "Agent reliability score (% runs passing all eval criteria)", skill: "Framework creation + Deep research + Translating complexity" },
+      { do: "Run a red-teaming session — try to break the agent with edge cases, adversarial inputs, and ambiguous tasks", create: "Red team report: 15 edge cases found, severity ranking, recommended guardrails, 3 prompt patches", track: "Edge case coverage, guardrail trigger rate", skill: "Deep research & synthesis + Framework creation" },
+      { do: "Write the internal playbook for building new Zapier agents — patterns, anti-patterns, and architectural decisions", create: "Agent playbook (Notion): architecture patterns, prompt templates, evaluation standards, launch checklist", track: "Agent team adoption — do other engineers use the playbook?", skill: "Writing + Translating complexity → clarity + Systems architecture" },
+    ]
+  },
   fractional: {
     company: "Your own client (Series A SaaS startup)",
     context: "You're Fractional Creative Strategist. Your client is a Series A B2B AI startup with $4M raised, 12 employees, and a messaging problem — nobody understands what they do. 3-month retainer, $3,500/mo.",
@@ -734,6 +756,26 @@ const SCHED = {
     { time: "1:00–3:00",   type: "deep",   activity: "Content audit, competitive research, or deck building for Client A — the deliverable due this week" },
     { time: "3:00–4:00",   type: "meet",   activity: "Dream 100 networking: 2 warm-up comments on LinkedIn, 1 value-first outreach message to a new prospect" },
     { time: "4:00–5:00",   type: "admin",  activity: "Prep next client deliverable, update Notion project tracker, send weekly progress update to both clients" },
+  ],
+  aiengineer: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Review AI incident queue — did any prompts degrade overnight? Check eval dashboards and Slack threads." },
+    { time: "9:30–11:30",  type: "deep",   activity: "Prompt engineering sprint — write, test, and iterate on the target prompt. Run against eval suite after each change." },
+    { time: "11:30–12:00", type: "meet",   activity: "Product sync — AI engineer briefs PM and design on what the LLM can and can't do for the proposed feature" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:30",   type: "deep",   activity: "Build the evaluation dataset — write test cases, label expected outputs, run batch evals against the new prompt" },
+    { time: "2:30–3:30",   type: "meet",   activity: "Cross-team AI review — safety, legal, and product review AI output samples before feature ships" },
+    { time: "3:30–4:30",   type: "review", activity: "Review AI feature documentation draft — accuracy check, examples test, clarity edit" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update prompt versioning log, write experiment summary, prep questions for tomorrow's model behavior deep-dive" },
+  ],
+  agenticai: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Check agent run logs — any failures, unexpected outputs, or cost spikes from overnight batch runs?" },
+    { time: "9:30–11:30",  type: "deep",   activity: "Build the new tool integration — write the tool schema, implement the call, handle edge cases and errors" },
+    { time: "11:30–12:00", type: "meet",   activity: "Agent design review — walk the team through the architecture for the new workflow agent before building" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–3:00",   type: "deep",   activity: "Red-team the agent — run adversarial prompts, edge cases, ambiguous tasks. Document what breaks and why." },
+    { time: "3:00–4:00",   type: "meet",   activity: "Eval review with PM — walk through agent reliability scores, false positive/negative patterns, launch readiness" },
+    { time: "4:00–4:30",   type: "review", activity: "Review agent playbook doc written by junior engineer — accuracy, completeness, pattern alignment check" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update agent changelog, tag resolved issues in eval tracker, prep tomorrow's architecture decision record" },
   ],
 };
 
@@ -993,6 +1035,83 @@ const NO = [
     ],
     rgaText: "Cost center, not revenue generator. IT keeps the lights on. Essential, but no direct link to revenue creation.",
     whyText: "Zero alignment. No storytelling, no creativity, no content, no human impact at scale. The furthest possible role from your Ikigai and Pathway 3."
+  },
+  {
+    id: "dataviz",
+    title: "Data Visualization Specialist",
+    earlyTitle: "Data Visualization Analyst · Reporting Analyst · BI Analyst (Visual)",
+    midTitle: "Data Visualization Specialist · Senior Data Viz Lead · Analytics Storyteller",
+    fit: "HARD NO", fc: "rose", rga: 1,
+    salary: "$60–90k", retrain: "0 months — hireable now",
+    daily: [
+      "Build charts, dashboards, and infographics in Tableau, Power BI, or D3.js",
+      "Write SQL to extract and shape data for visualizations",
+      "Translate raw datasets into visual narratives for stakeholders",
+      "Maintain and update dashboards as data changes",
+      "Choose the right chart type for each data story",
+      "Ensure visual accuracy and data integrity across reports",
+      "Present data findings to non-technical business teams"
+    ],
+    metrics: [
+      "Dashboard adoption rate",
+      "Accuracy of visualizations (zero tolerance for wrong numbers)",
+      "Stakeholder satisfaction with reports",
+      "Time to deliver new dashboards"
+    ],
+    rgaText: "Indirect and supporting. Visualizations inform decisions but don't generate revenue directly. You show someone the data; they make the call.",
+    whyText: "You built Power BI dashboards for C-suite stakeholders at Accenture and did visual data storytelling for a $200M data platform. You were good at it. You left. That is 3 years of live data. DataViz is the narrowest slice of what you did — it uses your design sensibility but ignores your strategic synthesis, writing, AI, and frameworks. Same trap as DA and BI: hireable immediately, energizing for 3 months, draining by month 9. The Enneagram 4 needs expression, not production."
+  },
+  {
+    id: "dataeng",
+    title: "Data Engineer",
+    earlyTitle: "Junior Data Engineer · ETL Developer · Analytics Engineer (entry)",
+    midTitle: "Data Engineer · Senior Data Engineer · Data Platform Engineer",
+    fit: "HARD NO", fc: "rose", rga: 2,
+    salary: "$90–130k", retrain: "12–18 months to be competitive",
+    daily: [
+      "Build and maintain ETL/ELT pipelines that move data between systems",
+      "Write Python and SQL to clean, transform, and load data at scale",
+      "Design and manage data warehouse architecture (Snowflake, BigQuery, Redshift)",
+      "Build dbt models for data transformation",
+      "Monitor pipeline reliability and debug broken data flows",
+      "Set up orchestration tools (Airflow, Prefect, Dagster)",
+      "Work with data consumers to understand and meet their data needs"
+    ],
+    metrics: [
+      "Pipeline reliability (uptime %)",
+      "Data freshness (time from source to available)",
+      "Data quality score",
+      "Query performance",
+      "Incident response time for broken pipelines"
+    ],
+    rgaText: "Foundational but indirect. Without clean pipelines, the business can't make decisions. But Data Engineering is pure infrastructure — the revenue link is 2–3 steps removed from your daily work.",
+    whyText: "Data Engineering is software engineering applied to data infrastructure. Your day is writing Python pipeline code, debugging Airflow DAGs, and managing Snowflake schemas. Zero creative expression, zero content, zero human impact at scale. Your Python is analytical-level — notebooks and scripts. Data Engineering requires production software engineering discipline: error handling, testing, CI/CD, distributed systems thinking. The MSBA gives you SQL and conceptual data architecture. It does not make you a Data Engineer."
+  },
+  {
+    id: "biengineer",
+    title: "Business Intelligence Engineer",
+    earlyTitle: "BI Developer · Analytics Engineer · Data Warehouse Analyst",
+    midTitle: "BI Engineer · Senior BI Engineer · Analytics Engineering Lead",
+    fit: "HARD NO", fc: "rose", rga: 1,
+    salary: "$85–120k", retrain: "6–12 months",
+    daily: [
+      "Design and build data warehouse models (star schema, dimensional modeling)",
+      "Write advanced SQL and dbt models for data transformation",
+      "Build semantic layers that BI tools sit on top of",
+      "Manage Snowflake, BigQuery, or Redshift environments",
+      "Create and maintain BI platform infrastructure (Looker, Tableau Server)",
+      "Work with data engineers to ensure clean, reliable data flows",
+      "Define data standards and data governance policies"
+    ],
+    metrics: [
+      "Data model accuracy",
+      "Query performance and optimization",
+      "Pipeline uptime",
+      "BI platform adoption rate",
+      "Data governance compliance"
+    ],
+    rgaText: "Supporting infrastructure. BI Engineers build the plumbing that lets analysts pull insights. Indirect revenue link — the people who use your infrastructure make the business calls.",
+    whyText: "BI Engineer is what happens when BI Analyst meets Data Engineering — more technical and more removed from creative work. The BI Analyst entry already explains why BI work is not right for you. BI Engineer amplifies the mismatch: more coding depth required, less stakeholder storytelling, more data infrastructure maintenance. Higher salary ceiling, but it charges creative energy you don't want to spend here. The existing 'BI Analyst / BI Developer' entry covers the same territory with less technical depth — and that was already a Hard No."
   }
 ];
 
@@ -1142,6 +1261,58 @@ const NEUTRAL = [
     ],
     rgaText: "Indirect — training improves employee performance which improves business outcomes. In customer-facing training, better educated customers reduce churn and increase product adoption.",
     whyText: "Teaching instinct is real. But Instructional Designer is a specific, narrow execution of that instinct — you'd be building SCORM modules, not reaching thousands. Take only if PMM/DevRel/Creative Strategist stalls past 6 months. Use it to fund the creator track."
+  },
+  {
+    id: "aiengineer",
+    title: "AI Engineer",
+    earlyTitle: "AI Product Engineer · LLM Engineer · Prompt Engineer",
+    midTitle: "AI Engineer · Senior AI Engineer · AI Product Builder",
+    fit: "CONDITIONAL", fc: "amber", rga: 4,
+    salary: "$90–140k", condition: "Only if the role = AI product building, NOT traditional software engineering depth",
+    daily: [
+      "Design and implement LLM-powered features using APIs (Anthropic, OpenAI, Gemini)",
+      "Build prompt systems, evaluation frameworks, and output pipelines",
+      "Integrate AI into products — chatbots, copilots, generation tools",
+      "Design RAG architectures (retrieval-augmented generation) and vector search",
+      "Test and evaluate AI output quality, safety, and reliability",
+      "Write documentation and internal playbooks for AI systems",
+      "Collaborate with product and design to define AI use cases and guardrails"
+    ],
+    metrics: [
+      "AI feature adoption rate",
+      "Output quality metrics (accuracy, helpfulness, safety scores)",
+      "Latency and cost per AI API call",
+      "Evaluation benchmark scores",
+      "Number of AI features shipped to production"
+    ],
+    rgaText: "High and growing fast. Companies are paying a premium right now for people who understand LLMs, can ship AI features, and can communicate what the AI should and shouldn't do. AI features drive retention, differentiation, and new revenue streams.",
+    whyText: "This is the interesting one. The modern 'AI Engineer' at many startups means: design AI workflows, wire LLM APIs, build prompts, evaluate outputs, ship AI-native features. Your daily work with n8n, Make, Claude, and AI automation workflows is adjacent. The gap: production Python code, testing discipline, system architecture at engineering depth. If the role is 70% AI product design and 30% light coding — it fits. If it's the reverse — it doesn't. Read the job description carefully. 'AI Engineer' at a 10-person startup is different from 'AI Engineer' at Google."
+  },
+  {
+    id: "agenticai",
+    title: "Agentic AI Engineer",
+    earlyTitle: "AI Automation Engineer · AI Agent Developer · AI Workflows Engineer",
+    midTitle: "Agentic AI Engineer · AI Systems Architect · Agent Platform Lead",
+    fit: "CONDITIONAL", fc: "amber", rga: 4,
+    salary: "$100–150k", condition: "Emerging role — requires 3–6 months of deliberate skill stacking in Python + agent frameworks",
+    daily: [
+      "Design and build multi-agent AI systems (orchestration, tool use, memory, handoffs)",
+      "Use frameworks like LangGraph, CrewAI, AutoGen, or custom agent loops",
+      "Define agent personas, goals, tools, and evaluation criteria",
+      "Build and maintain tool integrations for agents (APIs, databases, web scraping)",
+      "Evaluate agent behavior — does it complete the task reliably at scale?",
+      "Write documentation and playbooks for deployed agent systems",
+      "Work with product teams to scope agent capabilities and edge cases"
+    ],
+    metrics: [
+      "Agent task completion rate",
+      "Output reliability and accuracy per run",
+      "Cost per agent run",
+      "Time saved vs. manual baseline",
+      "Number of production agents deployed and maintained"
+    ],
+    rgaText: "High potential, early stage. Companies building AI agents are paying well for people who can think systemically about what agents should do and actually build them. The market is underserved and getting more so.",
+    whyText: "Your n8n and Make workflows are proto-agentic AI engineering — you're already thinking in nodes, triggers, conditional logic, and tool chains. The conceptual foundation is there. The gap: Python depth for production agents (LangGraph, LangChain, memory systems). 3–6 months of deliberate practice bridges this. The role matches 5 of your top CraftSkills: systems architecture, framework creation, deep research, AI tooling, and clarity translation. The condition: you'd need to code more than you do today. Not at MLE level — but enough to ship agents that run in production reliably."
   }
 ];
 
@@ -1161,12 +1332,17 @@ const ALL_TABLE = [
   { t: "UX Researcher",                 early: "User Research Associate",              cat: "⚠️ COND",  rga: "●●○○○", sal: "$75–105k",   take: "Love the company" },
   { t: "Business Analyst",              early: "Business Analyst I",                   cat: "⚠️ COND",  rga: "●●○○○", sal: "$65–85k",    take: "Door-opener only" },
   { t: "Instructional Designer",        early: "L&D Specialist",                       cat: "⚠️ COND",  rga: "●●○○○", sal: "$55–75k",    take: "Income bridge only" },
+  { t: "AI Engineer",                   early: "AI Product Engineer · LLM Engineer",   cat: "⚠️ COND",  rga: "●●●●○", sal: "$90–140k",   take: "If role = AI product, not SWE" },
+  { t: "Agentic AI Engineer",           early: "AI Automation Engineer · Agent Dev",   cat: "⚠️ COND",  rga: "●●●●○", sal: "$100–150k",  take: "After 3–6 mo skill stack" },
   { t: "Social Media Manager",          early: "Social Media Coordinator",             cat: "⚠️ LOW",   rga: "●●○○○", sal: "$45–65k",    take: "Only with strategy scope" },
   { t: "Data Analyst",                  early: "Junior Data Analyst",                  cat: "❌ NO",     rga: "●○○○○", sal: "$55–80k",    take: "Never" },
   { t: "BI Analyst / BI Developer",     early: "Business Intelligence Analyst",        cat: "❌ NO",     rga: "●○○○○", sal: "$65–95k",    take: "Never" },
   { t: "Data Scientist",                early: "Data Science Associate",               cat: "❌ NO",     rga: "●●○○○", sal: "$100–140k",  take: "Never" },
   { t: "Machine Learning Engineer",     early: "Junior ML Engineer",                   cat: "❌ NO",     rga: "●●●○○", sal: "$120–160k",  take: "Never" },
   { t: "AI Software Engineer",          early: "Software Engineer I (AI/ML)",          cat: "❌ NO",     rga: "●●●●○", sal: "$120–160k",  take: "Never" },
+  { t: "Data Visualization Specialist", early: "Data Viz Analyst · Reporting Analyst", cat: "❌ NO",     rga: "●○○○○", sal: "$60–90k",    take: "Never" },
+  { t: "Data Engineer",                 early: "Junior Data Engineer · ETL Developer", cat: "❌ NO",     rga: "●●○○○", sal: "$90–130k",   take: "Never" },
+  { t: "BI Engineer",                   early: "BI Developer · Analytics Engineer",    cat: "❌ NO",     rga: "●○○○○", sal: "$85–120k",   take: "Never" },
   { t: "Account Executive",             early: "SDR · BDR",                            cat: "❌ TIMING", rga: "●●●●●", sal: "$60–80k+OTE",take: "Maybe in 3–5 years" },
   { t: "Financial Analyst",             early: "Financial Analyst I",                  cat: "❌ NO",     rga: "●○○○○", sal: "$60–85k",    take: "Never" },
   { t: "Management Consultant",         early: "Business Analyst (Consulting)",        cat: "❌ NO",     rga: "●●●○○", sal: "$90–110k",   take: "Already did it" },
@@ -2175,8 +2351,8 @@ export default function App() {
   const TABS = [
     { id: "profile", lbl: "My Profile",  cnt: null },
     { id: "yes",     lbl: "Yes Roles",   cnt: 10 },
-    { id: "no",      lbl: "Anti-Roles",  cnt: 10 },
-    { id: "neutral", lbl: "Conditional", cnt: 6  },
+    { id: "no",      lbl: "Anti-Roles",  cnt: 13 },
+    { id: "neutral", lbl: "Conditional", cnt: 8  },
     { id: "vision",  lbl: "2030 Vision", cnt: null },
     { id: "table",   lbl: "Full Map",    cnt: 26 },
     { id: "toolkit", lbl: "Craft Skills", cnt: CRAFT_SKILLS.reduce((a, c) => a + c.skills.length, 0) },
