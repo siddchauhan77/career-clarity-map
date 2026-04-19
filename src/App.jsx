@@ -148,6 +148,10 @@ const css = `
   .dot { width: 8px; height: 8px; border-radius: 50%; }
   .dot.on { background: var(--mint); }
   .dot.off { background: var(--border2); }
+  .fld-dots { display: flex; gap: 3px; }
+  .fld-dot { width: 8px; height: 8px; border-radius: 2px; }
+  .fld-dot.on { background: var(--lavender); }
+  .fld-dot.off { background: var(--border2); }
 
   .expand-hint { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); margin-top: 2px; }
 
@@ -254,7 +258,7 @@ const YES = [
     title: "Product Marketing Manager",
     earlyTitle: "Product Marketing Associate · Marketing Programs Coordinator",
     midTitle: "PMM · Senior Product Marketing Manager",
-    fit: "BEST FIT", fc: "mint", rga: 4,
+    fit: "BEST FIT", fc: "mint", rga: 4, fld: 4,
     salary: "$70–130k", timeline: "30–60 days",
     daily: [
       "Write positioning and messaging docs — who the product is for, why it matters, how it differs",
@@ -281,7 +285,7 @@ const YES = [
     title: "Developer Advocate",
     earlyTitle: "Developer Relations Associate · Technical Community Manager",
     midTitle: "Developer Advocate · Senior Developer Advocate",
-    fit: "BEST FIT", fc: "mint", rga: 4,
+    fit: "BEST FIT", fc: "mint", rga: 4, fld: 5,
     salary: "$90–140k", timeline: "30–90 days",
     daily: [
       "Create tutorials, demo videos, and code samples showing how to use APIs or products",
@@ -308,7 +312,7 @@ const YES = [
     title: "Creative Strategist",
     earlyTitle: "Creative Strategy Associate · Brand Strategist",
     midTitle: "Creative Strategist · Senior Creative Strategist",
-    fit: "BEST FIT", fc: "mint", rga: 4,
+    fit: "BEST FIT", fc: "mint", rga: 4, fld: 5,
     salary: "$65–90k / $75–150/hr freelance", timeline: "60–90 days",
     daily: [
       "Write creative briefs — tells designers, copywriters, and video teams exactly what to make and why",
@@ -335,7 +339,7 @@ const YES = [
     title: "AI Content Strategist / AI Educator",
     earlyTitle: "AI Content Writer · Content Creator (AI) · AI Education Specialist",
     midTitle: "AI Content Strategist · Head of AI Education",
-    fit: "BEST FIT", fc: "mint", rga: 5,
+    fit: "BEST FIT", fc: "mint", rga: 5, fld: 5,
     salary: "$60–85k in-house / Unlimited creator", timeline: "30–60 days",
     daily: [
       "Write and record content explaining AI tools and workflows for non-technical audiences",
@@ -362,7 +366,7 @@ const YES = [
     title: "Content Marketing Manager",
     earlyTitle: "Content Marketing Coordinator · SEO Content Specialist · Content Writer",
     midTitle: "Content Marketing Manager · Senior Content Strategist",
-    fit: "STRONG FIT", fc: "sage", rga: 3,
+    fit: "STRONG FIT", fc: "sage", rga: 3, fld: 3,
     salary: "$60–85k", timeline: "30–60 days",
     daily: [
       "Own the editorial calendar — plan what gets published, when, on which channel",
@@ -389,7 +393,7 @@ const YES = [
     title: "Customer Education Manager",
     earlyTitle: "Customer Education Specialist · Technical Trainer · Learning Specialist",
     midTitle: "Customer Education Manager · Product Education Lead",
-    fit: "GOOD FIT", fc: "sage", rga: 3,
+    fit: "GOOD FIT", fc: "sage", rga: 3, fld: 4,
     salary: "$65–90k", timeline: "30–60 days",
     daily: [
       "Build product onboarding flows — guided experience new users get in their first 7 days",
@@ -416,7 +420,7 @@ const YES = [
     title: "Growth Marketing Manager",
     earlyTitle: "Growth Marketing Analyst · Demand Gen Coordinator · Marketing Operations Specialist",
     midTitle: "Growth Marketing Manager · Senior Growth Marketer",
-    fit: "STRONG FIT", fc: "sage", rga: 5,
+    fit: "STRONG FIT", fc: "sage", rga: 5, fld: 3,
     salary: "$75–110k + bonus", timeline: "60–90 days",
     daily: [
       "Design and run experiments — build hypothesis, set up test, analyze results, document learnings",
@@ -443,7 +447,7 @@ const YES = [
     title: "AI Customer Success Manager",
     earlyTitle: "Customer Success Associate · Implementation Specialist · Onboarding Specialist",
     midTitle: "Customer Success Manager · Technical Customer Success Manager",
-    fit: "STRONG FIT", fc: "sage", rga: 4,
+    fit: "STRONG FIT", fc: "sage", rga: 4, fld: 3,
     salary: "$70–100k + $10–20k variable", timeline: "60–120 days",
     daily: [
       "Onboarding calls with new clients — understand workflows, identify automation opportunities",
@@ -470,7 +474,7 @@ const YES = [
     title: "Technical Writer",
     earlyTitle: "Documentation Specialist · Junior Technical Writer · API Documentation Writer",
     midTitle: "Technical Writer · Senior Technical Writer · Documentation Engineer",
-    fit: "DOOR OPENER", fc: "amber", rga: 2,
+    fit: "DOOR OPENER", fc: "amber", rga: 2, fld: 3,
     salary: "$65–85k", timeline: "30–60 days (easiest entry)",
     daily: [
       "Write and maintain API documentation — every endpoint, parameter, example",
@@ -495,7 +499,7 @@ const YES = [
     title: "Fractional Creative Strategist",
     earlyTitle: "Freelance Content Strategist · Brand Consultant",
     midTitle: "Fractional CMO · Fractional Creative Director · Brand Strategy Consultant",
-    fit: "START NOW", fc: "mint", rga: 5,
+    fit: "START NOW", fc: "mint", rga: 5, fld: 5,
     salary: "$50–150/hr or $1,500–5,000/mo retainer", timeline: "This week",
     daily: [
       "Discovery calls with clients — understand positioning, audience, competitors",
@@ -785,7 +789,7 @@ const NO = [
     title: "Data Scientist",
     earlyTitle: "Data Science Associate · Junior Data Scientist",
     midTitle: "Data Scientist · Senior Data Scientist",
-    fit: "HARD NO", fc: "rose", rga: 2,
+    fit: "HARD NO", fc: "rose", rga: 2, fld: 2,
     salary: "$100–140k entry", retrain: "18–24 months to be competitive",
     daily: [
       "Build and train ML models (classification, regression, clustering, forecasting)",
@@ -811,7 +815,7 @@ const NO = [
     title: "Machine Learning Engineer",
     earlyTitle: "Junior ML Engineer · ML Platform Engineer (entry)",
     midTitle: "Machine Learning Engineer · Senior ML Engineer",
-    fit: "HARD NO", fc: "rose", rga: 3,
+    fit: "HARD NO", fc: "rose", rga: 3, fld: 1,
     salary: "$120–160k", retrain: "24+ months",
     daily: [
       "Write production-grade Python code to train, evaluate, and deploy ML models",
@@ -837,7 +841,7 @@ const NO = [
     title: "AI Software Engineer",
     earlyTitle: "Junior AI Engineer · Software Engineer I (AI/ML)",
     midTitle: "AI Engineer · Senior AI Engineer · Applied AI Engineer",
-    fit: "HARD NO", fc: "rose", rga: 4,
+    fit: "HARD NO", fc: "rose", rga: 4, fld: 2,
     salary: "$120–160k", retrain: "18–24 months",
     daily: [
       "Build full-stack applications that integrate LLMs and AI APIs",
@@ -863,7 +867,7 @@ const NO = [
     title: "BI Analyst / BI Developer",
     earlyTitle: "Business Intelligence Analyst · Data Analyst · Reporting Analyst",
     midTitle: "Senior BI Analyst · BI Developer · Analytics Engineer",
-    fit: "HARD NO", fc: "rose", rga: 1,
+    fit: "HARD NO", fc: "rose", rga: 1, fld: 1,
     salary: "$65–95k", retrain: "0 months — hireable already, that's the problem",
     daily: [
       "Build and maintain dashboards in Power BI, Tableau, or Looker",
@@ -889,7 +893,7 @@ const NO = [
     title: "Data Analyst",
     earlyTitle: "Junior Data Analyst · Analytics Coordinator · Business Analyst (entry)",
     midTitle: "Data Analyst · Senior Data Analyst · Analytics Manager",
-    fit: "HARD NO", fc: "rose", rga: 1,
+    fit: "HARD NO", fc: "rose", rga: 1, fld: 1,
     salary: "$55–80k", retrain: "0 months — hireable immediately",
     daily: [
       "Pull data from databases using SQL to answer business questions",
@@ -914,7 +918,7 @@ const NO = [
     title: "Account Executive",
     earlyTitle: "Sales Development Representative (SDR) · Business Development Rep (BDR)",
     midTitle: "Account Executive · Mid-Market AE · Enterprise AE",
-    fit: "WRONG TIMING", fc: "amber", rga: 5,
+    fit: "WRONG TIMING", fc: "amber", rga: 5, fld: 3,
     salary: "$60–80k base + $60–80k OTE. Top performers: $200k+", retrain: "Build influencing muscle first",
     daily: [
       "Make cold calls and send cold emails to prospects (20–50 per day)",
@@ -941,7 +945,7 @@ const NO = [
     title: "Financial Analyst",
     earlyTitle: "Financial Analyst I · FP&A Analyst · Finance Associate",
     midTitle: "Senior Financial Analyst · FP&A Manager",
-    fit: "HARD NO", fc: "rose", rga: 1,
+    fit: "HARD NO", fc: "rose", rga: 1, fld: 1,
     salary: "$60–85k", retrain: "12+ months to be competitive",
     daily: [
       "Build financial models (DCF, LBO, three-statement models) in Excel",
@@ -966,7 +970,7 @@ const NO = [
     title: "Management Consultant",
     earlyTitle: "Business Analyst (Consulting) · Associate Consultant",
     midTitle: "Consultant · Senior Consultant · Engagement Manager",
-    fit: "HARD NO", fc: "rose", rga: 3,
+    fit: "HARD NO", fc: "rose", rga: 3, fld: 3,
     salary: "$90–110k base (60–80hr weeks)", retrain: "N/A — you already did this",
     daily: [
       "Build PowerPoint decks (4–6 hours per day of slide building)",
@@ -992,7 +996,7 @@ const NO = [
     title: "Operations Manager",
     earlyTitle: "Operations Coordinator · Business Operations Associate",
     midTitle: "Operations Manager · Sr. Operations Manager",
-    fit: "HARD NO", fc: "rose", rga: 1,
+    fit: "HARD NO", fc: "rose", rga: 1, fld: 1,
     salary: "$65–90k", retrain: "N/A",
     daily: [
       "Manage daily business operations — logistics, vendor relationships, process documentation",
@@ -1017,7 +1021,7 @@ const NO = [
     title: "IT Systems Administrator",
     earlyTitle: "IT Support Specialist · Help Desk Technician · Systems Administrator I",
     midTitle: "IT Systems Administrator · Senior Sysadmin · IT Manager",
-    fit: "HARD NO", fc: "rose", rga: 1,
+    fit: "HARD NO", fc: "rose", rga: 1, fld: 1,
     salary: "$55–80k", retrain: "N/A",
     daily: [
       "Maintain servers, networks, and cloud infrastructure",
@@ -1041,7 +1045,7 @@ const NO = [
     title: "Data Visualization Specialist",
     earlyTitle: "Data Visualization Analyst · Reporting Analyst · BI Analyst (Visual)",
     midTitle: "Data Visualization Specialist · Senior Data Viz Lead · Analytics Storyteller",
-    fit: "HARD NO", fc: "rose", rga: 1,
+    fit: "HARD NO", fc: "rose", rga: 1, fld: 2,
     salary: "$60–90k", retrain: "0 months — hireable now",
     daily: [
       "Build charts, dashboards, and infographics in Tableau, Power BI, or D3.js",
@@ -1066,7 +1070,7 @@ const NO = [
     title: "Data Engineer",
     earlyTitle: "Junior Data Engineer · ETL Developer · Analytics Engineer (entry)",
     midTitle: "Data Engineer · Senior Data Engineer · Data Platform Engineer",
-    fit: "HARD NO", fc: "rose", rga: 2,
+    fit: "HARD NO", fc: "rose", rga: 2, fld: 1,
     salary: "$90–130k", retrain: "12–18 months to be competitive",
     daily: [
       "Build and maintain ETL/ELT pipelines that move data between systems",
@@ -1092,7 +1096,7 @@ const NO = [
     title: "Business Intelligence Engineer",
     earlyTitle: "BI Developer · Analytics Engineer · Data Warehouse Analyst",
     midTitle: "BI Engineer · Senior BI Engineer · Analytics Engineering Lead",
-    fit: "HARD NO", fc: "rose", rga: 1,
+    fit: "HARD NO", fc: "rose", rga: 1, fld: 1,
     salary: "$85–120k", retrain: "6–12 months",
     daily: [
       "Design and build data warehouse models (star schema, dimensional modeling)",
@@ -1121,7 +1125,7 @@ const NEUTRAL = [
     title: "Product Manager",
     earlyTitle: "Associate Product Manager (APM) · Product Analyst",
     midTitle: "Product Manager · Senior Product Manager",
-    fit: "CONDITIONAL", fc: "amber", rga: 4,
+    fit: "CONDITIONAL", fc: "amber", rga: 4, fld: 2,
     salary: "$90–130k", condition: "After 2–3 years as PMM",
     daily: [
       "Write PRDs defining what gets built and why",
@@ -1147,7 +1151,7 @@ const NEUTRAL = [
     title: "UX Researcher",
     earlyTitle: "User Research Associate · UX Research Coordinator · Research Ops Specialist",
     midTitle: "UX Researcher · Senior UX Researcher · User Insights Lead",
-    fit: "CONDITIONAL", fc: "amber", rga: 2,
+    fit: "CONDITIONAL", fc: "amber", rga: 2, fld: 3,
     salary: "$75–105k", condition: "Only at a company you love",
     daily: [
       "Plan and run user research studies (interviews, usability tests, surveys)",
@@ -1171,7 +1175,7 @@ const NEUTRAL = [
     title: "Brand Manager",
     earlyTitle: "Brand Coordinator · Brand Specialist · Marketing Coordinator",
     midTitle: "Brand Manager · Senior Brand Manager · Brand Strategist",
-    fit: "CONDITIONAL", fc: "amber", rga: 2,
+    fit: "CONDITIONAL", fc: "amber", rga: 2, fld: 3,
     salary: "$65–90k", condition: "Only if PMM isn't available",
     daily: [
       "Own brand guidelines and enforce consistency across all channels",
@@ -1195,7 +1199,7 @@ const NEUTRAL = [
     title: "Social Media Manager",
     earlyTitle: "Social Media Coordinator · Community Manager · Social Media Specialist",
     midTitle: "Social Media Manager · Senior Social Media Manager",
-    fit: "LOW FIT", fc: "rose", rga: 2,
+    fit: "LOW FIT", fc: "rose", rga: 2, fld: 2,
     salary: "$45–65k", condition: "Only with strategy scope negotiated",
     daily: [
       "Create and schedule content across LinkedIn, Instagram, TikTok, X",
@@ -1219,7 +1223,7 @@ const NEUTRAL = [
     title: "Business Analyst",
     earlyTitle: "Business Analyst I · Junior Business Analyst · Systems Analyst (entry)",
     midTitle: "Business Analyst · Senior Business Analyst · Business Systems Analyst",
-    fit: "DOOR OPENER", fc: "amber", rga: 2,
+    fit: "DOOR OPENER", fc: "amber", rga: 2, fld: 2,
     salary: "$65–85k", condition: "Door-opener only, not a destination",
     daily: [
       "Gather requirements from business stakeholders",
@@ -1243,7 +1247,7 @@ const NEUTRAL = [
     title: "Instructional Designer",
     earlyTitle: "Learning & Development Specialist · eLearning Developer · Training Coordinator",
     midTitle: "Instructional Designer · Senior Instructional Designer · L&D Manager",
-    fit: "INCOME BRIDGE", fc: "amber", rga: 2,
+    fit: "INCOME BRIDGE", fc: "amber", rga: 2, fld: 4,
     salary: "$55–75k", condition: "Only if PMM/DevRel stalls past 6 months",
     daily: [
       "Design e-learning courses using tools like Articulate 360",
@@ -1267,7 +1271,7 @@ const NEUTRAL = [
     title: "AI Engineer",
     earlyTitle: "AI Product Engineer · LLM Engineer · Prompt Engineer",
     midTitle: "AI Engineer · Senior AI Engineer · AI Product Builder",
-    fit: "CONDITIONAL", fc: "amber", rga: 4,
+    fit: "CONDITIONAL", fc: "amber", rga: 4, fld: 4,
     salary: "$90–140k", condition: "Only if the role = AI product building, NOT traditional software engineering depth",
     daily: [
       "Design and implement LLM-powered features using APIs (Anthropic, OpenAI, Gemini)",
@@ -1293,7 +1297,7 @@ const NEUTRAL = [
     title: "Agentic AI Engineer",
     earlyTitle: "AI Automation Engineer · AI Agent Developer · AI Workflows Engineer",
     midTitle: "Agentic AI Engineer · AI Systems Architect · Agent Platform Lead",
-    fit: "CONDITIONAL", fc: "amber", rga: 4,
+    fit: "CONDITIONAL", fc: "amber", rga: 4, fld: 5,
     salary: "$100–150k", condition: "Emerging role — requires 3–6 months of deliberate skill stacking in Python + agent frameworks",
     daily: [
       "Design and build multi-agent AI systems (orchestration, tool use, memory, handoffs)",
@@ -1400,6 +1404,16 @@ function Dots({ n, max = 5 }) {
   );
 }
 
+function FreeDots({ n, max = 5 }) {
+  return (
+    <div className="fld-dots">
+      {Array.from({ length: max }).map((_, i) => (
+        <div key={i} className={`fld-dot ${i < n ? "on" : "off"}`} />
+      ))}
+    </div>
+  );
+}
+
 function FitTag({ fit, fc }) {
   const s = FC_STYLES[fc] || FC_STYLES.amber;
   return (
@@ -1438,6 +1452,12 @@ function RoleCard({ role, type }) {
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--muted)" }}>RGA</span>
             <Dots n={role.rga} />
           </div>
+          {role.fld != null && (
+            <div className="meta-item" title="Own It Score — how well this role trains skills you can take to freelance, products, or a creator business">
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--lavender)" }}>Own It</span>
+              <FreeDots n={role.fld} />
+            </div>
+          )}
           <div className="meta-item">
             <span className="meta-sal">{role.salary}</span>
           </div>
@@ -1538,6 +1558,28 @@ function RoleCard({ role, type }) {
             <div className="subsec-title">Revenue link (RGA)</div>
             <div className="rga-callout"><p>{role.rgaText}</p></div>
           </div>
+          {role.fld != null && (() => {
+            const fldLabels = {
+              1: "Locked in. Skills stay inside the company. Hard to freelance or productize.",
+              2: "Low. Niche freelance market exists but limited. Hard to build audience or products.",
+              3: "Moderate. Skills are portable. Freelance or consulting possible with effort.",
+              4: "Strong. Skills transfer well to clients, consulting, or creator business.",
+              5: "Maximum. This role trains skills you fully own — audience, products, independence.",
+            };
+            const fldDotColor = role.fld >= 4 ? "var(--lavender)" : role.fld === 3 ? "var(--amber)" : "var(--muted)";
+            return (
+              <div>
+                <div className="subsec-title" style={{ color: "var(--lavender)" }}>Own It Score — Independence Leverage</div>
+                <div style={{ background: "var(--lav-bg)", border: "1px solid rgba(90,74,138,0.2)", borderRadius: "8px", padding: "12px 16px", display: "flex", alignItems: "flex-start", gap: "14px" }}>
+                  <div style={{ flexShrink: 0 }}>
+                    <FreeDots n={role.fld} />
+                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", color: "var(--lavender)", marginTop: "5px", letterSpacing: "0.1em" }}>{role.fld}/5</div>
+                  </div>
+                  <p style={{ fontSize: "12px", color: "var(--text2)", lineHeight: "1.6", margin: 0 }}>{fldLabels[role.fld]}</p>
+                </div>
+              </div>
+            );
+          })()}
           <div>
             <div className="subsec-title">
               {type === "yes" ? "Why this fits Sidd" : type === "no" ? "Why this is wrong for Sidd" : "The condition"}
