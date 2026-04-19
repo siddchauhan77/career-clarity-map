@@ -659,6 +659,28 @@ const SCENARIOS = {
       { do: "Present the full strategy to the founding team (founder + CTO + Head of Sales)", create: "15-slide strategy deck: positioning, ICP, messaging, content plan, 90-day roadmap, success metrics", track: "Retainer renewal (did they sign month 2?) — that's the only metric that matters", skill: "Translating complexity → clarity + Writing + Framework creation" },
     ]
   },
+  fde: {
+    company: "Anthropic",
+    context: "You're a Forward Deployed Engineer at Anthropic's enterprise team. A Fortune 500 insurance company is piloting Claude for document review and claims summarization. You own the technical implementation end-to-end.",
+    rows: [
+      { do: "Run 3-hour discovery session with the client's CTO, IT lead, and claims ops head — map their document workflow, data systems, and compliance constraints", create: "Discovery report: current-state workflow diagram, 5 integration requirements, 2 compliance blockers identified, recommended POC scope", track: "Discovery sign-off: did both sides agree on POC scope before any code is written?", skill: "Deep research + Translating complexity → clarity + Framework creation" },
+      { do: "Build the proof-of-concept — Claude integration that ingests claim PDFs, extracts structured data, and outputs a claims summary in the client's required format", create: "Working POC: Python script + API integration + output template with 3 sample claims processed accurately", track: "POC accuracy rate — % of test claims where Claude's summary matched the adjuster's manual summary", skill: "AI automation + Systems architecture + AI tooling (n8n, Claude API)" },
+      { do: "Present POC results to client stakeholder group — 8 people including VP of Operations and Head of Compliance", create: "30-min presentation deck + live demo of the working POC + risk/mitigation log for the compliance team", track: "Stakeholder approval to proceed to Phase 2 (live environment access granted)", skill: "Translating complexity → clarity + Writing + Deep research" },
+      { do: "Write the technical integration spec for the production deployment — how Claude connects to their claims management system", create: "Integration architecture doc: API authentication, data flow diagram, error handling protocol, compliance data handling policy", track: "Internal review approval from Anthropic's legal + client's IT sign-off on architecture", skill: "Framework creation + Systems architecture + Deep research" },
+      { do: "Run first live deployment — production claims flowing through Claude with monitoring, logging, and human-review checkpoints active", create: "Deployment runbook + monitoring dashboard + week-1 summary report: volume processed, accuracy rate, edge cases found", track: "Client NPS at Day 14 post-deployment — are adjusters saving time and trusting the output?", skill: "AI automation + Systems architecture + Translating complexity → clarity" },
+    ]
+  },
+  soleng: {
+    company: "Intercom",
+    context: "You're a Solutions Engineer at Intercom supporting their AI customer support product. You cover mid-market and enterprise accounts. Your AE has three deals in late stage this week — your job is to close the technical gap that's holding each one.",
+    rows: [
+      { do: "Run technical discovery call with the VP of Customer Success and IT lead at a Series B fintech company — understand their current support stack and AI readiness", create: "Discovery notes: current tool stack, 4 integration requirements, top 3 objections heard, recommended demo flow", track: "Discovery → Demo conversion: did they agree to a tailored demo based on this call?", skill: "Deep research + Translating complexity → clarity + Competitive analysis" },
+      { do: "Build a custom demo environment showing Fin AI handling fintech-specific support scenarios — account balance questions, transaction disputes, card blocks", create: "Custom demo: live environment with 10 fintech-specific training examples, brand-matched conversation style, escalation triggers configured", track: "Demo engagement score — did the VP ask to see it again? Did they bring in a 3rd stakeholder?", skill: "AI automation + Framework creation + Writing (demo scripts)" },
+      { do: "Answer the security and compliance questions from their IT team — SSO, data residency, encryption, GDPR, audit logs", create: "Technical security FAQ (8 questions answered specifically for fintech compliance), shared with client and internal legal for review", track: "Time to answer: < 24 hours. Trust signal: did IT team go quiet after, or escalate more questions?", skill: "Deep research + Framework creation + Translating complexity → clarity" },
+      { do: "Run POC with 200 real support tickets — Fin AI handles them in sandbox, human reviews output, flags issues, grades accuracy", create: "POC results report: resolution rate, CSAT prediction, time saved vs. human agents, 3 edge case examples with proposed fixes", track: "POC pass criteria: ≥ 80% accurate resolution rate and client stakeholder sign-off on results", skill: "AI tooling + Data storytelling + Deep research" },
+      { do: "Prep and deliver the final executive presentation — business case, ROI model, implementation timeline, contract scope", create: "Exec deck (15 slides): ROI model with client's actual ticket volume, implementation roadmap, comparison vs. current tool, pricing tier recommendation", track: "Deal closed-won. That's the metric. The SE's job ends when legal sends the contract.", skill: "Translating complexity → clarity + Writing + Framework creation" },
+    ]
+  },
 };
 
 // type: "deep" = focused output | "meet" = call/sync | "review" = editing/reviewing | "admin" = Slack/planning
@@ -780,6 +802,26 @@ const SCHED = {
     { time: "3:00–4:00",   type: "meet",   activity: "Eval review with PM — walk through agent reliability scores, false positive/negative patterns, launch readiness" },
     { time: "4:00–4:30",   type: "review", activity: "Review agent playbook doc written by junior engineer — accuracy, completeness, pattern alignment check" },
     { time: "4:30–5:00",   type: "admin",  activity: "Update agent changelog, tag resolved issues in eval tracker, prep tomorrow's architecture decision record" },
+  ],
+  fde: [
+    { time: "8:30–9:00",   type: "admin",  activity: "Check client Slack workspace for overnight questions, integration errors, or monitoring alerts from deployed systems" },
+    { time: "9:00–11:00",  type: "meet",   activity: "Enterprise discovery session — map client workflows, data systems, integration points, and compliance constraints with CTO and ops lead" },
+    { time: "11:00–12:30", type: "deep",   activity: "POC development sprint — build the integration connecting client data to the AI product. Write connectors, test against sample data." },
+    { time: "12:30–1:30",  type: "admin",  activity: "Lunch. Update internal CRM notes from morning discovery. Flag any blockers to Solutions Architect." },
+    { time: "1:30–2:30",   type: "meet",   activity: "Internal debrief with AE and PM — translate client requirements from discovery into product feedback and feature prioritization" },
+    { time: "2:30–4:00",   type: "deep",   activity: "Write the integration architecture doc and POC summary report — client-ready technical writeup of what was built and what's next" },
+    { time: "4:00–4:30",   type: "review", activity: "Review POC output accuracy — manually check 20 samples from today's test run. Document failure modes." },
+    { time: "4:30–5:00",   type: "admin",  activity: "File product requirement based on client feedback. Update deployment tracker. Prep tomorrow's client presentation deck." },
+  ],
+  soleng: [
+    { time: "8:30–9:00",   type: "admin",  activity: "Review today's three deals — check last email thread, note open technical questions, pull latest product release notes for demo accuracy" },
+    { time: "9:00–10:00",  type: "meet",   activity: "Technical discovery call with Series B fintech prospect — map current support stack, integration requirements, volume metrics" },
+    { time: "10:00–11:30", type: "deep",   activity: "Build custom demo environment for afternoon enterprise call — configure brand-specific examples and escalation triggers" },
+    { time: "11:30–12:00", type: "meet",   activity: "Quick AE sync — align on deal strategy, which use case to lead with, which competitor to neutralize in today's demo" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch. Draft technical FAQ response for yesterday's IT team security questions." },
+    { time: "1:00–2:30",   type: "meet",   activity: "Live enterprise demo — present custom environment, handle live technical questions, run POC walkthrough with VP of CS and IT lead" },
+    { time: "2:30–3:30",   type: "review", activity: "Write POC results summary — resolution rate, accuracy score, CSAT projection, edge cases. Client-ready in 24 hours." },
+    { time: "3:30–5:00",   type: "deep",   activity: "Build the executive ROI deck for deal closing — model client's actual ticket volume, calculate time saved vs. current tool, finalize pricing recommendation" },
   ],
 };
 
@@ -1317,6 +1359,60 @@ const NEUTRAL = [
     ],
     rgaText: "High potential, early stage. Companies building AI agents are paying well for people who can think systemically about what agents should do and actually build them. The market is underserved and getting more so.",
     whyText: "Your n8n and Make workflows are proto-agentic AI engineering — you're already thinking in nodes, triggers, conditional logic, and tool chains. The conceptual foundation is there. The gap: Python depth for production agents (LangGraph, LangChain, memory systems). 3–6 months of deliberate practice bridges this. The role matches 5 of your top CraftSkills: systems architecture, framework creation, deep research, AI tooling, and clarity translation. The condition: you'd need to code more than you do today. Not at MLE level — but enough to ship agents that run in production reliably."
+  },
+  {
+    id: "fde",
+    title: "Forward Deployed Engineer",
+    earlyTitle: "Implementation Engineer · AI Deployment Specialist · FDE",
+    midTitle: "Senior FDE · Principal FDE · Customer Engineering Lead",
+    fit: "CONDITIONAL", fc: "amber", rga: 4, fld: 5,
+    salary: "$120–180k", condition: "Only at an AI-first company (OpenAI, Anthropic, Palantir, Salesforce AI) — the client-facing + implementation mix is what makes this fit",
+    daily: [
+      "Run enterprise discovery sessions — map client workflows, data systems, and integration points",
+      "Build proof-of-concept implementations using client data to validate AI use cases live",
+      "Write integration code connecting company AI products to client APIs and data pipelines",
+      "Run inference tests and monitor AI model behavior in client environments",
+      "Translate field feedback from clients into internal product requirements",
+      "Present solution architecture and results to client stakeholders (C-suite to engineering)",
+      "Train client teams on how to use and extend the deployed AI system"
+    ],
+    metrics: [
+      "Client time-to-value (how fast client sees ROI from deployment)",
+      "Implementation success rate — did deployment go live as scoped?",
+      "Client adoption rate post-deployment",
+      "Net revenue retained from accounts post-deployment",
+      "Number of product requirements filed from field feedback"
+    ],
+    rgaText: "High and structural. FDEs are directly attached to enterprise contracts worth $500k–$5M+. Your successful deployment IS the revenue. Companies like Palantir, OpenAI, and Anthropic pay FDEs well because they unlock deals that self-serve tools cannot close. This role sits at the intersection of revenue and product.",
+    whyText: "FDE is the rare role that rewards your exact combination: technical enough to build integrations, compelling enough to run enterprise discovery, systems thinker who sees how workflows connect, and a communicator who translates AI into business outcomes. Your Wayfair AI automation work, n8n/Make experience, and consulting background map directly. The gap: production Python fluency for integration code. With 3–4 months of deliberate practice building client-facing integrations, you'd be competitive for junior FDE roles. Palantir built the playbook — but OpenAI, Anthropic, Salesforce, and Scale AI now all run forward-deployed teams.",
+    takeIf: "The company is AI-first, the role is implementation-focused (not pure sales-eng), and you get exposure to both the client side and engineering in the same role"
+  },
+  {
+    id: "soleng",
+    title: "Solutions Engineer",
+    earlyTitle: "Sales Engineer · Technical Sales Engineer · Pre-Sales Engineer",
+    midTitle: "Solutions Engineer · Senior Solutions Engineer · Principal SE",
+    fit: "CONDITIONAL", fc: "amber", rga: 5, fld: 4,
+    salary: "$100–160k + OTE", condition: "Must be at an AI-first company where the demo IS the product — not selling software features but selling AI transformation",
+    daily: [
+      "Run technical discovery calls — understand client's stack, pain points, and integration requirements",
+      "Build and deliver live product demos tailored to each prospect's specific use case",
+      "Answer technical questions during the sales cycle — APIs, security, deployment architecture",
+      "Write technical proposals, integration docs, and scope-of-work outlines for enterprise deals",
+      "Collaborate with Account Executives on deal strategy and which use case to lead with",
+      "Create reusable demo environments and technical battlecards for the sales team",
+      "Feed prospect objections and gaps back to product and engineering teams"
+    ],
+    metrics: [
+      "Technical win rate — % of deals where SE involvement led to closed-won",
+      "Demo-to-close conversion rate",
+      "POC (proof-of-concept) success rate",
+      "Sales cycle length — SE impact on shortening it",
+      "Deals supported per quarter vs. revenue closed"
+    ],
+    rgaText: "Maximum revenue attachment. Solutions Engineers sit directly on the sales line — every deal you help close is attributable revenue. AI SaaS companies pay SEs $100k+ base with OTE hitting $160–200k because they multiply the value of every AE on the team. Strong SEs become a force multiplier for entire sales organizations.",
+    whyText: "Your communication skills, ability to translate complexity, and aesthetic sense for what a compelling demo looks like all point here. The gap: SEs are expected to be deeply technical — live coding, API integrations, architecture discussions under pressure. BUT at AI-first companies in 2025, many SE roles prioritize demo fluency, workflow design, and business translation over raw code output. Your AI automation background (n8n, Make, Claude) makes you more credible in this space than a pure SWE who can't tell a story. Condition: the role must be at an AI company where the story matters as much as the stack.",
+    takeIf: "The role is at an AI company, you demo product you actually believe in, and the AE team is strong enough that you're amplifying great salespeople — not compensating for weak ones"
   }
 ];
 
@@ -1338,6 +1434,8 @@ const ALL_TABLE = [
   { t: "Instructional Designer",        early: "L&D Specialist",                       cat: "⚠️ COND",  rga: "●●○○○", sal: "$55–75k",    take: "Income bridge only" },
   { t: "AI Engineer",                   early: "AI Product Engineer · LLM Engineer",   cat: "⚠️ COND",  rga: "●●●●○", sal: "$90–140k",   take: "If role = AI product, not SWE" },
   { t: "Agentic AI Engineer",           early: "AI Automation Engineer · Agent Dev",   cat: "⚠️ COND",  rga: "●●●●○", sal: "$100–150k",  take: "After 3–6 mo skill stack" },
+  { t: "Forward Deployed Engineer",    early: "Implementation Engineer · AI Deployment Specialist", cat: "⚠️ COND",  rga: "●●●●○", sal: "$120–180k",     take: "AI-first company, impl focus" },
+  { t: "Solutions Engineer",           early: "Sales Engineer · Technical Sales Engineer",           cat: "⚠️ COND",  rga: "●●●●●", sal: "$100–160k OTE", take: "AI company, story matters" },
   { t: "Social Media Manager",          early: "Social Media Coordinator",             cat: "⚠️ LOW",   rga: "●●○○○", sal: "$45–65k",    take: "Only with strategy scope" },
   { t: "Data Analyst",                  early: "Junior Data Analyst",                  cat: "❌ NO",     rga: "●○○○○", sal: "$55–80k",    take: "Never" },
   { t: "BI Analyst / BI Developer",     early: "Business Intelligence Analyst",        cat: "❌ NO",     rga: "●○○○○", sal: "$65–95k",    take: "Never" },
@@ -1423,8 +1521,154 @@ function FitTag({ fit, fc }) {
   );
 }
 
-function RoleCard({ role, type }) {
-  const [open, setOpen] = useState(false);
+function DeckView({ roles, type, label, desc }) {
+  const [idx, setIdx] = useState(0);
+  const [showFull, setShowFull] = useState(false);
+  const role = roles[idx];
+  const hasNext = idx < roles.length - 1;
+  const hasPrev = idx > 0;
+  const goNext = () => { setIdx(i => i + 1); setShowFull(false); };
+  const goPrev = () => { setIdx(i => i - 1); setShowFull(false); };
+  const fitStyle = FC_STYLES[role.fc] || FC_STYLES.amber;
+
+  return (
+    <div>
+      <div className="sec-header">
+        <div className="sec-label">{label}</div>
+        <div style={{ display: "flex", alignItems: "baseline", gap: "14px" }}>
+          <div className="sec-title">{role.title}</div>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--muted)" }}>{idx + 1} / {roles.length}</div>
+        </div>
+        <div className="sec-desc">{desc}</div>
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "40px" }}>
+
+        {/* Progress pill strip */}
+        <div style={{ display: "flex", gap: "5px", marginBottom: "28px" }}>
+          {roles.map((_, i) => (
+            <div key={i} onClick={() => { setIdx(i); setShowFull(false); }}
+              style={{ width: i === idx ? "28px" : "7px", height: "7px", borderRadius: "4px",
+                       background: i === idx ? "var(--mint)" : i < idx ? "var(--mint-bd)" : "var(--border2)",
+                       cursor: "pointer", transition: "all 0.25s" }} />
+          ))}
+        </div>
+
+        {/* Card stack */}
+        <div style={{ position: "relative", width: "100%", maxWidth: "580px" }}>
+          {roles[idx + 2] && !showFull && (
+            <div style={{ position: "absolute", top: "14px", left: "14px", right: "-14px", bottom: "-14px",
+                          background: "var(--surface2)", border: "1px solid var(--border)", borderRadius: "20px", zIndex: 0 }} />
+          )}
+          {roles[idx + 1] && !showFull && (
+            <div style={{ position: "absolute", top: "7px", left: "7px", right: "-7px", bottom: "-7px",
+                          background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "20px", zIndex: 1 }} />
+          )}
+
+          {/* Main card */}
+          <div style={{ position: "relative", zIndex: 2, background: "var(--surface)",
+                        border: "1px solid var(--border2)", borderRadius: "20px", overflow: "hidden",
+                        boxShadow: "0 6px 32px rgba(0,0,0,0.07)" }}>
+
+            {/* Fit banner */}
+            <div style={{ background: fitStyle.bg, borderBottom: `1px solid ${fitStyle.border}`,
+                          padding: "10px 26px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.16em",
+                             textTransform: "uppercase", color: fitStyle.color, fontWeight: 600 }}>{role.fit}</span>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", color: "var(--muted)", letterSpacing: "0.04em" }}>{role.salary}</span>
+            </div>
+
+            {/* Body */}
+            <div style={{ padding: "28px 28px 20px" }}>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "1.65rem", fontWeight: 800,
+                            lineHeight: 1.1, marginBottom: "5px", color: "var(--text)" }}>{role.title}</div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--muted)",
+                            marginBottom: "20px", letterSpacing: "0.04em" }}>{role.earlyTitle}</div>
+
+              {/* Scores */}
+              <div style={{ display: "flex", gap: "22px", marginBottom: "22px", flexWrap: "wrap" }}>
+                <div className="meta-item">
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--muted)" }}>Revenue</span>
+                  <Dots n={role.rga} />
+                </div>
+                {role.fld != null && (
+                  <div className="meta-item">
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--lavender)" }}>Own It</span>
+                    <FreeDots n={role.fld} />
+                  </div>
+                )}
+              </div>
+
+              {/* 3 daily bullets */}
+              <div style={{ marginBottom: "20px" }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", textTransform: "uppercase",
+                              letterSpacing: "0.14em", color: "var(--muted)", marginBottom: "10px" }}>Day to day</div>
+                {role.daily.slice(0, 3).map((d, i) => (
+                  <div key={i} style={{ display: "flex", gap: "10px", marginBottom: "8px", alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--mint)", fontSize: "12px", marginTop: "1px", flexShrink: 0, fontWeight: 700 }}>→</span>
+                    <span style={{ fontSize: "12px", color: "var(--text2)", lineHeight: "1.5" }}>{d}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Why snippet */}
+              <div style={{ background: "var(--surface2)", borderRadius: "10px", padding: "12px 14px",
+                            borderLeft: `3px solid ${fitStyle.border}` }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "9px", textTransform: "uppercase",
+                              letterSpacing: "0.1em", color: "var(--muted)", marginBottom: "6px" }}>
+                  {type === "yes" ? "Why it fits" : type === "no" ? "Why it doesn't" : "The condition"}
+                </div>
+                <p style={{ fontSize: "12px", color: "var(--text2)", lineHeight: "1.6", margin: 0 }}>
+                  {(role.whyText || role.condition || "").slice(0, 220)}{(role.whyText || role.condition || "").length > 220 ? "…" : ""}
+                </p>
+              </div>
+            </div>
+
+            {/* Action bar */}
+            <div style={{ borderTop: "1px solid var(--border)", padding: "14px 20px",
+                          display: "flex", justifyContent: "space-between", alignItems: "center",
+                          background: "var(--bg)" }}>
+              <button onClick={goPrev} disabled={!hasPrev}
+                style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.1em",
+                         background: hasPrev ? "var(--surface2)" : "transparent",
+                         border: `1px solid ${hasPrev ? "var(--border2)" : "var(--border)"}`,
+                         color: hasPrev ? "var(--text2)" : "var(--muted2)",
+                         padding: "8px 16px", borderRadius: "20px", cursor: hasPrev ? "pointer" : "default" }}>
+                ← Back
+              </button>
+              <button onClick={() => setShowFull(v => !v)}
+                style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.1em",
+                         background: showFull ? "var(--mint)" : "var(--mint-bg)",
+                         border: "1px solid var(--mint-bd)",
+                         color: showFull ? "#fff" : "var(--mint)",
+                         padding: "8px 22px", borderRadius: "20px", cursor: "pointer" }}>
+                {showFull ? "▲ Close" : "▼ Full Breakdown"}
+              </button>
+              <button onClick={goNext} disabled={!hasNext}
+                style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.1em",
+                         background: hasNext ? "var(--surface2)" : "transparent",
+                         border: `1px solid ${hasNext ? "var(--border2)" : "var(--border)"}`,
+                         color: hasNext ? "var(--text2)" : "var(--muted2)",
+                         padding: "8px 16px", borderRadius: "20px", cursor: hasNext ? "pointer" : "default" }}>
+                Next →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Full breakdown panel */}
+        {showFull && (
+          <div style={{ width: "100%", maxWidth: "760px", marginTop: "16px" }}>
+            <RoleCard role={role} type={type} forceOpen />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RoleCard({ role, type, forceOpen = false }) {
+  const [open, setOpen] = useState(forceOpen);
   const [showDayInLife, setShowDayInLife] = useState(false);
   const wc = type === "yes" ? "why-yes" : type === "no" ? "why-no" : "why-neutral";
   const scenario = SCENARIOS[role.id];
@@ -1610,14 +1854,7 @@ function YesTab() {
           <div className="whisper-txt">"I want to stop preparing and just go."</div>
         </div>
       </div>
-      <div className="sec-header">
-        <div className="sec-label">001 · Say Yes</div>
-        <div className="sec-title">10 YES ROLES</div>
-        <div className="sec-desc">Every role uses 12–16 of your 27 skills. The top 4 are best fit. The Fractional role starts this week — Wedify is already client #1.</div>
-      </div>
-      <div className="role-grid">
-        {YES.map(r => <RoleCard key={r.id} role={r} type="yes" />)}
-      </div>
+      <DeckView roles={YES} type="yes" label="001 · Say Yes" desc="Every role uses 12–16 of your 27 skills. The top 4 are best fit. The Fractional role starts this week — Wedify is already client #1." />
       <div className="devils">
         <div className="devils-title">😈 Devil's Advocate</div>
         <p>Every role on this list is a job that someone else controls. They can fire you, change the scope, or get acquired. The only roles where you own the asset are Fractional Creative Strategist and AI Content Strategist (creator path). The smart play: one job from the list for income and stability, while building the freelance/creator work on the side. That's your Two-Track System from the Ikigai doc. Both tracks have different RGA timelines and different ownership structures. Run them simultaneously.</p>
@@ -1629,14 +1866,7 @@ function YesTab() {
 function NoTab() {
   return (
     <div>
-      <div className="sec-header">
-        <div className="sec-label">002 · Say No</div>
-        <div className="sec-title">10 ANTI-ROLES</div>
-        <div className="sec-desc">High demand does not equal right fit. These roles attract the most competition. You'd need 18–24 months to be competitive in most of them. You can get a Yes-role in 60 days.</div>
-      </div>
-      <div className="role-grid">
-        {NO.map(r => <RoleCard key={r.id} role={r} type="no" />)}
-      </div>
+      <DeckView roles={NO} type="no" label="002 · Say No" desc="High demand does not equal right fit. These roles attract the most competition. You'd need 18–24 months to be competitive in most of them. You can get a Yes-role in 60 days." />
       <div className="devils">
         <div className="devils-title">😈 Devil's Advocate</div>
         <p>The anti-role path isn't completely wrong. If you spent 18 months going deep on AI Engineering — specifically LLM fine-tuning — and paired it with your existing content and communication skills, you could become a rare hybrid that makes $250k+. BUT: that only works if you commit 100% for 18 months straight, stop creative projects, stop content, stop photography. You won't. That's not an insult — it's data from your own history. The hybrid path requires mono-focus you haven't demonstrated yet. Know yourself first.</p>
@@ -1648,14 +1878,7 @@ function NoTab() {
 function NeutralTab() {
   return (
     <div>
-      <div className="sec-header">
-        <div className="sec-label">003 · Conditional</div>
-        <div className="sec-title">6 NEUTRAL ROLES</div>
-        <div className="sec-desc">Not hard nos. Conditional — worth doing in specific circumstances only. Read the condition on each one carefully before applying.</div>
-      </div>
-      <div className="role-grid">
-        {NEUTRAL.map(r => <RoleCard key={r.id} role={r} type="neutral" />)}
-      </div>
+      <DeckView roles={NEUTRAL} type="neutral" label="003 · Conditional" desc="Not hard nos. Conditional — worth doing in specific circumstances only. Read the condition on each one carefully before applying." />
       <div className="devils">
         <div className="devils-title">😈 Devil's Advocate</div>
         <p>Product Manager is the most underrated YES role on this list — it's marked Conditional because the path there requires going through PMM first. In 3 years, if you become a strong PMM at an AI company, the lateral to PM is natural, the salary jumps $30–40k, and you gain direct power over what gets built. This is Pathway 3 in corporate form. Don't ignore it entirely — just don't pursue it prematurely.</p>
@@ -2394,9 +2617,9 @@ export default function App() {
     { id: "profile", lbl: "My Profile",  cnt: null },
     { id: "yes",     lbl: "Yes Roles",   cnt: 10 },
     { id: "no",      lbl: "Anti-Roles",  cnt: 13 },
-    { id: "neutral", lbl: "Conditional", cnt: 8  },
+    { id: "neutral", lbl: "Conditional", cnt: 10 },
     { id: "vision",  lbl: "2030 Vision", cnt: null },
-    { id: "table",   lbl: "Full Map",    cnt: 26 },
+    { id: "table",   lbl: "Full Map",    cnt: 28 },
     { id: "toolkit", lbl: "Craft Skills", cnt: CRAFT_SKILLS.reduce((a, c) => a + c.skills.length, 0) },
     { id: "d100",    lbl: "Dream 100",   cnt: 6 },
   ];
@@ -2413,8 +2636,8 @@ export default function App() {
           </div>
           <div className="header-stats">
             <div className="stat"><div className="stat-n">10</div><div className="stat-l">Yes Roles</div></div>
-            <div className="stat"><div className="stat-n">10</div><div className="stat-l">Hard Nos</div></div>
-            <div className="stat"><div className="stat-n">6</div><div className="stat-l">Conditionals</div></div>
+            <div className="stat"><div className="stat-n">13</div><div className="stat-l">Hard Nos</div></div>
+            <div className="stat"><div className="stat-n">10</div><div className="stat-l">Conditionals</div></div>
           </div>
         </header>
         <nav className="nav">
