@@ -520,6 +520,60 @@ const YES = [
     rgaText: "YOU ARE THE REVENUE. No employer takes a cut. No 18-month vesting cliff. Wedify is already client #1 — that proposal happened before you called yourself a strategist. Two clients = $3,000–10,000/month. Runs in parallel to your job search and feeds directly into Odyssey Pathway 3.",
     whyText: "Wedify is direct proof this is already happening — you wrote that brand strategy proposal without a title or a retainer. You have the Notion consulting skill (documented CraftSkill). You have the AI automation skill (n8n, Make, Lindy, Relevance.ai). You have the framework creation skill (Vetting Scorecard, Weekly OS, role targeting matrix). Start this week. The proposal skill alone is worth $1,500–$3,000/client.",
     takeIf: "Start this week"
+  },
+  {
+    id: "prompteng",
+    title: "Prompt Engineer",
+    earlyTitle: "Prompt Engineer · AI Prompt Designer · LLM Specialist",
+    midTitle: "Senior Prompt Engineer · Prompt Architect · AI Systems Designer",
+    fit: "STRONG FIT", fc: "mint", rga: 4, fld: 5,
+    salary: "$90–160k",
+    daily: [
+      "Design and iterate prompt systems for production AI products — system prompts, chain-of-thought templates, instruction sets",
+      "Build evaluation frameworks to measure prompt quality — accuracy, consistency, edge case coverage",
+      "Write reusable prompt libraries and document prompt logic for engineering handoff",
+      "Run red-team tests — adversarial prompts, edge cases, failure mode cataloging",
+      "Collaborate with product and design to define what the AI should and shouldn't do",
+      "Analyze AI output quality in production — identify degradation patterns and fix them",
+      "Brief non-technical stakeholders on how the AI system behaves and why"
+    ],
+    metrics: [
+      "Output quality score (human eval or automated benchmark)",
+      "Prompt success rate per use case in production",
+      "Cost per token / latency per prompt call",
+      "Edge case coverage — % of known failure modes with documented mitigations",
+      "Number of prompt systems shipped to production and maintained"
+    ],
+    rgaText: "The LLM API economy means every company with an AI product needs someone who can reliably direct model behavior. Prompt Engineers at AI companies directly affect product quality, user retention, and AI feature adoption. As companies move from prototype to production AI, this role pays more — not less. Senior Prompt Architects at OpenAI, Anthropic, and Scale AI are hitting $160k+.",
+    whyText: "You do this today. Your work with Claude, n8n, Make, and AI automation workflows IS prompt engineering in practice. The gap between 'uses AI well' and 'Prompt Engineer' is documentation, evaluation frameworks, and production discipline — not a different skill. You already build prompt systems that run reliably. You already know when AI output is wrong and how to fix it. The title just needs to catch up to the work. At AI-first companies, the communication and judgment layer you bring is the differentiator most engineers lack — they can code but they can't write a system prompt that sounds human and behaves consistently.",
+    takeIf: "Always apply to any AI-first company — this is your most natural technical credential"
+  },
+  {
+    id: "uxwriter",
+    title: "UX Writer / Content Designer",
+    earlyTitle: "UX Writer · Content Designer · Product Copywriter",
+    midTitle: "Senior UX Writer · Content Design Lead · Head of Content Design",
+    fit: "STRONG FIT", fc: "mint", rga: 3, fld: 5,
+    salary: "$85–135k",
+    daily: [
+      "Write all user-facing strings in the product — labels, buttons, tooltips, empty states, error messages, onboarding flows",
+      "Collaborate with UX designers and PMs to define content requirements before screens are built",
+      "Build and maintain a content design system — patterns, terminology standards, product voice guidelines",
+      "Conduct content audits — evaluate existing copy for clarity, consistency, and conversion impact",
+      "Run A/B tests on UX copy — button labels, error messages, onboarding hooks — and analyze results",
+      "Write UX specs alongside wireframes — every design component ships with a content spec attached",
+      "Advocate for plain language in product development — push back when legal overwrites UX copy with jargon"
+    ],
+    metrics: [
+      "Task completion rate — does the copy help users succeed at their goal?",
+      "Error state encounter rate — are users hitting error messages less after copy improvements?",
+      "A/B test win rate on copy experiments",
+      "Onboarding completion rate — how many users finish setup vs. drop off",
+      "Content spec coverage — % of design components shipped with an attached copy spec"
+    ],
+    rgaText: "Moderate and growing fast at AI companies. Every AI product has a trust problem — users don't know what the AI can do, when it's wrong, or how to recover from failures. UX Writers at AI companies increasingly own the 'explainability layer' — the copy that tells users what the AI is doing and why. That's a $120k+ job at Anthropic, OpenAI, Figma, and Linear.",
+    whyText: "This is the most direct path from your writing CraftSkill to a product role. UX Writing = writing + user empathy + systems thinking. You have all three. The job is producing words that help users succeed — your educational writing (clarity-first explanation), content strategy work, and deep sense for what 'confused' looks like are exactly the job description. The gap: product writing conventions (microcopy patterns, content design frameworks, Figma basics for writing alongside wireframes). 30–60 days of deliberate practice and a portfolio of 3 redesigned UX flows gets you interview-ready at any AI company.",
+    takeIf: "Always apply — especially at AI companies where the explainability layer is a product-critical problem, not an afterthought"
   }
 ];
 
@@ -703,6 +757,39 @@ const SCENARIOS = {
       { do: "Build the experience measurement framework and present the full strategy to the client's C-suite — tell the story from current-state pain to future-state ROI", create: "Executive strategy deck (20 slides): problem framing, journey vision, design direction, measurement framework, phased roadmap, business case with projected onboarding cost reduction", track: "C-suite sign-off on Phase 2 funding and 6-month implementation roadmap", skill: "Translating complexity → clarity + Writing + Data storytelling" },
     ]
   },
+  prompteng: {
+    company: "Anthropic",
+    context: "You're a Prompt Engineer on Anthropic's product team. You own the system prompt layer for Claude.ai's enterprise tier — the instructions that shape Claude's behavior across 200k business users. Your job is to make Claude reliably useful, consistently on-brand, and safe at scale.",
+    rows: [
+      { do: "Redesign the enterprise system prompt — Claude is giving inconsistent tone across long conversations, and 3 enterprise clients flagged it last week", create: "New system prompt (versioned), 30-case eval dataset, before/after comparison doc with failure mode taxonomy", track: "Tone consistency score across 100 sampled conversations — target: > 90% brand-aligned outputs", skill: "Writing + Framework creation + Deep research & synthesis" },
+      { do: "Build an evaluation harness that auto-scores Claude's responses for accuracy, safety, and format compliance across 5 enterprise use cases", create: "Python eval suite: 5 rubrics, 50 test cases per rubric, automated scoring script, results dashboard in Notion", track: "Eval coverage rate — % of known failure modes with a test case that catches them", skill: "Systems architecture + Framework creation + AI tooling" },
+      { do: "Run a red-team sprint — adversarial prompts, edge cases, jailbreak attempts, and role confusion scenarios across the 12 highest-stakes enterprise prompt systems", create: "Red team report: 18 vulnerabilities found, severity rating, prompt patches for each, 5 systemic patterns identified", track: "Patch coverage — all P0/P1 vulnerabilities resolved before next enterprise onboarding batch", skill: "Deep research & synthesis + Framework creation" },
+      { do: "Write the prompt library for Claude's 'Document Analysis' feature — 8 prompt templates covering summarization, extraction, classification, and comparison tasks", create: "8 production prompt templates with usage notes, known edge cases, performance benchmarks, and handoff docs for engineering", track: "Feature adoption: % of enterprise users activating Document Analysis within 14 days of onboarding", skill: "Writing + Translating complexity → clarity + Framework creation" },
+      { do: "Brief the Head of Product and 2 enterprise clients on how the prompt layer works and what it can/can't control — translate AI behavior into plain business language", create: "30-slide technical communication deck: what the system prompt does, how behavior guardrails work, what clients control vs. what Anthropic controls", track: "Client trust score: do clients feel they understand and can predict Claude's behavior after this session?", skill: "Translating complexity → clarity + Writing + Deep research" },
+    ]
+  },
+  uxwriter: {
+    company: "Linear",
+    context: "You're a UX Writer at Linear — the project management tool beloved by engineering teams at 10,000 companies. You own every word users read inside the product. New AI features are shipping every month and the copy can't keep up.",
+    rows: [
+      { do: "Write all UX copy for Linear's new AI-powered issue summarization feature — 6 UI states: loading, success, empty, error, disabled, and first-use onboarding", create: "Content spec doc: all 6 state strings, character count validation, rationale notes, and design-ready annotations for Figma handoff", track: "Error state encounter rate: does clearer error copy reduce repeat error occurrences vs. baseline?", skill: "Writing + Translating complexity → clarity + Framework creation" },
+      { do: "Audit the entire onboarding flow — 42 screens, 200+ UI strings — against Linear's product voice principles", create: "Content audit spreadsheet: every string scored for clarity (1–3), voice alignment (pass/fail), and recommended revision. Priority-ranked fix list.", track: "Content spec coverage — % of design components with an attached content spec before development starts", skill: "Deep research & synthesis + Writing + Curation & taste" },
+      { do: "Run an A/B test on 3 variations of the empty state copy for new workspaces — the drop-off here is 18%, product wants it under 10%", create: "A/B test brief: 3 copy variants with hypotheses, Optimizely setup, success metrics, minimum sample size calculation", track: "Workspace activation rate — % of new users completing workspace setup without abandoning at the empty state", skill: "Writing + Deep research + Framework creation" },
+      { do: "Build the Linear content design system — a shared library of reusable copy patterns, terminology standards, and voice guidelines for the design team", create: "Notion content system: 40+ copy patterns, approved terminology list, 25 before/after voice examples, quick-reference style guide for designers", track: "Design team adoption rate — are new features shipped using content system patterns vs. ad hoc copy?", skill: "Systems architecture + Writing + Framework creation" },
+      { do: "Write UX copy for a new feature with legal constraints — the AI disclaimer copy needs to be accurate, short, and not terrifying to users", create: "3 draft disclaimer variations with legal markup annotations, UX copy rationale, and a plain-language brief explaining the trade-offs to the legal team", track: "Legal sign-off in round 1 (signal: constraints were correctly understood and respected without killing usability)", skill: "Writing + Translating complexity → clarity + Deep research" },
+    ]
+  },
+  aiethics: {
+    company: "Microsoft",
+    context: "You're an AI Ethics & Trust Specialist on Microsoft's Responsible AI team. The team reviews every major AI product before it ships to 1B+ users. This week: Copilot's new agentic features are going to a 90-day trust review.",
+    rows: [
+      { do: "Lead the impact assessment for Copilot's new autonomous email-drafting feature — map every way this could harm users, businesses, or third parties before it ships", create: "Responsible AI impact assessment (15 pages): 8 harm categories evaluated, severity × likelihood matrix, 12 required mitigations, 3 design changes recommended", track: "Assessment sign-off rate: did product + legal + engineering accept all P0 recommendations before launch approval?", skill: "Framework creation + Deep research & synthesis + Translating complexity → clarity" },
+      { do: "Build the bias audit framework for the AI hiring screening tool a Fortune 100 client wants to deploy — test it across demographic groups before they turn it on", create: "Bias audit report: 4 protected attributes tested, disparity analysis by group, 3 critical failures found, mitigation recommendations with implementation specs", track: "Bias disparity rate — < 5% difference in false positive rates across demographic groups before deployment approval", skill: "Deep research & synthesis + Framework creation + Data storytelling" },
+      { do: "Write the external transparency report on Microsoft's AI governance practices — this is the public document regulators and press will cite", create: "AI transparency report (20 pages): governance structure, incident log (anonymized), mitigation approach, alignment with EU AI Act and NIST framework", track: "Regulatory review outcome — accepted as-is vs. requiring revision. Press coverage tone (neutral vs. critical).", skill: "Writing + Translating complexity → clarity + Framework creation" },
+      { do: "Train the product team of 45 engineers and PMs on responsible AI design principles — 2-hour workshop, they need to feel equipped, not lectured", create: "Workshop curriculum: 3 case study exercises, decision-making framework reference card, 5 responsible design patterns they can apply in their next sprint", track: "Workshop NPS + 30-day follow-up: % of teams that used the framework in a product decision within a month", skill: "Translating complexity → clarity + Framework creation + Writing" },
+      { do: "Review and respond to an external researcher's finding that Copilot produces measurably different output quality for different demographic groups — this is a potential public incident", create: "Internal incident brief: researcher's finding summarized, internal replication test, severity assessment, response strategy with 3 options for leadership", track: "Time to response: < 48 hours for initial internal assessment. External statement quality — does it address the specific claim with data?", skill: "Deep research & synthesis + Writing + Translating complexity → clarity" },
+    ]
+  },
 };
 
 // type: "deep" = focused output | "meet" = call/sync | "review" = editing/reviewing | "admin" = Slack/planning
@@ -864,6 +951,36 @@ const SCHED = {
     { time: "2:30–3:30",   type: "meet",   activity: "Weekly strategy sync with McKinsey engagement manager and client sponsor — update on research progress, flag emerging risks, align on next week's workshop agenda" },
     { time: "3:30–4:30",   type: "deep",   activity: "Write the experience brief section for this touchpoint — translate interview findings into design principles and must-solve moment definitions" },
     { time: "4:30–5:00",   type: "admin",  activity: "Update project timeline, prep questions for tomorrow's compliance interview, file this week's insight summary to the shared project doc" },
+  ],
+  prompteng: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Check eval dashboards — any prompt degradation alerts from overnight batch runs? Pull quality score deltas." },
+    { time: "9:30–11:30",  type: "deep",   activity: "Prompt engineering sprint — write, test, and iterate against the eval suite. Run 3 variants minimum before declaring a candidate." },
+    { time: "11:30–12:00", type: "meet",   activity: "Product sync — brief PM and designer on what the model will/won't do reliably. Set expectations before specs are written." },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:30",   type: "deep",   activity: "Build evaluation dataset — write test cases, label expected outputs, run batch evals against candidate prompts" },
+    { time: "2:30–3:30",   type: "review", activity: "Red-team session — adversarial prompts, edge cases, jailbreak patterns. Document every failure mode found." },
+    { time: "3:30–4:30",   type: "deep",   activity: "Write prompt library documentation — usage notes, known limitations, performance benchmarks, handoff specs for engineering" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update prompt versioning log, file experiment summary, tag tomorrow's eval sprint with open questions from today" },
+  ],
+  uxwriter: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Check A/B test dashboard — any tests hit significance overnight? Review overnight user feedback tagged as 'confusing copy.'" },
+    { time: "9:30–11:00",  type: "deep",   activity: "Write UX copy for the sprint's new features — all UI states: loading, success, error, empty, first-use, disabled" },
+    { time: "11:00–12:00", type: "meet",   activity: "Design review with product designer — walk through copy specs together, align on voice before design is finalized" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:30",   type: "deep",   activity: "Content audit or content system update — either score existing strings against voice principles or add new patterns to the library" },
+    { time: "2:30–3:30",   type: "meet",   activity: "Legal/compliance review on AI copy — translate legal constraints into plain language without killing usability" },
+    { time: "3:30–4:30",   type: "review", activity: "Review copy across all in-sprint screens before dev handoff — final check for clarity, consistency, and character count limits" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update content spec doc, annotate Figma with any last-minute revisions, tag engineering on handoff-ready components" },
+  ],
+  aiethics: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Scan AI ethics news feed, EU AI Act updates, and NIST framework releases. Flag anything relevant to active reviews." },
+    { time: "9:30–11:30",  type: "deep",   activity: "Impact assessment sprint — document harm categories, severity ratings, and required mitigations for the product under review" },
+    { time: "11:30–12:00", type: "meet",   activity: "Product team check-in — brief engineering on what mitigations are required and why, before they start building" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch" },
+    { time: "1:00–2:30",   type: "deep",   activity: "Bias audit analysis OR transparency report writing — one major deliverable per afternoon block" },
+    { time: "2:30–3:30",   type: "meet",   activity: "Cross-functional trust review — legal, comms, and product sign off on responsible AI recommendations before launch" },
+    { time: "3:30–4:30",   type: "deep",   activity: "Workshop design or policy document writing — translate principles into tools people will actually use in their next sprint" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update active review tracker, file incident log, prep regulatory questions for tomorrow's compliance review" },
   ],
 };
 
@@ -1511,6 +1628,34 @@ const NEUTRAL = [
     rgaText: "Moderate but growing. Design strategy is increasingly recognized as a revenue lever as companies realize poor CX is a churn driver. At enterprise AI companies deploying complex workflows, a strategist who can translate user pain into clear experience briefs is rare and valued.",
     whyText: "This is the closest role in the design world to who you already are. Design Strategist = someone who runs discovery, facilitates ideation, defines journey frameworks, and measures impact — without necessarily producing the Figma files. Every phase of that loop maps to your CraftSkills: stakeholder interviews (deep research), journey mapping (framework creation), ideation facilitation (systems architecture), impact measurement (data storytelling), and executive presentation (translating complexity → clarity). The gap: design vocabulary, methods fluency (Jobs-to-be-Done, double diamond, service blueprints), and enough Figma literacy to review and brief designers credibly. 60–90 days of deliberate learning gets you there.",
     takeIf: "The company is research-led and separates strategy from execution, you get to direct designers rather than produce deliverables yourself, and the role gives you ownership of the full experience loop from discovery to impact"
+  },
+  {
+    id: "aiethics",
+    title: "AI Ethics & Trust Specialist",
+    earlyTitle: "Responsible AI Analyst · Trust & Safety Analyst · AI Policy Associate",
+    midTitle: "AI Ethics Lead · Responsible AI Manager · Head of AI Trust & Safety",
+    fit: "CONDITIONAL", fc: "amber", rga: 3, fld: 5,
+    salary: "$95–155k",
+    condition: "Only at a company where AI Ethics is a product-critical function — not a compliance box-check. Best fit: Microsoft, Google DeepMind, Anthropic, OpenAI, Salesforce AI, or a regulated industry (healthcare, finance, insurance) deploying AI at scale",
+    daily: [
+      "Lead Responsible AI impact assessments before products ship — map harm categories, severity, and required mitigations across product, legal, and engineering",
+      "Design and run bias audits on AI systems — test across demographic groups, document disparity rates, recommend design changes before launch approval",
+      "Write internal governance frameworks, policy documents, and external transparency reports for regulators and press",
+      "Train product and engineering teams on responsible AI design principles — workshops, case studies, decision frameworks they actually use",
+      "Review AI-generated content and output patterns for safety, fairness, and alignment with company values across high-stakes deployments",
+      "Coordinate cross-functional trust reviews — legal, comms, product, and safety sign off on AI features before they reach users",
+      "Respond to external research findings, regulatory inquiries, or potential incidents — assess severity, brief leadership, draft response strategy"
+    ],
+    metrics: [
+      "Responsible AI assessment coverage — % of major AI features reviewed before launch",
+      "Mitigation adoption rate — % of your P0/P1 recommendations implemented before ship",
+      "Bias disparity rate across protected attributes in audited systems (target: < 5% delta)",
+      "Workshop adoption rate — % of teams using the framework in a product decision within 30 days",
+      "Regulatory acceptance — transparency reports and policy docs accepted without material revision"
+    ],
+    rgaText: "Growing, but concentrated. This is not a mass-hiring role — each company has 5–20 of them. Demand is highest in regulated industries, at the frontier AI labs, and at companies deploying AI to 100M+ users. The EU AI Act, California AI laws, and NIST framework are forcing compliance infrastructure at every major company. The hybrid 'Trust & Safety' version is slightly more common and more accessible without a policy or legal background.",
+    whyText: "Your communication skills and research synthesis are genuine assets here. The real job is translating complex AI behavior into plain language that legal, product, and users can all understand — then making sure decisions actually change. That's your skill set. The gap: credibility in policy or legal frameworks, and the ability to cite regulatory precedent with authority. The hybrid 'Trust & Safety' version (less policy, more product integrity review) is a closer match to your profile without the legal background.",
+    takeIf: "The role is 'Trust & Safety' or 'AI Product Integrity' rather than pure policy, the company is in a regulated industry or is a frontier AI lab, and the job description emphasizes communication and cross-functional influence over legal expertise"
   }
 ];
 
@@ -1536,6 +1681,9 @@ const ALL_TABLE = [
   { t: "Solutions Engineer",           early: "Sales Engineer · Technical Sales Engineer",           cat: "⚠️ COND",  rga: "●●●●●", sal: "$100–160k OTE", take: "AI company, story matters" },
   { t: "UX / Experience Designer",     early: "UX Designer · Product Designer",                      cat: "⚠️ COND",  rga: "●●●○○", sal: "$90–140k",      take: "Research-led AI company only" },
   { t: "Design Strategist",            early: "Service Designer · CX Strategist",                    cat: "⚠️ COND",  rga: "●●●○○", sal: "$95–145k",      take: "Strategy-first org only" },
+  { t: "AI Ethics & Trust Specialist", early: "Responsible AI Analyst · Trust & Safety Analyst",      cat: "⚠️ COND",  rga: "●●●○○", sal: "$95–155k",      take: "Frontier AI lab or regulated industry" },
+  { t: "Prompt Engineer",             early: "Prompt Engineer · AI Prompt Designer",                  cat: "✅ YES",    rga: "●●●●○", sal: "$90–160k",      take: "Always apply to AI companies" },
+  { t: "UX Writer / Content Designer",early: "UX Writer · Content Designer · Product Copywriter",     cat: "✅ YES",    rga: "●●●○○", sal: "$85–135k",      take: "Always apply" },
   { t: "Social Media Manager",          early: "Social Media Coordinator",             cat: "⚠️ LOW",   rga: "●●○○○", sal: "$45–65k",    take: "Only with strategy scope" },
   { t: "Data Analyst",                  early: "Junior Data Analyst",                  cat: "❌ NO",     rga: "●○○○○", sal: "$55–80k",    take: "Never" },
   { t: "BI Analyst / BI Developer",     early: "Business Intelligence Analyst",        cat: "❌ NO",     rga: "●○○○○", sal: "$65–95k",    take: "Never" },
@@ -2715,11 +2863,11 @@ export default function App() {
   const [tab, setTab] = useState("yes");
   const TABS = [
     { id: "profile", lbl: "My Profile",  cnt: null },
-    { id: "yes",     lbl: "Yes Roles",   cnt: 10 },
+    { id: "yes",     lbl: "Yes Roles",   cnt: 12 },
     { id: "no",      lbl: "Anti-Roles",  cnt: 13 },
-    { id: "neutral", lbl: "Conditional", cnt: 12 },
+    { id: "neutral", lbl: "Conditional", cnt: 13 },
     { id: "vision",  lbl: "2030 Vision", cnt: null },
-    { id: "table",   lbl: "Full Map",    cnt: 30 },
+    { id: "table",   lbl: "Full Map",    cnt: 33 },
     { id: "toolkit", lbl: "Craft Skills", cnt: CRAFT_SKILLS.reduce((a, c) => a + c.skills.length, 0) },
     { id: "d100",    lbl: "Dream 100",   cnt: 6 },
   ];
@@ -2735,9 +2883,9 @@ export default function App() {
             <div className="h-sub">Accenture → TikTok → Wayfair → Prescene.ai · UT Austin MSBA + Exec PM · 102 certs · Ikigai: "I turn hard things into clear things — on camera, on a page, in a system."</div>
           </div>
           <div className="header-stats">
-            <div className="stat"><div className="stat-n">10</div><div className="stat-l">Yes Roles</div></div>
+            <div className="stat"><div className="stat-n">12</div><div className="stat-l">Yes Roles</div></div>
             <div className="stat"><div className="stat-n">13</div><div className="stat-l">Hard Nos</div></div>
-            <div className="stat"><div className="stat-n">12</div><div className="stat-l">Conditionals</div></div>
+            <div className="stat"><div className="stat-n">13</div><div className="stat-l">Conditionals</div></div>
           </div>
         </header>
         <nav className="nav">
