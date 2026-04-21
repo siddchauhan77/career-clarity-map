@@ -681,6 +681,28 @@ const SCENARIOS = {
       { do: "Prep and deliver the final executive presentation — business case, ROI model, implementation timeline, contract scope", create: "Exec deck (15 slides): ROI model with client's actual ticket volume, implementation roadmap, comparison vs. current tool, pricing tier recommendation", track: "Deal closed-won. That's the metric. The SE's job ends when legal sends the contract.", skill: "Translating complexity → clarity + Writing + Framework creation" },
     ]
   },
+  expdesign: {
+    company: "Notion",
+    context: "You're a UX/Experience Designer on Notion's AI team. Your focus: end-to-end design of the Notion AI onboarding experience for new enterprise users who are skeptical of AI tools. Discovery to post-launch is your loop.",
+    rows: [
+      { do: "Run 6 discovery interviews with knowledge workers who tried Notion AI and stopped using it — find the exact moment they lost trust", create: "Research synthesis report: 5 core friction themes, 3 opportunity areas ranked by impact, current-state journey map annotated with emotion peaks and drop-offs", track: "Research sign-off: did PM, product lead, and engineering all agree on top 3 opportunity areas before any design work begins?", skill: "Deep research + Translating complexity → clarity + Framework creation" },
+      { do: "Facilitate a 90-min ideation sprint with PM, engineering, content, and data — generate experience concepts for each friction theme and prioritize top bets", create: "Future-state journey map: 3 redesigned touchpoints, decision log explaining what was cut and why, prioritized design brief for sprint 1", track: "Team alignment score — did all stakeholders leave with the same top priority? (measure by follow-up survey)", skill: "Framework creation + Systems architecture + Deep research" },
+      { do: "Design the new AI onboarding flow in Figma — 6 screens from first AI trigger to first successful AI-generated output, including error states and empty states", create: "Figma prototype: annotated hi-fi screens, UX copy for all states, interaction spec doc for engineering handoff", track: "Prototype fidelity sign-off from PM + engineering before usability testing begins", skill: "Writing (UX copy) + Framework creation + Translating complexity → clarity" },
+      { do: "Run 5 moderated usability tests on the prototype — recruit enterprise users, observe sessions, capture friction points and task completion data", create: "Usability report: task completion rate by screen, top 5 usability issues ranked by severity, 3 specific design iterations recommended with rationale", track: "Task completion rate ≥ 75% before shipping. If below — iterate and retest before proceeding.", skill: "Deep research + Data storytelling + Framework creation" },
+      { do: "Write the final dev handoff spec, QA the build in staging, set up analytics events, and write the post-launch measurement plan", create: "Handoff spec (annotated Figma) + QA checklist + analytics event map + 30-day post-launch review template", track: "60-day post-launch: AI feature activation rate vs. pre-redesign baseline. Target: 20% lift in first-session AI usage.", skill: "Systems architecture + Translating complexity → clarity + Data storytelling" },
+    ]
+  },
+  designstrat: {
+    company: "McKinsey Digital",
+    context: "You're a Design Strategist at McKinsey Digital embedded with a Fortune 100 financial services client. They want to redesign the end-to-end onboarding experience for their business banking product. You own the strategy layer.",
+    rows: [
+      { do: "Conduct 8 stakeholder interviews across ops, compliance, sales, and digital — map the current-state onboarding journey from application to first transaction", create: "Current-state journey map: 14 touchpoints annotated with stakeholder pain, system handoffs, and regulatory friction points. Presented in executive workshop format.", track: "Stakeholder alignment: did all 8 interviewees agree the map accurately reflects reality before moving to ideation?", skill: "Deep research + Framework creation + Translating complexity → clarity" },
+      { do: "Facilitate a 2-day design sprint with the client's cross-functional leadership team — generate future-state journey concepts and prioritize top experience bets", create: "Future-state journey vision: 3 experience concepts, prioritization matrix (impact × feasibility × regulatory risk), recommended 'experience north star' with rationale", track: "Executive sponsor approval on north star direction before any design investment begins", skill: "Framework creation + Systems architecture + Deep research" },
+      { do: "Write the experience strategy brief for the UX team — translate the north star vision into specific design mandates, success metrics, and design constraints", create: "Experience brief (12 pages): design principles, 5 must-solve moments, UX success metrics by touchpoint, compliance constraints designers must respect", track: "Design team brief adoption rate — did UX designers use the brief as their compass throughout the project?", skill: "Writing + Framework creation + Translating complexity → clarity" },
+      { do: "Commission concept tests on the UX team's 3 design directions — recruit business banking customers, run tests, analyze which direction resonates with target users", create: "Concept test report: preference data by customer segment, top 3 quotes per concept, recommendation on which direction to build with confidence level stated", track: "Recommendation adoption: did the product and UX lead proceed with the recommended direction?", skill: "Deep research + Data storytelling + Framework creation" },
+      { do: "Build the experience measurement framework and present the full strategy to the client's C-suite — tell the story from current-state pain to future-state ROI", create: "Executive strategy deck (20 slides): problem framing, journey vision, design direction, measurement framework, phased roadmap, business case with projected onboarding cost reduction", track: "C-suite sign-off on Phase 2 funding and 6-month implementation roadmap", skill: "Translating complexity → clarity + Writing + Data storytelling" },
+    ]
+  },
 };
 
 // type: "deep" = focused output | "meet" = call/sync | "review" = editing/reviewing | "admin" = Slack/planning
@@ -822,6 +844,26 @@ const SCHED = {
     { time: "1:00–2:30",   type: "meet",   activity: "Live enterprise demo — present custom environment, handle live technical questions, run POC walkthrough with VP of CS and IT lead" },
     { time: "2:30–3:30",   type: "review", activity: "Write POC results summary — resolution rate, accuracy score, CSAT projection, edge cases. Client-ready in 24 hours." },
     { time: "3:30–5:00",   type: "deep",   activity: "Build the executive ROI deck for deal closing — model client's actual ticket volume, calculate time saved vs. current tool, finalize pricing recommendation" },
+  ],
+  expdesign: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Check Slack for any overnight PM questions, review sprint board, skim post-launch metrics dashboard for yesterday's numbers" },
+    { time: "9:30–11:00",  type: "meet",   activity: "User research session — 60-min moderated usability test with enterprise user. Observe, take notes, resist the urge to explain the design." },
+    { time: "11:00–12:00", type: "deep",   activity: "Synthesis sprint: convert usability session into structured notes, tag themes, update the research Figma file with annotated friction points" },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch. Skim Figma community for patterns. Don't prototype yet." },
+    { time: "1:00–2:30",   type: "deep",   activity: "Design sprint — iterate on the wireframe flow based on this morning's usability findings. Focus on the 2 highest-severity issues first." },
+    { time: "2:30–3:30",   type: "meet",   activity: "Design review with PM and engineering lead — walk through the updated flow, explain the rationale behind each decision, collect feedback" },
+    { time: "3:30–4:30",   type: "deep",   activity: "Write UX copy for the revised screens — labels, empty states, error messages, onboarding tooltips. Every string is a design decision." },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update design Figma file with review notes, tag engineering on handoff-ready screens, write tomorrow's research recruitment message" },
+  ],
+  designstrat: [
+    { time: "9:00–9:30",   type: "admin",  activity: "Review overnight stakeholder emails, check project tracker for open decisions, scan industry news for anything relevant to the client's market" },
+    { time: "9:30–11:30",  type: "meet",   activity: "Stakeholder interview × 1 — 90 min with client's Head of Operations. Goal: map current-state journey from their perspective. Listen more than you speak." },
+    { time: "11:30–12:00", type: "deep",   activity: "Interview synthesis: transfer raw notes into journey map format while session is fresh. Tag emotion peaks, friction points, and direct quotes." },
+    { time: "12:00–1:00",  type: "admin",  activity: "Lunch. Update the running insights doc with this morning's themes." },
+    { time: "1:00–2:30",   type: "deep",   activity: "Journey map refinement — integrate today's interview into the cross-stakeholder map. Identify where stories conflict and flag for triangulation." },
+    { time: "2:30–3:30",   type: "meet",   activity: "Weekly strategy sync with McKinsey engagement manager and client sponsor — update on research progress, flag emerging risks, align on next week's workshop agenda" },
+    { time: "3:30–4:30",   type: "deep",   activity: "Write the experience brief section for this touchpoint — translate interview findings into design principles and must-solve moment definitions" },
+    { time: "4:30–5:00",   type: "admin",  activity: "Update project timeline, prep questions for tomorrow's compliance interview, file this week's insight summary to the shared project doc" },
   ],
 };
 
@@ -1413,6 +1455,62 @@ const NEUTRAL = [
     rgaText: "Maximum revenue attachment. Solutions Engineers sit directly on the sales line — every deal you help close is attributable revenue. AI SaaS companies pay SEs $100k+ base with OTE hitting $160–200k because they multiply the value of every AE on the team. Strong SEs become a force multiplier for entire sales organizations.",
     whyText: "Your communication skills, ability to translate complexity, and aesthetic sense for what a compelling demo looks like all point here. The gap: SEs are expected to be deeply technical — live coding, API integrations, architecture discussions under pressure. BUT at AI-first companies in 2025, many SE roles prioritize demo fluency, workflow design, and business translation over raw code output. Your AI automation background (n8n, Make, Claude) makes you more credible in this space than a pure SWE who can't tell a story. Condition: the role must be at an AI company where the story matters as much as the stack.",
     takeIf: "The role is at an AI company, you demo product you actually believe in, and the AE team is strong enough that you're amplifying great salespeople — not compensating for weak ones"
+  },
+  {
+    id: "expdesign",
+    title: "UX / Experience Designer",
+    earlyTitle: "UX Designer · Product Designer · Experience Designer",
+    midTitle: "Senior UX Designer · Experience Design Lead · Head of UX",
+    fit: "CONDITIONAL", fc: "amber", rga: 3, fld: 4,
+    salary: "$90–140k", condition: "Only if the role is research-led and strategy-first — not a visual execution shop. AI product company preferred.",
+    daily: [
+      "Run discovery sprints — stakeholder interviews, user research sessions, journey mapping workshops",
+      "Synthesize research into insight frameworks, opportunity maps, and future-state journey concepts",
+      "Design end-to-end user flows, information architecture, and interaction logic",
+      "Create wireframes and annotated specs in Figma — from lo-fi concepts to hi-fi prototypes",
+      "Write UX copy and content specs (labels, error states, empty states, onboarding flows)",
+      "Run usability tests and concept tests — recruit participants, moderate sessions, analyze results",
+      "Write dev handoff specs, QA design in production, set up analytics tracking for new flows",
+      "Build post-launch dashboards, run A/B tests, and feed impact findings back into the backlog"
+    ],
+    metrics: [
+      "Task completion rate and error rate (usability testing)",
+      "Time-on-task vs. baseline — are users getting faster?",
+      "Design-to-development cycle time",
+      "Post-launch conversion or retention lift vs. pre-launch baseline",
+      "Research-to-decision speed — how fast do insights become shipped changes?"
+    ],
+    rgaText: "Moderate. Experience design directly affects product retention, conversion, and user trust — but one step removed from revenue. At AI companies where comprehension and trust are product-critical, UX has outsized impact. Senior UX roles at AI SaaS companies are hitting $130–160k as the field matures.",
+    whyText: "The discovery, ideation, and post-launch phases of the E2E experience loop are where you'd win today — stakeholder interviews, research synthesis, journey mapping, and analytics storytelling all sit inside your strongest CraftSkills. The gap is in the middle: visual design execution needs Figma fluency and a portfolio, neither of which exists yet. BUT at AI-first companies in 2025, the research-to-strategy layer is increasingly the hardest part. If you're paired with a strong visual designer and own the insights, strategy, and post-launch analysis layer — the role fits. Condition: research-led team, AI product context, not a visual-first shop.",
+    takeIf: "The team splits research/strategy from visual execution, you own the front and back of the loop (discovery → ideation, post-launch → backlog), and the company values thinking over Figma output"
+  },
+  {
+    id: "designstrat",
+    title: "Design Strategist",
+    earlyTitle: "Service Designer · CX Strategist · Design Researcher",
+    midTitle: "Design Strategist · Experience Strategy Lead · Head of CX",
+    fit: "CONDITIONAL", fc: "amber", rga: 3, fld: 5,
+    salary: "$95–145k", condition: "Must be at a company where the strategy layer drives design — consultancies, research-led product orgs, or enterprise AI companies building new workflows",
+    daily: [
+      "Lead discovery — conduct stakeholder interviews, synthesize user research, map current-state journeys",
+      "Facilitate ideation workshops — bring together cross-functional teams to generate and prioritize experience bets",
+      "Define future-state journey maps and system-level experience blueprints",
+      "Write design briefs, research synthesis reports, and opportunity frameworks for design and product teams",
+      "Commission and direct UX work — hand clear briefs to designers, review against strategic intent",
+      "Run concept tests to validate strategic direction before full design investment",
+      "Define the measurement framework — which metrics prove the experience improved?",
+      "Present experience strategy to senior leadership with data, narrative, and clear next steps"
+    ],
+    metrics: [
+      "Research velocity — insights generated per sprint and decision conversion rate",
+      "Strategic brief quality — do design teams ship what was intended?",
+      "Concept test signal strength — % of hypotheses validated before full build",
+      "Post-launch NPS, CSAT, and task success vs. baseline",
+      "Number of experience improvements traced back to a strategy initiative"
+    ],
+    rgaText: "Moderate but growing. Design strategy is increasingly recognized as a revenue lever as companies realize poor CX is a churn driver. At enterprise AI companies deploying complex workflows, a strategist who can translate user pain into clear experience briefs is rare and valued.",
+    whyText: "This is the closest role in the design world to who you already are. Design Strategist = someone who runs discovery, facilitates ideation, defines journey frameworks, and measures impact — without necessarily producing the Figma files. Every phase of that loop maps to your CraftSkills: stakeholder interviews (deep research), journey mapping (framework creation), ideation facilitation (systems architecture), impact measurement (data storytelling), and executive presentation (translating complexity → clarity). The gap: design vocabulary, methods fluency (Jobs-to-be-Done, double diamond, service blueprints), and enough Figma literacy to review and brief designers credibly. 60–90 days of deliberate learning gets you there.",
+    takeIf: "The company is research-led and separates strategy from execution, you get to direct designers rather than produce deliverables yourself, and the role gives you ownership of the full experience loop from discovery to impact"
   }
 ];
 
@@ -1436,6 +1534,8 @@ const ALL_TABLE = [
   { t: "Agentic AI Engineer",           early: "AI Automation Engineer · Agent Dev",   cat: "⚠️ COND",  rga: "●●●●○", sal: "$100–150k",  take: "After 3–6 mo skill stack" },
   { t: "Forward Deployed Engineer",    early: "Implementation Engineer · AI Deployment Specialist", cat: "⚠️ COND",  rga: "●●●●○", sal: "$120–180k",     take: "AI-first company, impl focus" },
   { t: "Solutions Engineer",           early: "Sales Engineer · Technical Sales Engineer",           cat: "⚠️ COND",  rga: "●●●●●", sal: "$100–160k OTE", take: "AI company, story matters" },
+  { t: "UX / Experience Designer",     early: "UX Designer · Product Designer",                      cat: "⚠️ COND",  rga: "●●●○○", sal: "$90–140k",      take: "Research-led AI company only" },
+  { t: "Design Strategist",            early: "Service Designer · CX Strategist",                    cat: "⚠️ COND",  rga: "●●●○○", sal: "$95–145k",      take: "Strategy-first org only" },
   { t: "Social Media Manager",          early: "Social Media Coordinator",             cat: "⚠️ LOW",   rga: "●●○○○", sal: "$45–65k",    take: "Only with strategy scope" },
   { t: "Data Analyst",                  early: "Junior Data Analyst",                  cat: "❌ NO",     rga: "●○○○○", sal: "$55–80k",    take: "Never" },
   { t: "BI Analyst / BI Developer",     early: "Business Intelligence Analyst",        cat: "❌ NO",     rga: "●○○○○", sal: "$65–95k",    take: "Never" },
@@ -2617,9 +2717,9 @@ export default function App() {
     { id: "profile", lbl: "My Profile",  cnt: null },
     { id: "yes",     lbl: "Yes Roles",   cnt: 10 },
     { id: "no",      lbl: "Anti-Roles",  cnt: 13 },
-    { id: "neutral", lbl: "Conditional", cnt: 10 },
+    { id: "neutral", lbl: "Conditional", cnt: 12 },
     { id: "vision",  lbl: "2030 Vision", cnt: null },
-    { id: "table",   lbl: "Full Map",    cnt: 28 },
+    { id: "table",   lbl: "Full Map",    cnt: 30 },
     { id: "toolkit", lbl: "Craft Skills", cnt: CRAFT_SKILLS.reduce((a, c) => a + c.skills.length, 0) },
     { id: "d100",    lbl: "Dream 100",   cnt: 6 },
   ];
@@ -2637,7 +2737,7 @@ export default function App() {
           <div className="header-stats">
             <div className="stat"><div className="stat-n">10</div><div className="stat-l">Yes Roles</div></div>
             <div className="stat"><div className="stat-n">13</div><div className="stat-l">Hard Nos</div></div>
-            <div className="stat"><div className="stat-n">10</div><div className="stat-l">Conditionals</div></div>
+            <div className="stat"><div className="stat-n">12</div><div className="stat-l">Conditionals</div></div>
           </div>
         </header>
         <nav className="nav">
